@@ -5,8 +5,8 @@
  */
 package com.proycc.base.repository;
 
-import com.proycc.base.entitys.Role;
-import com.proycc.base.entitys.User;
+import com.proycc.base.domain.Role;
+import com.proycc.base.domain.User;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -28,13 +28,14 @@ public class UserRepository {
 
     private void initRepo() {
         users.add(new User(1, "ffresco@gmail.com", "1", Role.ADMIN));
-        users.add(new User(22, "mulo@mulo.com", "1", Role.USER));
-        
+        users.add(new User(2, "mulo@mulo.com", "1", Role.USER));
+      
     }
 
     public User save(User user) {
-        long lastid = (users.get(users.size())).getId();
-        user.setId(lastid++);
+        long lastid = (users.get(users.size()-1)).getId();
+        lastid++;
+        user.setId(lastid);
         users.add(user);
         return user;
     }
@@ -45,7 +46,7 @@ public class UserRepository {
 
     public User findOneByEmail(String email) {
         for (User user : users) {
-            if(user.getEmail().equals(user)) return user;
+            if(user.getEmail().equals(email)) return user;
         }
         return null;
     }

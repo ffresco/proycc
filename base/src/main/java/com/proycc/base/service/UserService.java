@@ -5,8 +5,8 @@
  */
 package com.proycc.base.service;
 
-import com.proycc.base.entitys.User;
-import com.proycc.base.entitys.dto.UserCreateFormDTO;
+import com.proycc.base.domain.User;
+import com.proycc.base.domain.dto.UserCreateFormDTO;
 import java.util.Collection;
 import java.util.Optional;
 

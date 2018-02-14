@@ -5,7 +5,7 @@
  */
 package com.proycc.base.controller;
 
-import com.proycc.base.entitys.Cliente;
+import com.proycc.base.domain.Cliente;
 import com.proycc.base.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

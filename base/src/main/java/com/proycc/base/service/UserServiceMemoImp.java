@@ -5,8 +5,8 @@
  */
 package com.proycc.base.service;
 
-import com.proycc.base.entitys.User;
-import com.proycc.base.entitys.dto.UserCreateFormDTO;
+import com.proycc.base.domain.User;
+import com.proycc.base.domain.dto.UserCreateFormDTO;
 import com.proycc.base.repository.UserRepository;
 import com.proycc.base.service.UserService;
 import java.util.Collection;
@@ -50,7 +50,7 @@ public class UserServiceMemoImp implements UserService{
     public User create(UserCreateFormDTO form) {
         User user = new User();
         user.setEmail(form.getEmail());
-        user.setPasswordHash(form.getPasswordRepeated());
+        user.setPasswordHash(form.getPassword());
         user.setRole(form.getRole());
         return userRepository.save(user);
     }

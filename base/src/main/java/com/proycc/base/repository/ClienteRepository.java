@@ -5,7 +5,7 @@
  */
 package com.proycc.base.repository;
 
-import com.proycc.base.entitys.Cliente;
+import com.proycc.base.domain.Cliente;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
