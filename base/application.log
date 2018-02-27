@@ -787,3 +787,968 @@ Caused by: java.lang.NullPointerException: null
 	at com.proycc.base.service.currentuser.CurrentUserDetailsService.loadUserByUsername(CurrentUserDetailsService.java:34)
 	at org.springframework.security.authentication.dao.DaoAuthenticationProvider.retrieveUser(DaoAuthenticationProvider.java:114)
 	... 57 common frames omitted
+"2018-02-14 16:20:05 [restartedMain] INFO  com.proycc.base.BaseApplication - Starting BaseApplication on DESKTOP-VQ3P2L8 with PID 14720 (C:\GitRepo\proycc\base\target\classes started by fafre in C:\GitRepo\proycc\base)
+""2018-02-14 16:20:05 [restartedMain] DEBUG com.proycc.base.BaseApplication - Running with Spring Boot v1.5.10.RELEASE, Spring v4.3.14.RELEASE
+""2018-02-14 16:20:05 [restartedMain] INFO  com.proycc.base.BaseApplication - No active profile set, falling back to default profiles: default
+""2018-02-14 16:20:06 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1bd6e545: startup date [Wed Feb 14 16:20:06 ART 2018]; root of context hierarchy
+""2018-02-14 16:20:13 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$c7e1065e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-14 16:20:13 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$608ece98] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-14 16:20:13 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-14 16:20:13 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@3533d666' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-14 16:20:13 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$8563714a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-14 16:20:13 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-14 16:20:14 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+""2018-02-14 16:20:14 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+""2018-02-14 16:20:14 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.27
+""2018-02-14 16:20:14 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+""2018-02-14 16:20:15 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+""2018-02-14 16:20:15 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+""2018-02-14 16:20:15 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+""2018-02-14 16:20:15 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+""2018-02-14 16:20:15 [localhost-startStop-1] INFO  o.s.b.w.s.DelegatingFilterProxyRegistrationBean - Mapping filter: 'springSecurityFilterChain' to: [/*]
+""2018-02-14 16:20:15 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+""2018-02-14 16:20:16 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+""2018-02-14 16:20:16 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+""2018-02-14 16:20:16 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.0.12.Final}
+""2018-02-14 16:20:16 [restartedMain] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+""2018-02-14 16:20:16 [restartedMain] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+""2018-02-14 16:20:16 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+""2018-02-14 16:20:17 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+""2018-02-14 16:20:17 [restartedMain] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000227: Running hbm2ddl schema export
+""2018-02-14 16:20:17 [restartedMain] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000230: Schema export complete
+""2018-02-14 16:20:17 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2018-02-14 16:20:19 [restartedMain] INFO  o.s.b.a.w.WebMvcAutoConfiguration$WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+""2018-02-14 16:20:20 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/css/**'], Ant [pattern='/js/**'], Ant [pattern='/images/**'], Ant [pattern='/webjars/**'], Ant [pattern='/**/favicon.ico'], Ant [pattern='/error']]], []
+""2018-02-14 16:20:20 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@46cd91d1, org.springframework.security.web.context.SecurityContextPersistenceFilter@413333ec, org.springframework.security.web.header.HeaderWriterFilter@13d93b3c, org.springframework.security.web.csrf.CsrfFilter@5611c49d, org.springframework.security.web.authentication.logout.LogoutFilter@4342ce19, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1173a8fd, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@82491ed, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@616eae2c, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@23d454a2, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@13e5c39b, org.springframework.security.web.session.SessionManagementFilter@da6b6b, org.springframework.security.web.access.ExceptionTranslationFilter@76cfb555, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5e8d1240]
+""2018-02-14 16:20:20 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/**']]], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@f9b3baf, org.springframework.security.web.context.SecurityContextPersistenceFilter@4f5e44e1, org.springframework.security.web.header.HeaderWriterFilter@36ee2aad, org.springframework.security.web.authentication.logout.LogoutFilter@7611fb60, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@ed4107f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@70c51762, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@37b9e095, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6b46fc22, org.springframework.security.web.session.SessionManagementFilter@63a8e8ca, org.springframework.security.web.access.ExceptionTranslationFilter@3dd04e96, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@b8b1aa6]
+""2018-02-14 16:20:20 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+""2018-02-14 16:20:20 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+""2018-02-14 16:20:21 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+""2018-02-14 16:20:21 [restartedMain] INFO  com.proycc.base.BaseApplication - Started BaseApplication in 16.549 seconds (JVM running for 18.114)
+""2018-02-14 16:20:25 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+""2018-02-15 19:37:27 [restartedMain] INFO  com.proycc.base.BaseApplication - Starting BaseApplication on DESKTOP-VQ3P2L8 with PID 25596 (C:\GitRepo\proycc\base\target\classes started by fafre in C:\GitRepo\proycc\base)
+""2018-02-15 19:37:27 [restartedMain] DEBUG com.proycc.base.BaseApplication - Running with Spring Boot v1.5.10.RELEASE, Spring v4.3.14.RELEASE
+""2018-02-15 19:37:27 [restartedMain] INFO  com.proycc.base.BaseApplication - No active profile set, falling back to default profiles: default
+""2018-02-15 19:37:28 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7d4cafe0: startup date [Thu Feb 15 19:37:28 ART 2018]; root of context hierarchy
+""2018-02-15 19:37:34 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$e08ff085] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-15 19:37:34 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$793db8bf] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-15 19:37:34 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-15 19:37:34 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@d2b23ea' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-15 19:37:34 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$9e125b71] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-15 19:37:34 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-15 19:37:36 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+""2018-02-15 19:37:36 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+""2018-02-15 19:37:36 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.27
+""2018-02-15 19:37:36 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+""2018-02-15 19:37:37 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+""2018-02-15 19:37:37 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+""2018-02-15 19:37:37 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+""2018-02-15 19:37:37 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+""2018-02-15 19:37:37 [localhost-startStop-1] INFO  o.s.b.w.s.DelegatingFilterProxyRegistrationBean - Mapping filter: 'springSecurityFilterChain' to: [/*]
+""2018-02-15 19:37:37 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+""2018-02-15 19:37:38 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+""2018-02-15 19:37:38 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+""2018-02-15 19:37:38 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.0.12.Final}
+""2018-02-15 19:37:38 [restartedMain] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+""2018-02-15 19:37:38 [restartedMain] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+""2018-02-15 19:37:38 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+""2018-02-15 19:37:38 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+""2018-02-15 19:37:39 [restartedMain] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000227: Running hbm2ddl schema export
+""2018-02-15 19:37:39 [restartedMain] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000230: Schema export complete
+""2018-02-15 19:37:39 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2018-02-15 19:37:41 [restartedMain] INFO  o.s.b.a.w.WebMvcAutoConfiguration$WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+""2018-02-15 19:37:41 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/css/**'], Ant [pattern='/js/**'], Ant [pattern='/images/**'], Ant [pattern='/webjars/**'], Ant [pattern='/**/favicon.ico'], Ant [pattern='/error']]], []
+""2018-02-15 19:37:41 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@a0a6d18, org.springframework.security.web.context.SecurityContextPersistenceFilter@7a1a44ce, org.springframework.security.web.header.HeaderWriterFilter@23dffb3b, org.springframework.security.web.csrf.CsrfFilter@26547f2, org.springframework.security.web.authentication.logout.LogoutFilter@5747f502, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3005a1e8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@f9209f4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@416da009, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@7e3f3ba6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1c5aa628, org.springframework.security.web.session.SessionManagementFilter@530773be, org.springframework.security.web.access.ExceptionTranslationFilter@32e269a2, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6656665c]
+""2018-02-15 19:37:41 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/**']]], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4f6910a6, org.springframework.security.web.context.SecurityContextPersistenceFilter@37803a72, org.springframework.security.web.header.HeaderWriterFilter@1a94645a, org.springframework.security.web.authentication.logout.LogoutFilter@670d7750, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@6c191ce7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4251028a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7b5e082e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6fa5a160, org.springframework.security.web.session.SessionManagementFilter@48d50188, org.springframework.security.web.access.ExceptionTranslationFilter@55f41a02, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3938326d]
+""2018-02-15 19:37:41 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+""2018-02-15 19:37:41 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+""2018-02-15 19:37:42 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+""2018-02-15 19:37:42 [restartedMain] INFO  com.proycc.base.BaseApplication - Started BaseApplication in 15.509 seconds (JVM running for 17.025)
+""2018-02-15 19:38:15 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+""2018-02-15 19:42:15 [http-nio-8080-exec-9] ERROR o.s.s.w.a.UsernamePasswordAuthenticationFilter - An internal error occurred while trying to authenticate the user.
+"org.springframework.security.authentication.InternalAuthenticationServiceException: null
+	at org.springframework.security.authentication.dao.DaoAuthenticationProvider.retrieveUser(DaoAuthenticationProvider.java:126)
+	at org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider.authenticate(AbstractUserDetailsAuthenticationProvider.java:144)
+	at org.springframework.security.authentication.ProviderManager.authenticate(ProviderManager.java:174)
+	at org.springframework.security.authentication.ProviderManager.authenticate(ProviderManager.java:199)
+	at org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter.attemptAuthentication(UsernamePasswordAuthenticationFilter.java:94)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:212)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.csrf.CsrfFilter.doFilterInternal(CsrfFilter.java:124)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:64)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:331)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:214)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:177)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:347)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:263)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:108)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:504)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:790)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1459)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.NullPointerException: null
+	at java.util.Objects.requireNonNull(Objects.java:203)
+	at java.util.Optional.<init>(Optional.java:96)
+	at java.util.Optional.of(Optional.java:108)
+	at com.proycc.base.service.UserServiceMemoImp.getUserByEmail(UserServiceMemoImp.java:40)
+	at com.proycc.base.service.currentuser.CurrentUserDetailsService.loadUserByUsername(CurrentUserDetailsService.java:34)
+	at org.springframework.security.authentication.dao.DaoAuthenticationProvider.retrieveUser(DaoAuthenticationProvider.java:114)
+	... 57 common frames omitted
+"2018-02-16 00:13:37 [restartedMain] INFO  com.proycc.base.BaseApplication - Starting BaseApplication on DESKTOP-VQ3P2L8 with PID 8148 (C:\GitRepo\proycc\base\target\classes started by fafre in C:\GitRepo\proycc\base)
+""2018-02-16 00:13:37 [restartedMain] DEBUG com.proycc.base.BaseApplication - Running with Spring Boot v1.5.10.RELEASE, Spring v4.3.14.RELEASE
+""2018-02-16 00:13:37 [restartedMain] INFO  com.proycc.base.BaseApplication - No active profile set, falling back to default profiles: default
+""2018-02-16 00:13:38 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4512800b: startup date [Fri Feb 16 00:13:38 ART 2018]; root of context hierarchy
+""2018-02-16 00:13:43 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$384f43b5] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-16 00:13:43 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$d0fd0bef] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-16 00:13:43 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-16 00:13:43 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@38f7b718' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-16 00:13:43 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$f5d1aea1] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-16 00:13:43 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-16 00:13:46 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+""2018-02-16 00:13:46 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+""2018-02-16 00:13:46 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.27
+""2018-02-16 00:13:47 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+""2018-02-16 00:13:48 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+""2018-02-16 00:13:48 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+""2018-02-16 00:13:48 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+""2018-02-16 00:13:48 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+""2018-02-16 00:13:48 [localhost-startStop-1] INFO  o.s.b.w.s.DelegatingFilterProxyRegistrationBean - Mapping filter: 'springSecurityFilterChain' to: [/*]
+""2018-02-16 00:13:48 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+""2018-02-16 00:13:50 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+""2018-02-16 00:13:50 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+""2018-02-16 00:13:50 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.0.12.Final}
+""2018-02-16 00:13:50 [restartedMain] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+""2018-02-16 00:13:50 [restartedMain] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+""2018-02-16 00:13:50 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+""2018-02-16 00:13:50 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+""2018-02-16 00:13:51 [restartedMain] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000227: Running hbm2ddl schema export
+""2018-02-16 00:13:51 [restartedMain] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000230: Schema export complete
+""2018-02-16 00:13:51 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2018-02-16 00:13:53 [restartedMain] INFO  o.s.b.a.w.WebMvcAutoConfiguration$WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+""2018-02-16 00:13:53 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/css/**'], Ant [pattern='/js/**'], Ant [pattern='/images/**'], Ant [pattern='/webjars/**'], Ant [pattern='/**/favicon.ico'], Ant [pattern='/error']]], []
+""2018-02-16 00:13:54 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@30c3d421, org.springframework.security.web.context.SecurityContextPersistenceFilter@c2fcd3a, org.springframework.security.web.header.HeaderWriterFilter@57b4ec1e, org.springframework.security.web.csrf.CsrfFilter@135f3752, org.springframework.security.web.authentication.logout.LogoutFilter@2641588, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@383265bf, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6a762959, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2729e497, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@786960e3, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2b8dc402, org.springframework.security.web.session.SessionManagementFilter@1d2d744b, org.springframework.security.web.access.ExceptionTranslationFilter@585c6fda, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@461d08b1]
+""2018-02-16 00:13:54 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/**']]], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@48dd08fc, org.springframework.security.web.context.SecurityContextPersistenceFilter@146b69fa, org.springframework.security.web.header.HeaderWriterFilter@4bb92602, org.springframework.security.web.authentication.logout.LogoutFilter@1f02b513, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@6dbdfdf6, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1cb632b1, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1e3d8e13, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2f10985f, org.springframework.security.web.session.SessionManagementFilter@14deecee, org.springframework.security.web.access.ExceptionTranslationFilter@1633ccda, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2179ca37]
+""2018-02-16 00:13:54 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+""2018-02-16 00:13:54 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+""2018-02-16 00:13:54 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+""2018-02-16 00:13:55 [restartedMain] INFO  com.proycc.base.BaseApplication - Started BaseApplication in 18.772 seconds (JVM running for 20.38)
+""2018-02-16 00:19:38 [restartedMain] INFO  com.proycc.base.BaseApplication - Starting BaseApplication on DESKTOP-VQ3P2L8 with PID 22260 (C:\GitRepo\proycc\base\target\classes started by fafre in C:\GitRepo\proycc\base)
+""2018-02-16 00:19:38 [restartedMain] DEBUG com.proycc.base.BaseApplication - Running with Spring Boot v1.5.10.RELEASE, Spring v4.3.14.RELEASE
+""2018-02-16 00:19:38 [restartedMain] INFO  com.proycc.base.BaseApplication - No active profile set, falling back to default profiles: default
+""2018-02-16 00:19:39 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1bd6e545: startup date [Fri Feb 16 00:19:39 ART 2018]; root of context hierarchy
+""2018-02-16 00:19:45 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$46b2b0f6] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-16 00:19:45 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$df607930] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-16 00:19:45 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-16 00:19:45 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@4ff87118' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-16 00:19:45 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$4351be2] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-16 00:19:45 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-16 00:19:48 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+""2018-02-16 00:19:48 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+""2018-02-16 00:19:48 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.27
+""2018-02-16 00:19:48 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+""2018-02-16 00:19:49 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+""2018-02-16 00:19:50 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+""2018-02-16 00:19:50 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+""2018-02-16 00:19:50 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+""2018-02-16 00:19:50 [localhost-startStop-1] INFO  o.s.b.w.s.DelegatingFilterProxyRegistrationBean - Mapping filter: 'springSecurityFilterChain' to: [/*]
+""2018-02-16 00:19:50 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+""2018-02-16 00:19:53 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+""2018-02-16 00:19:53 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+""2018-02-16 00:19:53 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.0.12.Final}
+""2018-02-16 00:19:53 [restartedMain] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+""2018-02-16 00:19:53 [restartedMain] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+""2018-02-16 00:19:53 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+""2018-02-16 00:19:53 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+""2018-02-16 00:19:53 [restartedMain] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000227: Running hbm2ddl schema export
+""2018-02-16 00:19:53 [restartedMain] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000230: Schema export complete
+""2018-02-16 00:19:54 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2018-02-16 00:19:55 [restartedMain] INFO  o.s.b.a.w.WebMvcAutoConfiguration$WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+""2018-02-16 00:19:56 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/css/**'], Ant [pattern='/js/**'], Ant [pattern='/images/**'], Ant [pattern='/webjars/**'], Ant [pattern='/**/favicon.ico'], Ant [pattern='/error']]], []
+""2018-02-16 00:19:56 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@14682f7d, org.springframework.security.web.context.SecurityContextPersistenceFilter@45f04c12, org.springframework.security.web.header.HeaderWriterFilter@1d2041e2, org.springframework.security.web.csrf.CsrfFilter@6dc2d0e4, org.springframework.security.web.authentication.logout.LogoutFilter@1b551b8c, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@536e566f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@529d509c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2f93439c, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@5ca6e249, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@560f4ab4, org.springframework.security.web.session.SessionManagementFilter@2584761b, org.springframework.security.web.access.ExceptionTranslationFilter@67c36e24, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@ea0b79b]
+""2018-02-16 00:19:56 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/**']]], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6a2475f8, org.springframework.security.web.context.SecurityContextPersistenceFilter@3f9b2a47, org.springframework.security.web.header.HeaderWriterFilter@6b46fc22, org.springframework.security.web.authentication.logout.LogoutFilter@3df409fb, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@b47cdb4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@698b2858, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@35f06ea7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5fa64d23, org.springframework.security.web.session.SessionManagementFilter@6c965359, org.springframework.security.web.access.ExceptionTranslationFilter@f9b3baf, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@716cd270]
+""2018-02-16 00:19:56 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+""2018-02-16 00:19:56 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+""2018-02-16 00:19:57 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+""2018-02-16 00:19:57 [restartedMain] INFO  com.proycc.base.BaseApplication - Started BaseApplication in 19.888 seconds (JVM running for 22.22)
+""2018-02-16 20:55:34 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+""2018-02-22 16:19:24 [Thread-7] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@1bd6e545: startup date [Fri Feb 16 00:19:39 ART 2018]; root of context hierarchy
+""2018-02-22 16:19:24 [Thread-7] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+""2018-02-22 16:19:24 [Thread-7] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+""2018-02-22 16:19:24 [Thread-7] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000227: Running hbm2ddl schema export
+""2018-02-22 16:19:24 [Thread-7] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000230: Schema export complete
+""2018-02-22 16:19:25 [restartedMain] INFO  com.proycc.base.BaseApplication - Starting BaseApplication on DESKTOP-VQ3P2L8 with PID 22260 (C:\GitRepo\proycc\base\target\classes started by fafre in C:\GitRepo\proycc\base)
+""2018-02-22 16:19:25 [restartedMain] DEBUG com.proycc.base.BaseApplication - Running with Spring Boot v1.5.10.RELEASE, Spring v4.3.14.RELEASE
+""2018-02-22 16:19:25 [restartedMain] INFO  com.proycc.base.BaseApplication - No active profile set, falling back to default profiles: default
+""2018-02-22 16:19:25 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4ef33628: startup date [Thu Feb 22 16:19:25 ART 2018]; root of context hierarchy
+""2018-02-22 16:19:26 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$46b2b0f6] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:19:26 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$df607930] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:19:26 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:19:26 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@20f691e7' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:19:26 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$4351be2] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:19:26 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:19:27 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+""2018-02-22 16:19:27 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+""2018-02-22 16:19:27 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.27
+""2018-02-22 16:19:27 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+""2018-02-22 16:19:27 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+""2018-02-22 16:19:27 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+""2018-02-22 16:19:27 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+""2018-02-22 16:19:27 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+""2018-02-22 16:19:27 [localhost-startStop-1] INFO  o.s.b.w.s.DelegatingFilterProxyRegistrationBean - Mapping filter: 'springSecurityFilterChain' to: [/*]
+""2018-02-22 16:19:27 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+""2018-02-22 16:19:27 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+""2018-02-22 16:19:27 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+""2018-02-22 16:19:27 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+""2018-02-22 16:19:28 [restartedMain] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000227: Running hbm2ddl schema export
+""2018-02-22 16:19:28 [restartedMain] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000230: Schema export complete
+""2018-02-22 16:19:28 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2018-02-22 16:19:29 [restartedMain] INFO  o.s.b.a.w.WebMvcAutoConfiguration$WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+""2018-02-22 16:19:29 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/css/**'], Ant [pattern='/js/**'], Ant [pattern='/images/**'], Ant [pattern='/webjars/**'], Ant [pattern='/**/favicon.ico'], Ant [pattern='/error']]], []
+""2018-02-22 16:19:30 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1c1f0ceb, org.springframework.security.web.context.SecurityContextPersistenceFilter@103678be, org.springframework.security.web.header.HeaderWriterFilter@3b7836b8, org.springframework.security.web.csrf.CsrfFilter@22029604, org.springframework.security.web.authentication.logout.LogoutFilter@17698b52, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@2c4b47bc, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@581ff328, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@22a8d365, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@73c8648d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3a2c2646, org.springframework.security.web.session.SessionManagementFilter@26b268da, org.springframework.security.web.access.ExceptionTranslationFilter@5da2b868, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2ff12c92]
+""2018-02-22 16:19:30 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/**']]], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6ddfd7d, org.springframework.security.web.context.SecurityContextPersistenceFilter@397f6244, org.springframework.security.web.header.HeaderWriterFilter@67869a4b, org.springframework.security.web.authentication.logout.LogoutFilter@6b08f00e, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@2927d269, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@206986b8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@736e043c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1bede6c9, org.springframework.security.web.session.SessionManagementFilter@7a9c4c4b, org.springframework.security.web.access.ExceptionTranslationFilter@6d2e842f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7d5c5d30]
+""2018-02-22 16:19:30 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+""2018-02-22 16:19:30 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+""2018-02-22 16:19:30 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+""2018-02-22 16:19:30 [restartedMain] INFO  com.proycc.base.BaseApplication - Started BaseApplication in 4.775 seconds (JVM running for 576017.266)
+""2018-02-22 16:19:44 [Thread-11] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4ef33628: startup date [Thu Feb 22 16:19:25 ART 2018]; root of context hierarchy
+""2018-02-22 16:19:44 [Thread-11] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+""2018-02-22 16:19:44 [Thread-11] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+""2018-02-22 16:19:44 [Thread-11] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000227: Running hbm2ddl schema export
+""2018-02-22 16:19:44 [Thread-11] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000230: Schema export complete
+""2018-02-22 16:19:44 [restartedMain] INFO  com.proycc.base.BaseApplication - Starting BaseApplication on DESKTOP-VQ3P2L8 with PID 22260 (C:\GitRepo\proycc\base\target\classes started by fafre in C:\GitRepo\proycc\base)
+""2018-02-22 16:19:44 [restartedMain] DEBUG com.proycc.base.BaseApplication - Running with Spring Boot v1.5.10.RELEASE, Spring v4.3.14.RELEASE
+""2018-02-22 16:19:44 [restartedMain] INFO  com.proycc.base.BaseApplication - No active profile set, falling back to default profiles: default
+""2018-02-22 16:19:44 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@29c6812b: startup date [Thu Feb 22 16:19:44 ART 2018]; root of context hierarchy
+""2018-02-22 16:19:46 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$46b2b0f6] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:19:46 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$df607930] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:19:46 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:19:46 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@5a924545' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:19:46 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$4351be2] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:19:46 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:19:46 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+""2018-02-22 16:19:46 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+""2018-02-22 16:19:46 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.27
+""2018-02-22 16:19:46 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+""2018-02-22 16:19:46 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+""2018-02-22 16:19:46 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+""2018-02-22 16:19:46 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+""2018-02-22 16:19:46 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+""2018-02-22 16:19:46 [localhost-startStop-1] INFO  o.s.b.w.s.DelegatingFilterProxyRegistrationBean - Mapping filter: 'springSecurityFilterChain' to: [/*]
+""2018-02-22 16:19:46 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+""2018-02-22 16:19:46 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+""2018-02-22 16:19:46 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+""2018-02-22 16:19:47 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+""2018-02-22 16:19:47 [restartedMain] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000227: Running hbm2ddl schema export
+""2018-02-22 16:19:47 [restartedMain] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000230: Schema export complete
+""2018-02-22 16:19:47 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2018-02-22 16:19:47 [restartedMain] WARN  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerAdapter' defined in class path resource [org/springframework/boot/autoconfigure/web/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter]: Factory method 'requestMappingHandlerAdapter' threw exception; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'mvcConversionService' defined in class path resource [org/springframework/boot/autoconfigure/web/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.format.support.FormattingConversionService]: Factory method 'mvcConversionService' threw exception; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'itemRepository': Invocation of init method failed; nested exception is java.lang.TypeNotPresentException: Type com.eduit.springc2.model.Item not present
+""2018-02-22 16:19:47 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+""2018-02-22 16:19:47 [restartedMain] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000227: Running hbm2ddl schema export
+""2018-02-22 16:19:47 [restartedMain] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000230: Schema export complete
+""2018-02-22 16:19:47 [restartedMain] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+""2018-02-22 16:19:47 [restartedMain] INFO  o.s.b.a.l.AutoConfigurationReportLoggingInitializer - 
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+""2018-02-22 16:19:47 [restartedMain] ERROR o.s.boot.SpringApplication - Application startup failed
+"org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerAdapter' defined in class path resource [org/springframework/boot/autoconfigure/web/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter]: Factory method 'requestMappingHandlerAdapter' threw exception; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'mvcConversionService' defined in class path resource [org/springframework/boot/autoconfigure/web/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.format.support.FormattingConversionService]: Factory method 'mvcConversionService' threw exception; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'itemRepository': Invocation of init method failed; nested exception is java.lang.TypeNotPresentException: Type com.eduit.springc2.model.Item not present
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:599) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1173) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1067) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:513) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:761) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:867) ~[spring-context-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543) ~[spring-context-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122) ~[spring-boot-1.5.10.RELEASE.jar:1.5.10.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693) [spring-boot-1.5.10.RELEASE.jar:1.5.10.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360) [spring-boot-1.5.10.RELEASE.jar:1.5.10.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303) [spring-boot-1.5.10.RELEASE.jar:1.5.10.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118) [spring-boot-1.5.10.RELEASE.jar:1.5.10.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107) [spring-boot-1.5.10.RELEASE.jar:1.5.10.RELEASE]
+	at com.proycc.base.BaseApplication.main(BaseApplication.java:12) [classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_91]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_91]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_91]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_91]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) [spring-boot-devtools-1.5.10.RELEASE.jar:1.5.10.RELEASE]
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter]: Factory method 'requestMappingHandlerAdapter' threw exception; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'mvcConversionService' defined in class path resource [org/springframework/boot/autoconfigure/web/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.format.support.FormattingConversionService]: Factory method 'mvcConversionService' threw exception; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'itemRepository': Invocation of init method failed; nested exception is java.lang.TypeNotPresentException: Type com.eduit.springc2.model.Item not present
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:189) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:588) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	... 23 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'mvcConversionService' defined in class path resource [org/springframework/boot/autoconfigure/web/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.format.support.FormattingConversionService]: Factory method 'mvcConversionService' threw exception; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'itemRepository': Invocation of init method failed; nested exception is java.lang.TypeNotPresentException: Type com.eduit.springc2.model.Item not present
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:599) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1173) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1067) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:513) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.obtainBeanInstanceFromFactory(ConfigurationClassEnhancer.java:389) ~[spring-context-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:361) ~[spring-context-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration$EnableWebMvcConfiguration$$EnhancerBySpringCGLIB$$9de052ff.mvcConversionService(<generated>) ~[spring-boot-autoconfigure-1.5.10.RELEASE.jar:1.5.10.RELEASE]
+	at org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport.getConfigurableWebBindingInitializer(WebMvcConfigurationSupport.java:570) ~[spring-webmvc-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration$EnableWebMvcConfiguration.getConfigurableWebBindingInitializer(WebMvcAutoConfiguration.java:432) ~[spring-boot-autoconfigure-1.5.10.RELEASE.jar:1.5.10.RELEASE]
+	at org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport.requestMappingHandlerAdapter(WebMvcConfigurationSupport.java:530) ~[spring-webmvc-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration$EnableWebMvcConfiguration.requestMappingHandlerAdapter(WebMvcAutoConfiguration.java:384) ~[spring-boot-autoconfigure-1.5.10.RELEASE.jar:1.5.10.RELEASE]
+	at org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration$EnableWebMvcConfiguration$$EnhancerBySpringCGLIB$$9de052ff.CGLIB$requestMappingHandlerAdapter$7(<generated>) ~[spring-boot-autoconfigure-1.5.10.RELEASE.jar:1.5.10.RELEASE]
+	at org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration$EnableWebMvcConfiguration$$EnhancerBySpringCGLIB$$9de052ff$$FastClassBySpringCGLIB$$cd64e4a8.invoke(<generated>) ~[spring-boot-autoconfigure-1.5.10.RELEASE.jar:1.5.10.RELEASE]
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228) ~[spring-core-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:358) ~[spring-context-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration$EnableWebMvcConfiguration$$EnhancerBySpringCGLIB$$9de052ff.requestMappingHandlerAdapter(<generated>) ~[spring-boot-autoconfigure-1.5.10.RELEASE.jar:1.5.10.RELEASE]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_91]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_91]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_91]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_91]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:162) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	... 24 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.format.support.FormattingConversionService]: Factory method 'mvcConversionService' threw exception; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'itemRepository': Invocation of init method failed; nested exception is java.lang.TypeNotPresentException: Type com.eduit.springc2.model.Item not present
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:189) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:588) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	... 49 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'itemRepository': Invocation of init method failed; nested exception is java.lang.TypeNotPresentException: Type com.eduit.springc2.model.Item not present
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1628) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1086) ~[spring-context-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.data.repository.support.Repositories.cacheRepositoryFactory(Repositories.java:95) ~[spring-data-commons-1.13.10.RELEASE.jar:na]
+	at org.springframework.data.repository.support.Repositories.populateRepositoryFactoryInformation(Repositories.java:88) ~[spring-data-commons-1.13.10.RELEASE.jar:na]
+	at org.springframework.data.repository.support.Repositories.<init>(Repositories.java:81) ~[spring-data-commons-1.13.10.RELEASE.jar:na]
+	at org.springframework.data.repository.support.DomainClassConverter.setApplicationContext(DomainClassConverter.java:98) ~[spring-data-commons-1.13.10.RELEASE.jar:na]
+	at org.springframework.data.web.config.SpringDataWebConfiguration.addFormatters(SpringDataWebConfiguration.java:95) ~[spring-data-commons-1.13.10.RELEASE.jar:na]
+	at org.springframework.web.servlet.config.annotation.WebMvcConfigurerComposite.addFormatters(WebMvcConfigurerComposite.java:80) ~[spring-webmvc-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.web.servlet.config.annotation.DelegatingWebMvcConfiguration.addFormatters(DelegatingWebMvcConfiguration.java:77) ~[spring-webmvc-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport.mvcConversionService(WebMvcConfigurationSupport.java:598) ~[spring-webmvc-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration$EnableWebMvcConfiguration$$EnhancerBySpringCGLIB$$9de052ff.CGLIB$mvcConversionService$43(<generated>) ~[spring-boot-autoconfigure-1.5.10.RELEASE.jar:1.5.10.RELEASE]
+	at org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration$EnableWebMvcConfiguration$$EnhancerBySpringCGLIB$$9de052ff$$FastClassBySpringCGLIB$$cd64e4a8.invoke(<generated>) ~[spring-boot-autoconfigure-1.5.10.RELEASE.jar:1.5.10.RELEASE]
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228) ~[spring-core-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:358) ~[spring-context-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration$EnableWebMvcConfiguration$$EnhancerBySpringCGLIB$$9de052ff.mvcConversionService(<generated>) ~[spring-boot-autoconfigure-1.5.10.RELEASE.jar:1.5.10.RELEASE]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_91]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_91]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_91]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_91]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:162) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	... 50 common frames omitted
+Caused by: java.lang.TypeNotPresentException: Type com.eduit.springc2.model.Item not present
+	at sun.reflect.generics.factory.CoreReflectionFactory.makeNamedType(CoreReflectionFactory.java:117) ~[na:1.8.0_91]
+	at sun.reflect.generics.visitor.Reifier.visitClassTypeSignature(Reifier.java:125) ~[na:1.8.0_91]
+	at sun.reflect.generics.tree.ClassTypeSignature.accept(ClassTypeSignature.java:49) ~[na:1.8.0_91]
+	at sun.reflect.generics.visitor.Reifier.reifyTypeArguments(Reifier.java:68) ~[na:1.8.0_91]
+	at sun.reflect.generics.visitor.Reifier.visitClassTypeSignature(Reifier.java:138) ~[na:1.8.0_91]
+	at sun.reflect.generics.tree.ClassTypeSignature.accept(ClassTypeSignature.java:49) ~[na:1.8.0_91]
+	at sun.reflect.generics.repository.ClassRepository.getSuperInterfaces(ClassRepository.java:108) ~[na:1.8.0_91]
+	at java.lang.Class.getGenericInterfaces(Class.java:913) ~[na:1.8.0_91]
+	at org.springframework.core.ResolvableType.getInterfaces(ResolvableType.java:459) ~[spring-core-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.core.GenericTypeResolver.buildTypeVariableMap(GenericTypeResolver.java:296) ~[spring-core-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.core.GenericTypeResolver.getTypeVariableMap(GenericTypeResolver.java:274) ~[spring-core-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.data.util.ClassTypeInformation.getTypeVariableMap(ClassTypeInformation.java:128) ~[spring-data-commons-1.13.10.RELEASE.jar:na]
+	at org.springframework.data.util.ClassTypeInformation.getTypeVariableMap(ClassTypeInformation.java:116) ~[spring-data-commons-1.13.10.RELEASE.jar:na]
+	at org.springframework.data.util.ClassTypeInformation.<init>(ClassTypeInformation.java:105) ~[spring-data-commons-1.13.10.RELEASE.jar:na]
+	at org.springframework.data.util.ClassTypeInformation.from(ClassTypeInformation.java:81) ~[spring-data-commons-1.13.10.RELEASE.jar:na]
+	at org.springframework.data.repository.core.support.AbstractRepositoryMetadata.<init>(AbstractRepositoryMetadata.java:57) ~[spring-data-commons-1.13.10.RELEASE.jar:na]
+	at org.springframework.data.repository.core.support.DefaultRepositoryMetadata.<init>(DefaultRepositoryMetadata.java:49) ~[spring-data-commons-1.13.10.RELEASE.jar:na]
+	at org.springframework.data.repository.core.support.AbstractRepositoryMetadata.getMetadata(AbstractRepositoryMetadata.java:71) ~[spring-data-commons-1.13.10.RELEASE.jar:na]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport.getRepositoryMetadata(RepositoryFactorySupport.java:250) ~[spring-data-commons-1.13.10.RELEASE.jar:na]
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.afterPropertiesSet(RepositoryFactoryBeanSupport.java:260) ~[spring-data-commons-1.13.10.RELEASE.jar:na]
+	at org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean.afterPropertiesSet(JpaRepositoryFactoryBean.java:101) ~[spring-data-jpa-1.11.10.RELEASE.jar:na]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1687) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1624) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	... 75 common frames omitted
+Caused by: java.lang.ClassNotFoundException: com.eduit.springc2.model.Item
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:381) ~[na:1.8.0_91]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424) ~[na:1.8.0_91]
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331) ~[na:1.8.0_91]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357) ~[na:1.8.0_91]
+	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:151) ~[spring-boot-devtools-1.5.10.RELEASE.jar:1.5.10.RELEASE]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357) ~[na:1.8.0_91]
+	at java.lang.Class.forName0(Native Method) ~[na:1.8.0_91]
+	at java.lang.Class.forName(Class.java:348) ~[na:1.8.0_91]
+	at sun.reflect.generics.factory.CoreReflectionFactory.makeNamedType(CoreReflectionFactory.java:114) ~[na:1.8.0_91]
+	... 97 common frames omitted
+"2018-02-22 16:19:56 [restartedMain] INFO  com.proycc.base.BaseApplication - Starting BaseApplication on DESKTOP-VQ3P2L8 with PID 22260 (C:\GitRepo\proycc\base\target\classes started by fafre in C:\GitRepo\proycc\base)
+""2018-02-22 16:19:56 [restartedMain] DEBUG com.proycc.base.BaseApplication - Running with Spring Boot v1.5.10.RELEASE, Spring v4.3.14.RELEASE
+""2018-02-22 16:19:56 [restartedMain] INFO  com.proycc.base.BaseApplication - No active profile set, falling back to default profiles: default
+""2018-02-22 16:19:56 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@394f02c1: startup date [Thu Feb 22 16:19:56 ART 2018]; root of context hierarchy
+""2018-02-22 16:19:58 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$46b2b0f6] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:19:58 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$df607930] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:19:58 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:19:58 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@65543c2a' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:19:58 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$4351be2] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:19:58 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:19:58 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+""2018-02-22 16:19:58 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+""2018-02-22 16:19:58 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.27
+""2018-02-22 16:19:58 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat-1].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+""2018-02-22 16:19:59 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+""2018-02-22 16:19:59 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+""2018-02-22 16:19:59 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+""2018-02-22 16:19:59 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+""2018-02-22 16:19:59 [localhost-startStop-1] INFO  o.s.b.w.s.DelegatingFilterProxyRegistrationBean - Mapping filter: 'springSecurityFilterChain' to: [/*]
+""2018-02-22 16:19:59 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+""2018-02-22 16:19:59 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+""2018-02-22 16:19:59 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+""2018-02-22 16:19:59 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+""2018-02-22 16:19:59 [restartedMain] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000227: Running hbm2ddl schema export
+""2018-02-22 16:19:59 [restartedMain] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000230: Schema export complete
+""2018-02-22 16:19:59 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2018-02-22 16:19:59 [restartedMain] WARN  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerAdapter' defined in class path resource [org/springframework/boot/autoconfigure/web/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter]: Factory method 'requestMappingHandlerAdapter' threw exception; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'mvcConversionService' defined in class path resource [org/springframework/boot/autoconfigure/web/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.format.support.FormattingConversionService]: Factory method 'mvcConversionService' threw exception; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'itemRepository': Invocation of init method failed; nested exception is java.lang.TypeNotPresentException: Type Item not present
+""2018-02-22 16:19:59 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+""2018-02-22 16:19:59 [restartedMain] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000227: Running hbm2ddl schema export
+""2018-02-22 16:19:59 [restartedMain] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000230: Schema export complete
+""2018-02-22 16:19:59 [restartedMain] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+""2018-02-22 16:19:59 [restartedMain] INFO  o.s.b.a.l.AutoConfigurationReportLoggingInitializer - 
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+""2018-02-22 16:19:59 [restartedMain] ERROR o.s.boot.SpringApplication - Application startup failed
+"org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerAdapter' defined in class path resource [org/springframework/boot/autoconfigure/web/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter]: Factory method 'requestMappingHandlerAdapter' threw exception; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'mvcConversionService' defined in class path resource [org/springframework/boot/autoconfigure/web/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.format.support.FormattingConversionService]: Factory method 'mvcConversionService' threw exception; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'itemRepository': Invocation of init method failed; nested exception is java.lang.TypeNotPresentException: Type Item not present
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:599) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1173) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1067) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:513) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:761) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:867) ~[spring-context-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543) ~[spring-context-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122) ~[spring-boot-1.5.10.RELEASE.jar:1.5.10.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693) [spring-boot-1.5.10.RELEASE.jar:1.5.10.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360) [spring-boot-1.5.10.RELEASE.jar:1.5.10.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303) [spring-boot-1.5.10.RELEASE.jar:1.5.10.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118) [spring-boot-1.5.10.RELEASE.jar:1.5.10.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107) [spring-boot-1.5.10.RELEASE.jar:1.5.10.RELEASE]
+	at com.proycc.base.BaseApplication.main(BaseApplication.java:12) [classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_91]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_91]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_91]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_91]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) [spring-boot-devtools-1.5.10.RELEASE.jar:1.5.10.RELEASE]
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter]: Factory method 'requestMappingHandlerAdapter' threw exception; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'mvcConversionService' defined in class path resource [org/springframework/boot/autoconfigure/web/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.format.support.FormattingConversionService]: Factory method 'mvcConversionService' threw exception; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'itemRepository': Invocation of init method failed; nested exception is java.lang.TypeNotPresentException: Type Item not present
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:189) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:588) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	... 23 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'mvcConversionService' defined in class path resource [org/springframework/boot/autoconfigure/web/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.format.support.FormattingConversionService]: Factory method 'mvcConversionService' threw exception; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'itemRepository': Invocation of init method failed; nested exception is java.lang.TypeNotPresentException: Type Item not present
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:599) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1173) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1067) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:513) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.obtainBeanInstanceFromFactory(ConfigurationClassEnhancer.java:389) ~[spring-context-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:361) ~[spring-context-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration$EnableWebMvcConfiguration$$EnhancerBySpringCGLIB$$9de052ff.mvcConversionService(<generated>) ~[spring-boot-autoconfigure-1.5.10.RELEASE.jar:1.5.10.RELEASE]
+	at org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport.getConfigurableWebBindingInitializer(WebMvcConfigurationSupport.java:570) ~[spring-webmvc-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration$EnableWebMvcConfiguration.getConfigurableWebBindingInitializer(WebMvcAutoConfiguration.java:432) ~[spring-boot-autoconfigure-1.5.10.RELEASE.jar:1.5.10.RELEASE]
+	at org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport.requestMappingHandlerAdapter(WebMvcConfigurationSupport.java:530) ~[spring-webmvc-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration$EnableWebMvcConfiguration.requestMappingHandlerAdapter(WebMvcAutoConfiguration.java:384) ~[spring-boot-autoconfigure-1.5.10.RELEASE.jar:1.5.10.RELEASE]
+	at org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration$EnableWebMvcConfiguration$$EnhancerBySpringCGLIB$$9de052ff.CGLIB$requestMappingHandlerAdapter$7(<generated>) ~[spring-boot-autoconfigure-1.5.10.RELEASE.jar:1.5.10.RELEASE]
+	at org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration$EnableWebMvcConfiguration$$EnhancerBySpringCGLIB$$9de052ff$$FastClassBySpringCGLIB$$cd64e4a8.invoke(<generated>) ~[spring-boot-autoconfigure-1.5.10.RELEASE.jar:1.5.10.RELEASE]
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228) ~[spring-core-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:358) ~[spring-context-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration$EnableWebMvcConfiguration$$EnhancerBySpringCGLIB$$9de052ff.requestMappingHandlerAdapter(<generated>) ~[spring-boot-autoconfigure-1.5.10.RELEASE.jar:1.5.10.RELEASE]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_91]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_91]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_91]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_91]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:162) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	... 24 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.format.support.FormattingConversionService]: Factory method 'mvcConversionService' threw exception; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'itemRepository': Invocation of init method failed; nested exception is java.lang.TypeNotPresentException: Type Item not present
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:189) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:588) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	... 49 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'itemRepository': Invocation of init method failed; nested exception is java.lang.TypeNotPresentException: Type Item not present
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1628) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1086) ~[spring-context-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.data.repository.support.Repositories.cacheRepositoryFactory(Repositories.java:95) ~[spring-data-commons-1.13.10.RELEASE.jar:na]
+	at org.springframework.data.repository.support.Repositories.populateRepositoryFactoryInformation(Repositories.java:88) ~[spring-data-commons-1.13.10.RELEASE.jar:na]
+	at org.springframework.data.repository.support.Repositories.<init>(Repositories.java:81) ~[spring-data-commons-1.13.10.RELEASE.jar:na]
+	at org.springframework.data.repository.support.DomainClassConverter.setApplicationContext(DomainClassConverter.java:98) ~[spring-data-commons-1.13.10.RELEASE.jar:na]
+	at org.springframework.data.web.config.SpringDataWebConfiguration.addFormatters(SpringDataWebConfiguration.java:95) ~[spring-data-commons-1.13.10.RELEASE.jar:na]
+	at org.springframework.web.servlet.config.annotation.WebMvcConfigurerComposite.addFormatters(WebMvcConfigurerComposite.java:80) ~[spring-webmvc-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.web.servlet.config.annotation.DelegatingWebMvcConfiguration.addFormatters(DelegatingWebMvcConfiguration.java:77) ~[spring-webmvc-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport.mvcConversionService(WebMvcConfigurationSupport.java:598) ~[spring-webmvc-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration$EnableWebMvcConfiguration$$EnhancerBySpringCGLIB$$9de052ff.CGLIB$mvcConversionService$43(<generated>) ~[spring-boot-autoconfigure-1.5.10.RELEASE.jar:1.5.10.RELEASE]
+	at org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration$EnableWebMvcConfiguration$$EnhancerBySpringCGLIB$$9de052ff$$FastClassBySpringCGLIB$$cd64e4a8.invoke(<generated>) ~[spring-boot-autoconfigure-1.5.10.RELEASE.jar:1.5.10.RELEASE]
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:228) ~[spring-core-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:358) ~[spring-context-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.boot.autoconfigure.web.WebMvcAutoConfiguration$EnableWebMvcConfiguration$$EnhancerBySpringCGLIB$$9de052ff.mvcConversionService(<generated>) ~[spring-boot-autoconfigure-1.5.10.RELEASE.jar:1.5.10.RELEASE]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_91]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_91]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_91]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_91]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:162) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	... 50 common frames omitted
+Caused by: java.lang.TypeNotPresentException: Type Item not present
+	at sun.reflect.generics.factory.CoreReflectionFactory.makeNamedType(CoreReflectionFactory.java:117) ~[na:1.8.0_91]
+	at sun.reflect.generics.visitor.Reifier.visitClassTypeSignature(Reifier.java:125) ~[na:1.8.0_91]
+	at sun.reflect.generics.tree.ClassTypeSignature.accept(ClassTypeSignature.java:49) ~[na:1.8.0_91]
+	at sun.reflect.generics.visitor.Reifier.reifyTypeArguments(Reifier.java:68) ~[na:1.8.0_91]
+	at sun.reflect.generics.visitor.Reifier.visitClassTypeSignature(Reifier.java:138) ~[na:1.8.0_91]
+	at sun.reflect.generics.tree.ClassTypeSignature.accept(ClassTypeSignature.java:49) ~[na:1.8.0_91]
+	at sun.reflect.generics.repository.ClassRepository.getSuperInterfaces(ClassRepository.java:108) ~[na:1.8.0_91]
+	at java.lang.Class.getGenericInterfaces(Class.java:913) ~[na:1.8.0_91]
+	at org.springframework.core.ResolvableType.getInterfaces(ResolvableType.java:459) ~[spring-core-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.core.GenericTypeResolver.buildTypeVariableMap(GenericTypeResolver.java:296) ~[spring-core-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.core.GenericTypeResolver.getTypeVariableMap(GenericTypeResolver.java:274) ~[spring-core-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.data.util.ClassTypeInformation.getTypeVariableMap(ClassTypeInformation.java:128) ~[spring-data-commons-1.13.10.RELEASE.jar:na]
+	at org.springframework.data.util.ClassTypeInformation.getTypeVariableMap(ClassTypeInformation.java:116) ~[spring-data-commons-1.13.10.RELEASE.jar:na]
+	at org.springframework.data.util.ClassTypeInformation.<init>(ClassTypeInformation.java:105) ~[spring-data-commons-1.13.10.RELEASE.jar:na]
+	at org.springframework.data.util.ClassTypeInformation.from(ClassTypeInformation.java:81) ~[spring-data-commons-1.13.10.RELEASE.jar:na]
+	at org.springframework.data.repository.core.support.AbstractRepositoryMetadata.<init>(AbstractRepositoryMetadata.java:57) ~[spring-data-commons-1.13.10.RELEASE.jar:na]
+	at org.springframework.data.repository.core.support.DefaultRepositoryMetadata.<init>(DefaultRepositoryMetadata.java:49) ~[spring-data-commons-1.13.10.RELEASE.jar:na]
+	at org.springframework.data.repository.core.support.AbstractRepositoryMetadata.getMetadata(AbstractRepositoryMetadata.java:71) ~[spring-data-commons-1.13.10.RELEASE.jar:na]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport.getRepositoryMetadata(RepositoryFactorySupport.java:250) ~[spring-data-commons-1.13.10.RELEASE.jar:na]
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.afterPropertiesSet(RepositoryFactoryBeanSupport.java:260) ~[spring-data-commons-1.13.10.RELEASE.jar:na]
+	at org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean.afterPropertiesSet(JpaRepositoryFactoryBean.java:101) ~[spring-data-jpa-1.11.10.RELEASE.jar:na]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1687) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1624) ~[spring-beans-4.3.14.RELEASE.jar:4.3.14.RELEASE]
+	... 75 common frames omitted
+Caused by: java.lang.ClassNotFoundException: Item
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:381) ~[na:1.8.0_91]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424) ~[na:1.8.0_91]
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331) ~[na:1.8.0_91]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357) ~[na:1.8.0_91]
+	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:151) ~[spring-boot-devtools-1.5.10.RELEASE.jar:1.5.10.RELEASE]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357) ~[na:1.8.0_91]
+	at java.lang.Class.forName0(Native Method) ~[na:1.8.0_91]
+	at java.lang.Class.forName(Class.java:348) ~[na:1.8.0_91]
+	at sun.reflect.generics.factory.CoreReflectionFactory.makeNamedType(CoreReflectionFactory.java:114) ~[na:1.8.0_91]
+	... 97 common frames omitted
+"2018-02-22 16:20:08 [restartedMain] INFO  com.proycc.base.BaseApplication - Starting BaseApplication on DESKTOP-VQ3P2L8 with PID 22260 (C:\GitRepo\proycc\base\target\classes started by fafre in C:\GitRepo\proycc\base)
+""2018-02-22 16:20:08 [restartedMain] DEBUG com.proycc.base.BaseApplication - Running with Spring Boot v1.5.10.RELEASE, Spring v4.3.14.RELEASE
+""2018-02-22 16:20:08 [restartedMain] INFO  com.proycc.base.BaseApplication - No active profile set, falling back to default profiles: default
+""2018-02-22 16:20:08 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@37f34f94: startup date [Thu Feb 22 16:20:08 ART 2018]; root of context hierarchy
+""2018-02-22 16:20:10 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$46b2b0f6] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:20:10 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$df607930] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:20:10 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:20:10 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@527765e' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:20:10 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$4351be2] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:20:10 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:20:10 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+""2018-02-22 16:20:10 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+""2018-02-22 16:20:10 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.27
+""2018-02-22 16:20:10 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat-2].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+""2018-02-22 16:20:10 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+""2018-02-22 16:20:10 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+""2018-02-22 16:20:10 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+""2018-02-22 16:20:10 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+""2018-02-22 16:20:10 [localhost-startStop-1] INFO  o.s.b.w.s.DelegatingFilterProxyRegistrationBean - Mapping filter: 'springSecurityFilterChain' to: [/*]
+""2018-02-22 16:20:10 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+""2018-02-22 16:20:10 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+""2018-02-22 16:20:10 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+""2018-02-22 16:20:11 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+""2018-02-22 16:20:11 [restartedMain] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000227: Running hbm2ddl schema export
+""2018-02-22 16:20:11 [restartedMain] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000230: Schema export complete
+""2018-02-22 16:20:11 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2018-02-22 16:20:11 [restartedMain] INFO  o.h.h.i.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+""2018-02-22 16:20:12 [restartedMain] INFO  o.s.b.a.w.WebMvcAutoConfiguration$WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+""2018-02-22 16:20:12 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/css/**'], Ant [pattern='/js/**'], Ant [pattern='/images/**'], Ant [pattern='/webjars/**'], Ant [pattern='/**/favicon.ico'], Ant [pattern='/error']]], []
+""2018-02-22 16:20:12 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@581c8188, org.springframework.security.web.context.SecurityContextPersistenceFilter@6de4a06e, org.springframework.security.web.header.HeaderWriterFilter@13dc85b, org.springframework.security.web.csrf.CsrfFilter@211ed4b8, org.springframework.security.web.authentication.logout.LogoutFilter@226ec790, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5fd4a4aa, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3748793a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@58d81098, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@6abffcee, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@704c0d92, org.springframework.security.web.session.SessionManagementFilter@3a881893, org.springframework.security.web.access.ExceptionTranslationFilter@596072ca, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@12875ff6]
+""2018-02-22 16:20:12 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/**']]], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@345f6e72, org.springframework.security.web.context.SecurityContextPersistenceFilter@7164b348, org.springframework.security.web.header.HeaderWriterFilter@5d675726, org.springframework.security.web.authentication.logout.LogoutFilter@26b8438e, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@72125ae2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@18266523, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7f1fdf66, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@75ff3706, org.springframework.security.web.session.SessionManagementFilter@7795cd76, org.springframework.security.web.access.ExceptionTranslationFilter@5bb653b4, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5cb632dc]
+""2018-02-22 16:20:12 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+""2018-02-22 16:20:12 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+""2018-02-22 16:20:12 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+""2018-02-22 16:20:12 [restartedMain] INFO  com.proycc.base.BaseApplication - Started BaseApplication in 3.829 seconds (JVM running for 576059.454)
+""2018-02-22 16:21:40 [Thread-18] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@37f34f94: startup date [Thu Feb 22 16:20:08 ART 2018]; root of context hierarchy
+""2018-02-22 16:21:40 [Thread-18] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+""2018-02-22 16:21:40 [Thread-18] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+""2018-02-22 16:21:40 [Thread-18] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000227: Running hbm2ddl schema export
+""2018-02-22 16:21:40 [Thread-18] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000230: Schema export complete
+""2018-02-22 16:21:40 [restartedMain] INFO  com.proycc.base.BaseApplication - Starting BaseApplication on DESKTOP-VQ3P2L8 with PID 22260 (C:\GitRepo\proycc\base\target\classes started by fafre in C:\GitRepo\proycc\base)
+""2018-02-22 16:21:40 [restartedMain] DEBUG com.proycc.base.BaseApplication - Running with Spring Boot v1.5.10.RELEASE, Spring v4.3.14.RELEASE
+""2018-02-22 16:21:40 [restartedMain] INFO  com.proycc.base.BaseApplication - No active profile set, falling back to default profiles: default
+""2018-02-22 16:21:40 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@6efdaaeb: startup date [Thu Feb 22 16:21:40 ART 2018]; root of context hierarchy
+""2018-02-22 16:21:41 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$46b2b0f6] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:21:41 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$df607930] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:21:41 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:21:41 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@5cf8d6ed' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:21:41 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$4351be2] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:21:41 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:21:42 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+""2018-02-22 16:21:42 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+""2018-02-22 16:21:42 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.27
+""2018-02-22 16:21:42 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat-2].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+""2018-02-22 16:21:42 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+""2018-02-22 16:21:42 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+""2018-02-22 16:21:42 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+""2018-02-22 16:21:42 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+""2018-02-22 16:21:42 [localhost-startStop-1] INFO  o.s.b.w.s.DelegatingFilterProxyRegistrationBean - Mapping filter: 'springSecurityFilterChain' to: [/*]
+""2018-02-22 16:21:42 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+""2018-02-22 16:21:42 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+""2018-02-22 16:21:42 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+""2018-02-22 16:21:42 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+""2018-02-22 16:21:42 [restartedMain] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000227: Running hbm2ddl schema export
+""2018-02-22 16:21:42 [restartedMain] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000230: Schema export complete
+""2018-02-22 16:21:42 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2018-02-22 16:21:42 [restartedMain] INFO  o.h.h.i.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+""2018-02-22 16:21:43 [restartedMain] INFO  o.s.b.a.w.WebMvcAutoConfiguration$WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+""2018-02-22 16:21:43 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/css/**'], Ant [pattern='/js/**'], Ant [pattern='/images/**'], Ant [pattern='/webjars/**'], Ant [pattern='/**/favicon.ico'], Ant [pattern='/error']]], []
+""2018-02-22 16:21:43 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6ed1d487, org.springframework.security.web.context.SecurityContextPersistenceFilter@106841be, org.springframework.security.web.header.HeaderWriterFilter@36a17def, org.springframework.security.web.csrf.CsrfFilter@389edc31, org.springframework.security.web.authentication.logout.LogoutFilter@1b8c2214, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1d9b5b5b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@33bbceb1, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@e48832c, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@705e101d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@74f8b51b, org.springframework.security.web.session.SessionManagementFilter@5e596110, org.springframework.security.web.access.ExceptionTranslationFilter@7fdb857f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@620f1799]
+""2018-02-22 16:21:43 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/**']]], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7cdd7108, org.springframework.security.web.context.SecurityContextPersistenceFilter@62973d05, org.springframework.security.web.header.HeaderWriterFilter@2b9e22b5, org.springframework.security.web.authentication.logout.LogoutFilter@10386cd6, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@4b9c04c1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@29634b6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@584725db, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@447cfeaf, org.springframework.security.web.session.SessionManagementFilter@f98e5e0, org.springframework.security.web.access.ExceptionTranslationFilter@6e81cc05, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@61080f03]
+""2018-02-22 16:21:43 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+""2018-02-22 16:21:43 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+""2018-02-22 16:21:43 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+""2018-02-22 16:21:43 [restartedMain] INFO  com.proycc.base.BaseApplication - Started BaseApplication in 2.767 seconds (JVM running for 576150.395)
+""2018-02-22 16:21:52 [Thread-33] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@6efdaaeb: startup date [Thu Feb 22 16:21:40 ART 2018]; root of context hierarchy
+""2018-02-22 16:21:52 [Thread-33] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+""2018-02-22 16:21:52 [Thread-33] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+""2018-02-22 16:21:52 [Thread-33] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000227: Running hbm2ddl schema export
+""2018-02-22 16:21:52 [Thread-33] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000230: Schema export complete
+""2018-02-22 16:21:52 [restartedMain] INFO  com.proycc.base.BaseApplication - Starting BaseApplication on DESKTOP-VQ3P2L8 with PID 22260 (C:\GitRepo\proycc\base\target\classes started by fafre in C:\GitRepo\proycc\base)
+""2018-02-22 16:21:52 [restartedMain] DEBUG com.proycc.base.BaseApplication - Running with Spring Boot v1.5.10.RELEASE, Spring v4.3.14.RELEASE
+""2018-02-22 16:21:52 [restartedMain] INFO  com.proycc.base.BaseApplication - No active profile set, falling back to default profiles: default
+""2018-02-22 16:21:52 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@6fce5422: startup date [Thu Feb 22 16:21:52 ART 2018]; root of context hierarchy
+""2018-02-22 16:21:53 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$46b2b0f6] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:21:53 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$df607930] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:21:53 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:21:53 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@a2bc5bc' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:21:53 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$4351be2] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:21:53 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:21:53 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+""2018-02-22 16:21:53 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+""2018-02-22 16:21:53 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.27
+""2018-02-22 16:21:54 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat-2].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+""2018-02-22 16:21:54 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+""2018-02-22 16:21:54 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+""2018-02-22 16:21:54 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+""2018-02-22 16:21:54 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+""2018-02-22 16:21:54 [localhost-startStop-1] INFO  o.s.b.w.s.DelegatingFilterProxyRegistrationBean - Mapping filter: 'springSecurityFilterChain' to: [/*]
+""2018-02-22 16:21:54 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+""2018-02-22 16:21:54 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+""2018-02-22 16:21:54 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+""2018-02-22 16:21:54 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+""2018-02-22 16:21:54 [restartedMain] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000227: Running hbm2ddl schema export
+""2018-02-22 16:21:54 [restartedMain] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000230: Schema export complete
+""2018-02-22 16:21:54 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2018-02-22 16:21:54 [restartedMain] INFO  o.h.h.i.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+""2018-02-22 16:21:54 [restartedMain] INFO  o.s.b.a.w.WebMvcAutoConfiguration$WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+""2018-02-22 16:21:54 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/css/**'], Ant [pattern='/js/**'], Ant [pattern='/images/**'], Ant [pattern='/webjars/**'], Ant [pattern='/**/favicon.ico'], Ant [pattern='/error']]], []
+""2018-02-22 16:21:54 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@50b093d, org.springframework.security.web.context.SecurityContextPersistenceFilter@3a7dbcc5, org.springframework.security.web.header.HeaderWriterFilter@4d468e09, org.springframework.security.web.csrf.CsrfFilter@65489f20, org.springframework.security.web.authentication.logout.LogoutFilter@2c4520f6, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@136e7959, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@221813be, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5b57f732, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@34ad258e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@12646513, org.springframework.security.web.session.SessionManagementFilter@1bed9107, org.springframework.security.web.access.ExceptionTranslationFilter@2a165d61, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5118dc0b]
+""2018-02-22 16:21:54 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/**']]], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@a1d8eb8, org.springframework.security.web.context.SecurityContextPersistenceFilter@506edb7f, org.springframework.security.web.header.HeaderWriterFilter@2471376e, org.springframework.security.web.authentication.logout.LogoutFilter@5cec982f, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@7aff15ee, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@607101e9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4d1690ce, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@638fabd6, org.springframework.security.web.session.SessionManagementFilter@407a2229, org.springframework.security.web.access.ExceptionTranslationFilter@12544f74, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@51c7b034]
+""2018-02-22 16:21:55 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+""2018-02-22 16:21:55 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+""2018-02-22 16:21:55 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+""2018-02-22 16:21:55 [restartedMain] INFO  com.proycc.base.BaseApplication - Started BaseApplication in 2.542 seconds (JVM running for 576161.929)
+""2018-02-22 16:27:39 [restartedMain] INFO  com.proycc.base.BaseApplication - Starting BaseApplication on DESKTOP-VQ3P2L8 with PID 12704 (C:\GitRepo\proycc\base\target\classes started by fafre in C:\GitRepo\proycc\base)
+""2018-02-22 16:27:39 [restartedMain] DEBUG com.proycc.base.BaseApplication - Running with Spring Boot v1.5.10.RELEASE, Spring v4.3.14.RELEASE
+""2018-02-22 16:27:39 [restartedMain] INFO  com.proycc.base.BaseApplication - No active profile set, falling back to default profiles: default
+""2018-02-22 16:27:40 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7b047100: startup date [Thu Feb 22 16:27:40 ART 2018]; root of context hierarchy
+""2018-02-22 16:27:43 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$49ff7445] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:27:43 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$e2ad3c7f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:27:43 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:27:43 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@f5b01ea' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:27:43 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$781df31] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:27:43 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:27:44 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+""2018-02-22 16:27:44 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+""2018-02-22 16:27:44 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.27
+""2018-02-22 16:27:44 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+""2018-02-22 16:27:45 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+""2018-02-22 16:27:45 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+""2018-02-22 16:27:45 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+""2018-02-22 16:27:45 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+""2018-02-22 16:27:45 [localhost-startStop-1] INFO  o.s.b.w.s.DelegatingFilterProxyRegistrationBean - Mapping filter: 'springSecurityFilterChain' to: [/*]
+""2018-02-22 16:27:45 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+""2018-02-22 16:27:46 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+""2018-02-22 16:27:46 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+""2018-02-22 16:27:46 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.0.12.Final}
+""2018-02-22 16:27:46 [restartedMain] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+""2018-02-22 16:27:46 [restartedMain] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+""2018-02-22 16:27:46 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+""2018-02-22 16:27:46 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+""2018-02-22 16:27:47 [restartedMain] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000227: Running hbm2ddl schema export
+""2018-02-22 16:27:47 [restartedMain] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000230: Schema export complete
+""2018-02-22 16:27:47 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2018-02-22 16:27:47 [restartedMain] WARN  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'baseApplication': Unsatisfied dependency expressed through field 'customerRepository'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.proycc.base.service.ItemService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+""2018-02-22 16:27:47 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+""2018-02-22 16:27:47 [restartedMain] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000227: Running hbm2ddl schema export
+""2018-02-22 16:27:47 [restartedMain] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000230: Schema export complete
+""2018-02-22 16:27:47 [restartedMain] INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+""2018-02-22 16:27:47 [restartedMain] INFO  o.s.b.a.l.AutoConfigurationReportLoggingInitializer - 
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+""2018-02-22 16:27:47 [restartedMain] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field customerRepository in com.proycc.base.BaseApplication required a bean of type 'com.proycc.base.service.ItemService' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.proycc.base.service.ItemService' in your configuration.
+
+""2018-02-22 16:29:36 [restartedMain] INFO  com.proycc.base.BaseApplication - Starting BaseApplication on DESKTOP-VQ3P2L8 with PID 16000 (C:\GitRepo\proycc\base\target\classes started by fafre in C:\GitRepo\proycc\base)
+""2018-02-22 16:29:36 [restartedMain] DEBUG com.proycc.base.BaseApplication - Running with Spring Boot v1.5.10.RELEASE, Spring v4.3.14.RELEASE
+""2018-02-22 16:29:36 [restartedMain] INFO  com.proycc.base.BaseApplication - No active profile set, falling back to default profiles: default
+""2018-02-22 16:29:36 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@6e8bc8bd: startup date [Thu Feb 22 16:29:36 ART 2018]; root of context hierarchy
+""2018-02-22 16:29:39 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$d2cab34d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:29:39 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$6b787b87] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:29:39 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:29:39 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@c366a87' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:29:39 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$904d1e39] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:29:39 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:29:40 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+""2018-02-22 16:29:40 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+""2018-02-22 16:29:40 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.27
+""2018-02-22 16:29:40 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+""2018-02-22 16:29:41 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+""2018-02-22 16:29:41 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+""2018-02-22 16:29:41 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+""2018-02-22 16:29:41 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+""2018-02-22 16:29:41 [localhost-startStop-1] INFO  o.s.b.w.s.DelegatingFilterProxyRegistrationBean - Mapping filter: 'springSecurityFilterChain' to: [/*]
+""2018-02-22 16:29:41 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+""2018-02-22 16:29:42 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+""2018-02-22 16:29:42 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+""2018-02-22 16:29:42 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.0.12.Final}
+""2018-02-22 16:29:42 [restartedMain] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+""2018-02-22 16:29:42 [restartedMain] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+""2018-02-22 16:29:42 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+""2018-02-22 16:29:42 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+""2018-02-22 16:29:43 [restartedMain] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000227: Running hbm2ddl schema export
+""2018-02-22 16:29:43 [restartedMain] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000230: Schema export complete
+""2018-02-22 16:29:43 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2018-02-22 16:29:44 [restartedMain] INFO  o.h.h.i.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+""2018-02-22 16:29:46 [restartedMain] INFO  o.s.b.a.w.WebMvcAutoConfiguration$WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+""2018-02-22 16:29:47 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/css/**'], Ant [pattern='/js/**'], Ant [pattern='/images/**'], Ant [pattern='/webjars/**'], Ant [pattern='/**/favicon.ico'], Ant [pattern='/error']]], []
+""2018-02-22 16:29:47 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@418942d4, org.springframework.security.web.context.SecurityContextPersistenceFilter@1ebe194, org.springframework.security.web.header.HeaderWriterFilter@28ae251b, org.springframework.security.web.csrf.CsrfFilter@191a6cd, org.springframework.security.web.authentication.logout.LogoutFilter@1e24b6e6, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1b64aa21, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@d1b9dcf, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@8b9c9a5, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@1f3f559a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@e631ce5, org.springframework.security.web.session.SessionManagementFilter@7bdb0fc7, org.springframework.security.web.access.ExceptionTranslationFilter@7d88c1f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@117b9519]
+""2018-02-22 16:29:47 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/**']]], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1d6e9b96, org.springframework.security.web.context.SecurityContextPersistenceFilter@740c8298, org.springframework.security.web.header.HeaderWriterFilter@58d07090, org.springframework.security.web.authentication.logout.LogoutFilter@7af5c08, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@7c6e64ed, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@50a1ace6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@b2e1292, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1eb37e15, org.springframework.security.web.session.SessionManagementFilter@49a11e40, org.springframework.security.web.access.ExceptionTranslationFilter@18c799d6, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@71d8298c]
+""2018-02-22 16:29:47 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+""2018-02-22 16:29:47 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+""2018-02-22 16:29:47 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+""2018-02-22 16:29:47 [restartedMain] INFO  com.proycc.base.BaseApplication - Started BaseApplication in 11.797 seconds (JVM running for 13.121)
+""2018-02-22 16:34:18 [Thread-7] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@6e8bc8bd: startup date [Thu Feb 22 16:29:36 ART 2018]; root of context hierarchy
+""2018-02-22 16:34:18 [Thread-7] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+""2018-02-22 16:34:18 [Thread-7] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+""2018-02-22 16:34:18 [Thread-7] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000227: Running hbm2ddl schema export
+""2018-02-22 16:34:18 [Thread-7] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000230: Schema export complete
+""2018-02-22 16:34:18 [restartedMain] INFO  com.proycc.base.BaseApplication - Starting BaseApplication on DESKTOP-VQ3P2L8 with PID 16000 (C:\GitRepo\proycc\base\target\classes started by fafre in C:\GitRepo\proycc\base)
+""2018-02-22 16:34:18 [restartedMain] DEBUG com.proycc.base.BaseApplication - Running with Spring Boot v1.5.10.RELEASE, Spring v4.3.14.RELEASE
+""2018-02-22 16:34:18 [restartedMain] INFO  com.proycc.base.BaseApplication - No active profile set, falling back to default profiles: default
+""2018-02-22 16:34:18 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@6e4e46f: startup date [Thu Feb 22 16:34:18 ART 2018]; root of context hierarchy
+""2018-02-22 16:34:20 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$d2cab34d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:34:20 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$6b787b87] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:34:20 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:34:20 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@9a28541' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:34:20 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$904d1e39] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:34:20 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:34:20 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+""2018-02-22 16:34:20 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+""2018-02-22 16:34:20 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.27
+""2018-02-22 16:34:20 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+""2018-02-22 16:34:20 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+""2018-02-22 16:34:20 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+""2018-02-22 16:34:20 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+""2018-02-22 16:34:20 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+""2018-02-22 16:34:20 [localhost-startStop-1] INFO  o.s.b.w.s.DelegatingFilterProxyRegistrationBean - Mapping filter: 'springSecurityFilterChain' to: [/*]
+""2018-02-22 16:34:20 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+""2018-02-22 16:34:20 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+""2018-02-22 16:34:20 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+""2018-02-22 16:34:20 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+""2018-02-22 16:34:20 [restartedMain] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000227: Running hbm2ddl schema export
+""2018-02-22 16:34:20 [restartedMain] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000230: Schema export complete
+""2018-02-22 16:34:20 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2018-02-22 16:34:20 [restartedMain] INFO  o.h.h.i.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+""2018-02-22 16:34:21 [restartedMain] INFO  o.s.b.a.w.WebMvcAutoConfiguration$WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+""2018-02-22 16:34:21 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/css/**'], Ant [pattern='/js/**'], Ant [pattern='/images/**'], Ant [pattern='/webjars/**'], Ant [pattern='/**/favicon.ico'], Ant [pattern='/error']]], []
+""2018-02-22 16:34:21 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4046e49b, org.springframework.security.web.context.SecurityContextPersistenceFilter@3688f717, org.springframework.security.web.header.HeaderWriterFilter@6ca8a786, org.springframework.security.web.csrf.CsrfFilter@5a144710, org.springframework.security.web.authentication.logout.LogoutFilter@48ded0c2, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@38300b17, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4fb9efa2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6684f544, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@18726daa, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6a666602, org.springframework.security.web.session.SessionManagementFilter@4e5c050b, org.springframework.security.web.access.ExceptionTranslationFilter@13fd46b2, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7a4a0811]
+""2018-02-22 16:34:21 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/**']]], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3b1f420c, org.springframework.security.web.context.SecurityContextPersistenceFilter@45dbbfde, org.springframework.security.web.header.HeaderWriterFilter@7d42130f, org.springframework.security.web.authentication.logout.LogoutFilter@3947a174, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@21facccd, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5e9e53c3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3329f974, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@b2813d3, org.springframework.security.web.session.SessionManagementFilter@1c72d2cf, org.springframework.security.web.access.ExceptionTranslationFilter@4d0ada9c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@26b4c78]
+""2018-02-22 16:34:22 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+""2018-02-22 16:34:22 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+""2018-02-22 16:34:22 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+""2018-02-22 16:34:22 [restartedMain] INFO  com.proycc.base.BaseApplication - Started BaseApplication in 3.275 seconds (JVM running for 287.468)
+""2018-02-22 16:34:49 [Thread-11] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@6e4e46f: startup date [Thu Feb 22 16:34:18 ART 2018]; root of context hierarchy
+""2018-02-22 16:34:49 [Thread-11] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+""2018-02-22 16:34:49 [Thread-11] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+""2018-02-22 16:34:49 [Thread-11] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000227: Running hbm2ddl schema export
+""2018-02-22 16:34:49 [Thread-11] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000230: Schema export complete
+""2018-02-22 16:34:49 [restartedMain] INFO  com.proycc.base.BaseApplication - Starting BaseApplication on DESKTOP-VQ3P2L8 with PID 16000 (C:\GitRepo\proycc\base\target\classes started by fafre in C:\GitRepo\proycc\base)
+""2018-02-22 16:34:49 [restartedMain] DEBUG com.proycc.base.BaseApplication - Running with Spring Boot v1.5.10.RELEASE, Spring v4.3.14.RELEASE
+""2018-02-22 16:34:49 [restartedMain] INFO  com.proycc.base.BaseApplication - No active profile set, falling back to default profiles: default
+""2018-02-22 16:34:49 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2f39a32b: startup date [Thu Feb 22 16:34:49 ART 2018]; root of context hierarchy
+""2018-02-22 16:34:51 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$d2cab34d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:34:51 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$6b787b87] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:34:51 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:34:51 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@443d2662' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:34:51 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$904d1e39] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:34:51 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:34:51 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+""2018-02-22 16:34:51 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+""2018-02-22 16:34:51 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.27
+""2018-02-22 16:35:02 [restartedMain] INFO  com.proycc.base.BaseApplication - Starting BaseApplication on DESKTOP-VQ3P2L8 with PID 16200 (C:\GitRepo\proycc\base\target\classes started by fafre in C:\GitRepo\proycc\base)
+""2018-02-22 16:35:02 [restartedMain] DEBUG com.proycc.base.BaseApplication - Running with Spring Boot v1.5.10.RELEASE, Spring v4.3.14.RELEASE
+""2018-02-22 16:35:02 [restartedMain] INFO  com.proycc.base.BaseApplication - No active profile set, falling back to default profiles: default
+""2018-02-22 16:35:03 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@6e8bc8bd: startup date [Thu Feb 22 16:35:03 ART 2018]; root of context hierarchy
+""2018-02-22 16:35:06 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$392e0542] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:35:06 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$d1dbcd7c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:35:06 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:35:06 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@65e0f10b' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:35:06 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$f6b0702e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:35:06 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:35:07 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+""2018-02-22 16:35:07 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+""2018-02-22 16:35:07 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.27
+""2018-02-22 16:35:08 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+""2018-02-22 16:35:08 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+""2018-02-22 16:35:08 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+""2018-02-22 16:35:08 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+""2018-02-22 16:35:08 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+""2018-02-22 16:35:08 [localhost-startStop-1] INFO  o.s.b.w.s.DelegatingFilterProxyRegistrationBean - Mapping filter: 'springSecurityFilterChain' to: [/*]
+""2018-02-22 16:35:08 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+""2018-02-22 16:35:09 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+""2018-02-22 16:35:09 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+""2018-02-22 16:35:09 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.0.12.Final}
+""2018-02-22 16:35:09 [restartedMain] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+""2018-02-22 16:35:09 [restartedMain] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+""2018-02-22 16:35:09 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+""2018-02-22 16:35:10 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+""2018-02-22 16:35:11 [restartedMain] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000227: Running hbm2ddl schema export
+""2018-02-22 16:35:11 [restartedMain] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000230: Schema export complete
+""2018-02-22 16:35:11 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2018-02-22 16:35:11 [restartedMain] INFO  o.h.h.i.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+""2018-02-22 16:35:13 [restartedMain] INFO  o.s.b.a.w.WebMvcAutoConfiguration$WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+""2018-02-22 16:35:13 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/css/**'], Ant [pattern='/js/**'], Ant [pattern='/images/**'], Ant [pattern='/webjars/**'], Ant [pattern='/**/favicon.ico'], Ant [pattern='/error']]], []
+""2018-02-22 16:35:14 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@21d0101f, org.springframework.security.web.context.SecurityContextPersistenceFilter@3b7e3722, org.springframework.security.web.header.HeaderWriterFilter@592ea294, org.springframework.security.web.csrf.CsrfFilter@14ac9ae9, org.springframework.security.web.authentication.logout.LogoutFilter@77b57187, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@197722d2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@129b4b71, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@66a925a5, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@4a3bc152, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3159d35b, org.springframework.security.web.session.SessionManagementFilter@62920b8c, org.springframework.security.web.access.ExceptionTranslationFilter@5e6a448e, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6b151b36]
+""2018-02-22 16:35:14 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/**']]], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7be608bd, org.springframework.security.web.context.SecurityContextPersistenceFilter@1d6e9b96, org.springframework.security.web.header.HeaderWriterFilter@5c5c4714, org.springframework.security.web.authentication.logout.LogoutFilter@7cd036bd, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@13a75f79, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1eb37e15, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2069ee30, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@42c0fa55, org.springframework.security.web.session.SessionManagementFilter@71d8298c, org.springframework.security.web.access.ExceptionTranslationFilter@531a0896, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7a9d38fc]
+""2018-02-22 16:35:14 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+""2018-02-22 16:35:14 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+""2018-02-22 16:35:15 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+""2018-02-22 16:35:15 [Thread-10] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@6e8bc8bd: startup date [Thu Feb 22 16:35:03 ART 2018]; root of context hierarchy
+""2018-02-22 16:35:15 [Thread-10] INFO  o.s.j.e.a.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+""2018-02-22 16:35:15 [Thread-10] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+""2018-02-22 16:35:15 [Thread-10] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000227: Running hbm2ddl schema export
+""2018-02-22 16:35:15 [Thread-10] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000230: Schema export complete
+""2018-02-22 16:36:04 [restartedMain] INFO  com.proycc.base.BaseApplication - Starting BaseApplication on DESKTOP-VQ3P2L8 with PID 15752 (C:\GitRepo\proycc\base\target\classes started by fafre in C:\GitRepo\proycc\base)
+""2018-02-22 16:36:04 [restartedMain] DEBUG com.proycc.base.BaseApplication - Running with Spring Boot v1.5.10.RELEASE, Spring v4.3.14.RELEASE
+""2018-02-22 16:36:04 [restartedMain] INFO  com.proycc.base.BaseApplication - No active profile set, falling back to default profiles: default
+""2018-02-22 16:36:04 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@47d34fea: startup date [Thu Feb 22 16:36:04 ART 2018]; root of context hierarchy
+""2018-02-22 16:36:07 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$e1701da8] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:36:07 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$7a1de5e2] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:36:07 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:36:07 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@74940b3' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:36:07 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$9ef28894] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:36:07 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+""2018-02-22 16:36:08 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+""2018-02-22 16:36:08 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+""2018-02-22 16:36:08 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.27
+""2018-02-22 16:36:09 [localhost-startStop-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+""2018-02-22 16:36:09 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+""2018-02-22 16:36:09 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+""2018-02-22 16:36:09 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+""2018-02-22 16:36:09 [localhost-startStop-1] INFO  o.s.b.w.s.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+""2018-02-22 16:36:09 [localhost-startStop-1] INFO  o.s.b.w.s.DelegatingFilterProxyRegistrationBean - Mapping filter: 'springSecurityFilterChain' to: [/*]
+""2018-02-22 16:36:09 [localhost-startStop-1] INFO  o.s.b.w.s.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+""2018-02-22 16:36:10 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+""2018-02-22 16:36:10 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+""2018-02-22 16:36:10 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.0.12.Final}
+""2018-02-22 16:36:10 [restartedMain] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+""2018-02-22 16:36:10 [restartedMain] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+""2018-02-22 16:36:10 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+""2018-02-22 16:36:11 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.HSQLDialect
+""2018-02-22 16:36:12 [restartedMain] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000227: Running hbm2ddl schema export
+""2018-02-22 16:36:12 [restartedMain] INFO  o.h.tool.hbm2ddl.SchemaExport - HHH000230: Schema export complete
+""2018-02-22 16:36:12 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2018-02-22 16:36:12 [restartedMain] INFO  o.h.h.i.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+""2018-02-22 16:36:14 [restartedMain] INFO  o.s.b.a.w.WebMvcAutoConfiguration$WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+""2018-02-22 16:36:15 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/css/**'], Ant [pattern='/js/**'], Ant [pattern='/images/**'], Ant [pattern='/webjars/**'], Ant [pattern='/**/favicon.ico'], Ant [pattern='/error']]], []
+""2018-02-22 16:36:15 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@19304921, org.springframework.security.web.context.SecurityContextPersistenceFilter@3e856da4, org.springframework.security.web.header.HeaderWriterFilter@466d41fb, org.springframework.security.web.csrf.CsrfFilter@2e41cc8a, org.springframework.security.web.authentication.logout.LogoutFilter@5884a11, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@51e13e88, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@57fba946, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4479c8, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@6324846b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7670bacf, org.springframework.security.web.session.SessionManagementFilter@3c55dc75, org.springframework.security.web.access.ExceptionTranslationFilter@63531c5b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@9049cb7]
+""2018-02-22 16:36:15 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/**']]], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@75bf06c6, org.springframework.security.web.context.SecurityContextPersistenceFilter@4775e1f1, org.springframework.security.web.header.HeaderWriterFilter@4a4aff02, org.springframework.security.web.authentication.logout.LogoutFilter@236f44f3, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@500bc8a4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3b85fd38, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@26aab7a5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1e1547b5, org.springframework.security.web.session.SessionManagementFilter@5625fe72, org.springframework.security.web.access.ExceptionTranslationFilter@3309f0af, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4bd8111b]
+""2018-02-22 16:36:15 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+""2018-02-22 16:36:15 [restartedMain] INFO  o.s.j.e.a.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+""2018-02-22 16:36:16 [restartedMain] INFO  o.s.b.c.e.t.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+""2018-02-22 16:36:16 [restartedMain] INFO  com.proycc.base.BaseApplication - Started BaseApplication in 12.548 seconds (JVM running for 13.519)
+"

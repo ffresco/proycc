@@ -25,6 +25,7 @@ public class TestClass {
         ur.save(new User(4, "22", "ffff", Role.USER));
         System.out.println(ur.getAll());
         
+        System.out.println(slf4jLogger.isDebugEnabled());
         System.out.println("--Logger example--");
         slf4jLogger.info("mensaje={}","probando el log");
         slf4jLogger.debug("objeto={}",new User());
