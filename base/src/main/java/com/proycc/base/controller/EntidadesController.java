@@ -9,21 +9,23 @@ import com.proycc.base.domain.Cliente;
 import com.proycc.base.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Controller
-public class ClienteController {
-
+public class EntidadesController {
+    
+    private static final Logger LOGGER = LoggerFactory.getLogger(EntidadesController.class);
+    
     @Autowired
     private ClienteRepository cliRepo;
 
-    @RequestMapping(value = "/listadocli")
+    @RequestMapping(value = "/entidades")
     public ModelAndView findAll() {
         return new ModelAndView("listado", "clientes", cliRepo.getClientes());
     }

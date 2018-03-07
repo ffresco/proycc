@@ -1,8 +1,11 @@
 package com.proycc.base;
 
+import com.proycc.base.domain.Cotizacion;
 import com.proycc.base.domain.Item;
+import com.proycc.base.service.CotizacionService;
 import com.proycc.base.service.ItemService;
 import static java.lang.System.exit;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +20,8 @@ public class BaseApplication implements CommandLineRunner {
     
     @Autowired
     ItemService customerRepository;
+    @Autowired
+    CotizacionService cotizacionService;
     
     public static void main(String[] args)  {
         SpringApplication.run(BaseApplication.class, args);
@@ -44,6 +49,16 @@ public class BaseApplication implements CommandLineRunner {
         customerRepository.delete(item);
 
         System.out.println("Done!");
+        
+        System.out.println("------Prueba de cotizacion---------------");
+        Cotizacion c1 = new Cotizacion(new Date(), "USD", "EMPRES", "AGENCIA", Float.POSITIVE_INFINITY, Float.NaN, Float.MIN_NORMAL, Float.MIN_NORMAL, "Billetes", "compra", "$$");
+        System.out.println("cotizacion " + c1.toString());
+        cotizacionService.saveOrUpdate(c1);
+        c1.setComisionVta(new Float(120.22));
+        System.out.println(c1);
+        cotizacionService.saveOrUpdate(c1);
+        System.out.println("todo " + cotizacionService.getAll());
+        
 
         //exit(0);
     }

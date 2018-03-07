@@ -42,7 +42,7 @@ public class UserController {
         this.userCreateFormValidator = userCreateFormValidator;
     }
 
-    @InitBinder("form")
+    @InitBinder("form") //restringe la aplicacion del init binder solo al atributo form 
     public void initBinder(WebDataBinder binder) {
         binder.addValidators(userCreateFormValidator);
     }
