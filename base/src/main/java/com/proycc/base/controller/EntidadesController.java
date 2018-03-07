@@ -27,7 +27,7 @@ public class EntidadesController {
 
     @RequestMapping(value = "/entidades")
     public ModelAndView findAll() {
-        return new ModelAndView("listado", "clientes", cliRepo.getClientes());
+        return new ModelAndView("entidades", "clientes", cliRepo.getClientes());
     }
 
     @RequestMapping(value = "/savecli", method = RequestMethod.POST)
