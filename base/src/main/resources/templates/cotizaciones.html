@@ -19,18 +19,20 @@ and open the template in the editor.
 
 			<!-- Contenido principal 9 columnas -->
 			<div class="col-sm-9">
-				<div class="container">
-					<div class="panel-group">
-						<div class="panel panel-default">
-							<div class="panel-heading"><h2>Cotizaciones</h2></div>
-							
-						</div>
+				
+					<div class="panel panel-default">
+							<div class= "panel-heading row">
+				
+									<div class="col-sm-6"><h2>Cotizaciones</h2></div>
+									<div class="col-sm-3"><a class="btn btn-sm btn-success" th:href="@{/cotizaciones/create}" >Nuevo</a></div>
+								
+							</div>			
 					</div>
-				</div>	
+			
 			</div> <!-- Fin Contenido principal 9 columnas -->
 
 		</div>	<!-- fila contine menuj lateral 3 col,  principal 9 col -->
 
-			</div>	<!-- fin contenedor de pagina-->
+		</div>	<!-- fin contenedor de pagina-->
 		</body>
 		</html>

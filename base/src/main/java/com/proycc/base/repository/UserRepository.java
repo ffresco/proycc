@@ -29,6 +29,7 @@ public class UserRepository {
     private void initRepo() {
         users.add(new User(1, "ffresco@gmail.com", "1", Role.ADMIN));
         users.add(new User(2, "mulo@mulo.com", "1", Role.USER));
+        users.add(new User(3,"ffresco@gd","1",Role.ADMIN));
       
     }
 

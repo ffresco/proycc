@@ -28,7 +28,7 @@ public class UsersController {
         this.userService = userService;
     }
 
-    @RequestMapping("/users")
+    @RequestMapping("/usuarios")
     public ModelAndView getUsersPage() {
         LOGGER.debug("Getting users page");
         return new ModelAndView("users", "users", userService.getAllUsers());

@@ -6,6 +6,7 @@
 package com.proycc.base.controller;
 
 import com.proycc.base.domain.Cotizacion;
+import com.proycc.base.domain.DataMaster;
 import com.proycc.base.service.CotizacionService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,11 +24,13 @@ import org.springframework.web.servlet.ModelAndView;
 public class CotizacionesController {
 
     private final Logger LOGGER = LoggerFactory.getLogger(CotizacionesController.class);
-    private CotizacionService cotizacionService;
+    private final CotizacionService cotizacionService;
+    private final DataMaster dataMaster;
 
     @Autowired
-    public CotizacionesController(CotizacionService cotizacionService) {
+    public CotizacionesController(CotizacionService cotizacionService, DataMaster dataMaster) {
         this.cotizacionService = cotizacionService;
+        this.dataMaster = dataMaster;
     }
 
     @RequestMapping("/cotizaciones")
@@ -40,7 +43,12 @@ public class CotizacionesController {
         Cotizacion cotizacion = new Cotizacion();
         System.out.println("Estoy en la cotizacion cotroller");
         LOGGER.info("aca estamos en controller");
-        return new ModelAndView("cotizacion_create", "cotizacion", cotizacion);
+        ModelAndView mav = new ModelAndView("cotizacion_create");
+        mav.addObject("cotizacion", cotizacion);
+        mav.addObject("dataMaster", dataMaster);
+        LOGGER.info("ests es el mav " + mav.toString());
+        LOGGER.info(dataMaster.toString());
+        return mav;
     }
 
 }
