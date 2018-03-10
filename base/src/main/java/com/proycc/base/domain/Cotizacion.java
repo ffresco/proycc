@@ -6,6 +6,7 @@
 package com.proycc.base.domain;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -28,7 +29,7 @@ public class Cotizacion implements Serializable{
     private Long id;
     
     @Column(name="fecha")    
-    private Date fecha;
+    private LocalDateTime fecha;
     
     @Column(name="moneda")
     private String moneda;
@@ -60,7 +61,7 @@ public class Cotizacion implements Serializable{
     @Column(name="moneda_base")
     private String monedaBase;
 
-    public Cotizacion(Date fecha, String moneda, String entidad, String tipoCambio, Float cotizacionVta, Float cotizacionCmp, Float comisionVta, Float comisionCmp, String instrumento, String tipoOp, String monedaBase) {
+    public Cotizacion(LocalDateTime fecha, String moneda, String entidad, String tipoCambio, Float cotizacionVta, Float cotizacionCmp, Float comisionVta, Float comisionCmp, String instrumento, String tipoOp, String monedaBase) {
     
         this.fecha = fecha;
         this.moneda = moneda;
@@ -78,13 +79,15 @@ public class Cotizacion implements Serializable{
     public Cotizacion() {
     }
 
-    public Date getFecha() {
+    public LocalDateTime getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(LocalDateTime fecha) {
         this.fecha = fecha;
     }
+
+
 
     public String getMoneda() {
         return moneda;

@@ -5,6 +5,7 @@ import com.proycc.base.domain.Item;
 import com.proycc.base.service.CotizacionService;
 import com.proycc.base.service.ItemService;
 import static java.lang.System.exit;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -51,7 +52,7 @@ public class BaseApplication implements CommandLineRunner {
         System.out.println("Done!");
         
         System.out.println("------Prueba de cotizacion---------------");
-        Cotizacion c1 = new Cotizacion(new Date(), "USD", "EMPRES", "AGENCIA", Float.POSITIVE_INFINITY, Float.NaN, Float.MIN_NORMAL, Float.MIN_NORMAL, "Billetes", "compra", "$$");
+        Cotizacion c1 = new Cotizacion(LocalDateTime.now(), "USD", "EMPRES", "AGENCIA", Float.POSITIVE_INFINITY, Float.NaN, Float.MIN_NORMAL, Float.MIN_NORMAL, "Billetes", "compra", "$$");
         System.out.println("cotizacion " + c1.toString());
         cotizacionService.saveOrUpdate(c1);
         c1.setComisionVta(new Float(120.22));

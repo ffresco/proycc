@@ -26,17 +26,20 @@ and open the template in the editor.
 						<div class="panel-heading"><h2>Cotizaciones</<h2></h2></div>
 					</div>
 					<div class="panel-body">
-						<form class="form-horizontal" method="post" th:action="@{/cotizaciones/save}" th:object="${cotizacion}">
+						<form class="form-horizontal" method="POST" th:action="@{/cotizaciones/save}" th:object="${cotizacion}" modelAttribute="cotizacion">
 							<fieldset>
 
 								<!-- Form Name -->
 								<legend>Nueva Cotizacion</legend>
 
+								<input id="id" th:field="*{id}" name="id" type="hidden" th:field="*{id}" >
+
+
 								<!-- Text input-->
 								<div class="form-group">
 									<label class="col-md-4 control-label" for="txtFecha">Fecha</label>  
 									<div class="col-md-4">
-										<input id="txtFecha" th:field="*{fecha}" readonly="true"  name="txtFecha" type="text" placeholder="fecha creacion" class="form-control input-md">
+										<input id="fecha" th:field="*{fecha}" readonly="true"  name="txtFecha" type="text" placeholder="fecha creacion" class="form-control input-md">
 
 									</div>
 								</div>
@@ -45,7 +48,7 @@ and open the template in the editor.
 								<div class="form-group">
 									<label class="col-md-4 control-label" for="slctEntidad">Entidad</label>
 									<div class="col-md-4">
-										<select id="slctEntidad" th:field="*{entidad}" th:remove="all-but-first" name="slctEntidad" class="form-control">
+										<select id="entidad" th:field="*{entidad}" th:remove="all-but-first" name="slctEntidad" class="form-control">
 											<option th:each="entidadOption : ${dataMaster.entidades}" 
 											th:value="${entidadOption}" th:text="${entidadOption}">  </option>
 											<option value="'Empresa'">Empresa</option>
@@ -58,7 +61,7 @@ and open the template in the editor.
 								<div class="form-group">
 									<label class="col-md-4 control-label" for="slctMoneda">Moneda</label>
 									<div class="col-md-4">
-										<select id="slctMoneda" th:field="*{moneda}" th:remove="all-but-first" name="slctMoneda" class="form-control">
+										<select id="moneda" th:field="*{moneda}" th:remove="all-but-first" name="slctMoneda" class="form-control">
 											<option th:each="monedaOption : ${dataMaster.monedas}" 
 											th:value="${monedaOption}" th:text="${monedaOption}">  </option>							
 											<option value="USD">U$D</option>
@@ -71,7 +74,7 @@ and open the template in the editor.
 								<div class="form-group">
 									<label class="col-md-4 control-label" for="slctTipoCambio">Tipo de Cambio</label>
 									<div class="col-md-4">
-										<select id="slctTipoCambio" th:field="*{tipoCambio}" th:remove="all-but-first" name="slctTipoCambio" class="form-control">
+										<select id="tipoCambio" th:field="*{tipoCambio}" th:remove="all-but-first" name="slctTipoCambio" class="form-control">
 											<option th:each="tipoCambioOption : ${dataMaster.tipoCambios}" 
 											th:value="${tipoCambioOption}" th:text="${tipoCambioOption}">  </option>
 											<option value="Agencia">Agencia</option>
@@ -84,7 +87,7 @@ and open the template in the editor.
 								<div class="form-group">
 									<label class="col-md-4 control-label" for="txtCotizacionCmp">Cotizacion Compra</label>  
 									<div class="col-md-4">
-										<input id="txtCotizacionCmp" th:field="*{cotizacionCmp}" name="txtCotizacionCmp" type="number" step=".01" placeholder="cotizacion de compra" class="form-control input-md" required="">
+										<input id="cotizacionCmp" th:field="*{cotizacionCmp}" name="txtCotizacionCmp" type="number" step=".01" placeholder="cotizacion de compra" class="form-control input-md" required="">
 
 									</div>
 								</div>
@@ -93,7 +96,7 @@ and open the template in the editor.
 								<div class="form-group">
 									<label class="col-md-4 control-label" for="txtCotizacionVta">Cotización Venta</label>  
 									<div class="col-md-4">
-										<input id="txtCotizacionVta" th:field="*{cotizacionVta}" name="txtCotizacionVta" type="number" step=".01" placeholder="ingrese la cotizacion de venta" class="form-control input-md" required="">
+										<input id="cotizacionVta" th:field="*{cotizacionVta}" name="txtCotizacionVta" type="number" step=".01" placeholder="ingrese la cotizacion de venta" class="form-control input-md" required="">
 
 									</div>
 								</div>
@@ -102,7 +105,7 @@ and open the template in the editor.
 								<div class="form-group">
 									<label class="col-md-4 control-label" for="textComisionCmp">Comisión Compra</label>  
 									<div class="col-md-4">
-										<input id="textComisionCmp" th:field="*{comisionCmp}" name="textComisionCmp" type="number" step=".01" placeholder="ingrese la comision de compra" class="form-control input-md" required="">
+										<input id="comisionCmp" th:field="*{comisionCmp}" name="textComisionCmp" type="number" step=".01" placeholder="ingrese la comision de compra" class="form-control input-md" required="">
 
 									</div>
 								</div>
@@ -111,7 +114,7 @@ and open the template in the editor.
 								<div class="form-group">
 									<label class="col-md-4 control-label" for="txtComisionVta">Comisión Venta</label>  
 									<div class="col-md-4">
-										<input id="txtComisionVta" th:field="*{comisionVta}" name="txtComisionVta" type="number" step=".01" placeholder="ingrese cotizacion de venta" class="form-control input-md" required="">
+										<input id="comisionVta" th:field="*{comisionVta}" name="txtComisionVta" type="number" step=".01" placeholder="ingrese cotizacion de venta" class="form-control input-md" required="">
 
 									</div>
 								</div>
@@ -120,7 +123,7 @@ and open the template in the editor.
 								<div class="form-group">
 									<label class="col-md-4 control-label" for="slctInstrumento">Instrumento</label>
 									<div class="col-md-4">
-										<select id="slctInstrumento" th:field="*{instrumento}" th:remove="all-but-first" name="slctInstrumento" class="form-control">  
+										<select id="instrumento" th:field="*{instrumento}" th:remove="all-but-first" name="slctInstrumento" class="form-control">  
 										    <option th:each="instrumentoOpt : ${dataMaster.instrumentos}" 
 											th:value="${instrumentoOpt}" th:text="${instrumentoOpt}">  </option>
 											<option value="'Billetes'">Billetes</option>
@@ -134,7 +137,7 @@ and open the template in the editor.
 								<div class="form-group">
 									<label class="col-md-4 control-label" for="slctTipoOp">Tipo de Operacion</label>
 									<div class="col-md-4">
-										<select id="slctTipoOp" th:field="*{tipoOp}" th:remove="all-but-first" name="slctTipoOp" class="form-control">
+										<select id="tipoOp" th:field="*{tipoOp}" th:remove="all-but-first" name="slctTipoOp" class="form-control">
 										    <option th:each="tipoCambioOption : ${dataMaster.tipoOperaciones}" 
 											th:value="${tipoCambioOption}" th:text="${tipoCambioOption}">  </option>											
 											<option value="'CompVta'">Compra-Venta</option>
@@ -148,7 +151,7 @@ and open the template in the editor.
 								<div class="form-group">
 									<label class="col-md-4 control-label" for="txtMonedaBase">Moneda Base</label>  
 									<div class="col-md-4">
-										<input id="txtMonedaBase" th:field="*{monedaBase}" readonly="true" name="txtMonedaBase" type="text" placeholder="muestra la moneda base del sistema" class="form-control input-md">
+										<input id="monedaBase" th:field="*{monedaBase}" readonly="true" name="txtMonedaBase" type="text" placeholder="muestra la moneda base del sistema" class="form-control input-md">
 
 									</div>
 								</div>
@@ -157,8 +160,9 @@ and open the template in the editor.
 								<div class="form-group">
 									<label class="col-md-4 control-label" for="btnGuardar"></label>
 									<div class="col-md-4">
-										<button id="btnGuardar" name="btnGuardar" class="btn btn-success">Guardar</button>
-										<button id="btnCancelar" name="btnCancelar" class="btn btn-danger">Cancelar</button>
+										<button id="btnGuardar" name="btnGuardar" class="btn btn-success" type="submit">Guardar</button>
+										<a th:href="@{/cotizaciones}" class="btn btn-danger">Cancelar</a>
+										
 									</div>
 								</div>
 

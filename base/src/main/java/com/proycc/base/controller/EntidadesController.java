@@ -45,16 +45,14 @@ public class EntidadesController {
 
     @RequestMapping(value="/editcli/{documento}")
     public ModelAndView edit(@PathVariable("documento") String documento) {
-        return add(cliRepo.getById(documento));
-        
+        return add(cliRepo.getById(documento));        
     
     }
     
     @RequestMapping(value="/deletecli/{documento}")
     public ModelAndView delete(@PathVariable("documento") String documento) {
         cliRepo.removeCli(cliRepo.getById(documento));
-        return findAll();
-        
+        return findAll();        
     
     }
     
