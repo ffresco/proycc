@@ -53,7 +53,7 @@ public class CotizacionesController {
     public ModelAndView getCotizacionCreatePage() {
         Cotizacion cotizacion = new Cotizacion();
         cotizacion.setFecha(LocalDateTime.now());
-        cotizacion.setMonedaBase(dataMaster.getMonedas().get(0));
+        cotizacion.setMonedaBase(dataMaster.getMonedaBase());
         cotizacion.setComisionCmp(Float.MIN_NORMAL);
         cotizacion.setComisionVta(Float.MIN_NORMAL);
         cotizacion.setCotizacionCmp(Float.MIN_VALUE);

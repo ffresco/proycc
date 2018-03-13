@@ -34,22 +34,22 @@
 								<thead>
 									<tr>
 										<th> Fecha </th>
-										<th> Moneda</th>
+										<th> Mnd</th>
 										<th> Entidad</th>
-										<th> TipoCambio</th>
-										<th> CotizacionVta</th>
-										<th> CotizacionCmp</th>
-										<th> ComisionVta</th>
-										<th> ComisionCmp</th>
-										<th> Instrumento</th>
-										<th> TipoOp</th>
-										<th> MonedaBase</th>
+										<th> Tpo Cmb</th>
+										<th> Cot Vta</th>
+										<th> Cot Cmp</th>
+										<th> Com Vta</th>
+										<th> Com Cmp</th>
+										<th> Instr</th>
+										<th> Tipo Op</th>
+										<th> Mnd Base</th>
 										<th></th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr th:each="cotizacion : ${cotizaciones}">
-										<td th:text="${cotizacion.fecha}"></td>
+										<td th:text="${#temporals.format(cotizacion.fecha, 'dd/MMM/yyyy HH:mm')}"></td>
 										<td th:text="${cotizacion.moneda}"></td>
 										<td th:text="${cotizacion.entidad}"></td>
 										<td th:text="${cotizacion.tipoCambio}"></td>

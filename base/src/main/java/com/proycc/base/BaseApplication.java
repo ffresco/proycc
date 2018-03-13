@@ -4,16 +4,13 @@ import com.proycc.base.domain.Cotizacion;
 import com.proycc.base.domain.Item;
 import com.proycc.base.service.CotizacionService;
 import com.proycc.base.service.ItemService;
-import static java.lang.System.exit;
 import java.time.LocalDateTime;
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.thymeleaf.extras.java8time.dialect.Java8TimeDialect;
 
 
 @SpringBootApplication
@@ -24,12 +21,15 @@ public class BaseApplication implements CommandLineRunner {
     @Autowired
     CotizacionService cotizacionService;
     
+    @Bean
+    public Java8TimeDialect java8TimeDialect() {
+        return new Java8TimeDialect();
+    }
+    
     public static void main(String[] args)  {
         SpringApplication.run(BaseApplication.class, args);
         System.out.println("se ejecutara?");
-    
-
-    }
+     }
  
     //para probar cosas
    
@@ -60,7 +60,6 @@ public class BaseApplication implements CommandLineRunner {
         cotizacionService.saveOrUpdate(c1);
         System.out.println("todo " + cotizacionService.getAll());
         
-
         //exit(0);
     }
 }

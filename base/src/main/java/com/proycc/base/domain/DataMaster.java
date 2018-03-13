@@ -25,6 +25,7 @@ public class DataMaster {
     private final List<String> tipoCambios;
     private final List<String> tipoOperaciones;
     private final List<String> instrumentos;
+    private final String monedaBase;
 
     public DataMaster() {
         this.tipoOperaciones = Arrays.asList("CPRA-VTA","ARBITRAJE","CANJE");
@@ -32,6 +33,7 @@ public class DataMaster {
         this.tipoCambios = Arrays.asList("AGENCIA","CAMBISTA","ESPECIAL");
         this.monedas = Arrays.asList("USD","AR$","REAL");
         this.instrumentos = Arrays.asList("BILLETE","CHEQUE");
+        this.monedaBase ="AR$";
     }
 
     public List<String> getMonedas() {
@@ -54,10 +56,17 @@ public class DataMaster {
         return instrumentos;
     }
 
+    public String getMonedaBase() {
+        return monedaBase;
+    }
+
+    
+    
     @Override
     public String toString() {
         return "DataMaster{" + "monedas=" + monedas + ", entidades=" + entidades + ", tipoCambios=" + tipoCambios + ", tipoOperaciones=" + tipoOperaciones + ", instrumentos=" + instrumentos + '}';
     }
+    
     
     
     
