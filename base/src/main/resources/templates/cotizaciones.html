@@ -15,7 +15,7 @@
 		<div th:replace="fragments ::navbartop"></div> <!-- Menu superior --> 	
 
 		<div class="row content"> <!-- fila contine menuj lateral 3 col,  principal 9 col -->
-			<div th:replace="fragments ::navbarside"></div> <!-- Menu Lateral  -->  
+			<div th:replace="fragments ::navbarside_cot"></div> <!-- Menu Lateral  -->  
 
 			<!-- Contenido principal 9 columnas -->
 			<div class="col-sm-9">
@@ -43,7 +43,7 @@
 										<th> Com Cmp</th>
 										<th> Instr</th>
 										<th> Tipo Op</th>
-										<th> Mnd Base</th>
+										<!--<th> Mnd Base</th>-->
 										<th></th>
 									</tr>
 								</thead>
@@ -59,7 +59,7 @@
 										<td th:text="${cotizacion.comisionCmp}"></td>
 										<td th:text="${cotizacion.instrumento}"></td>
 										<td th:text="${cotizacion.tipoOp}"></td>
-										<td th:text="${cotizacion.monedaBase}"></td>										
+										<!--<td th:text="${cotizacion.monedaBase}"></td>-->									
 										<td>
 										<div class="btn-group pull-right">
 											<a class="btn btn-sm btn-primary" th:href="@{/cotizaciones/edit/{id}(id=${cotizacion.id})}" >Editar</a>

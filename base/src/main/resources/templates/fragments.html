@@ -10,62 +10,63 @@
 
 
 
- 
+
 
 
 <body>
 
-<div th:fragment="app_head(titulo)">
-  <title th:text="${titulo}"></title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" href="/css/bootstrap.min.css">
-  <link th:href="@{/css/custom.css}"  rel="stylesheet" type="text/css">
-  <script th:src="@{/js/jquery-1.11.1.min.js}" src="/js/jquery-1.11.1.min.js" ></script>
-  <script th:src="@{/js/bootstrap.min.js}" src="/js/bootstrap.min.js"></script>
-</div>
-
-
-<!-- Menu Fragment-->
-<div  th:fragment="navbartop">
-<!-- Menu -->
-<nav class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container-fluid">
-    <!--esto es para los dispositivos moviles-->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a href=""><img src="img/logo_clg.png" th:src="@{/img/logo_clg.png}" class="logoMenu img-responsive img-circle "></a>
-    </div>
-    <!--Barra que se ve en la web-->
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li><a href="" th:href="@{/entidades}">Clientes</a></li>
-        <li><a href="" th:href="@{/operaciones}">Operaciones</a></li> 
-        <li><a href="" th:href="@{/reportes}">Reportes</a></li>
-        <li><a href="#" th:href="@{/auditoria}">Auditoria</a></li>
-        <li><a href="#" th:href="@{/cajas}">Cajas</a></li>
-        <li><a href="#" th:href="@{/cotizaciones}">Cotizaciones</a></li>
-        <li><a href="#" th:href="@{/usuarios}">Usuarios</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon glyphicon-bell"></span>Notif </a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-search"></span> Buscar</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Cuenta</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> salir</a></li> 
-      </ul>
-    </div>
+  <div th:fragment="app_head(titulo)">
+    <title th:text="${titulo}"></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" href="/css/bootstrap.min.css">
+    <link th:href="@{/css/custom.css}"  rel="stylesheet" type="text/css">
+    <script th:src="@{/js/jquery-1.11.1.min.js}" src="/js/jquery-1.11.1.min.js" ></script>
+    <script th:src="@{/js/bootstrap.min.js}" src="/js/bootstrap.min.js"></script>
+    <script th:src="@{/js/custom.js}" src="/js/custom.js"></script>
   </div>
-</nav>
-<!-- Menu -->
- </div>
-<!-- fin Menu top Fragment-->
 
-<!--Menu lateral fragment-->  
-<div th:fragment="navbarside">
+
+  <!-- Menu Fragment-->
+  <div  th:fragment="navbartop">
+    <!-- Menu -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <!--esto es para los dispositivos moviles-->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href=""><img src="img/logo_clg.png" th:src="@{/img/logo_clg.png}" class="logoMenu img-responsive img-circle "></a>
+        </div>
+        <!--Barra que se ve en la web-->
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li><a href="" th:href="@{/entidades}">Clientes</a></li>
+            <li><a href="" th:href="@{/operaciones}">Operaciones</a></li> 
+            <li><a href="" th:href="@{/reportes}">Reportes</a></li>
+            <li><a href="#" th:href="@{/auditoria}">Auditoria</a></li>
+            <li><a href="#" th:href="@{/cajas}">Cajas</a></li>
+            <li><a href="#" th:href="@{/cotizaciones}">Cotizaciones</a></li>
+            <li><a href="#" th:href="@{/usuarios}">Usuarios</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><span class="glyphicon glyphicon glyphicon-bell"></span>Notif </a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-search"></span> Buscar</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Cuenta</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> salir</a></li> 
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Menu -->
+  </div>
+  <!-- fin Menu top Fragment-->
+
+  <!--Menu lateral fragment-->  
+  <div th:fragment="navbarside">
     <div class="col-sm-3 sidenav">
       <br>
       <h4>Menu</h4>
@@ -82,10 +83,90 @@
         </span>
       </div>
     </div> 
- </div>   
-<!--fin menu lateral fragment-->   
+  </div>   
+  <!--fin menu lateral fragment-->   
 
 
+
+
+  <!--Menu lateral cotizaciones busqueda-->  
+  <div th:fragment="navbarside_cot">
+    <div class="col-sm-3 sidenav">
+      <form class="form-horizontal">
+        <fieldset>
+
+          <!-- Form Name -->
+          <legend>Busqueda  </legend>
+
+          <!-- Select Basic -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="cmbTipoOp">Tipo Op</label>
+            <div class="col-md-4">
+              <select id="cmbTipoOp" name="cmbTipoOp" class="form-control">
+                <option value="1">Option one</option>
+                <option value="2">Option two</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Select Basic -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="cmbMnd">Moneda</label>
+            <div class="col-md-4">
+              <select id="cmbMnd" name="cmbMnd" class="form-control">
+                <option value="1">Option one</option>
+                <option value="2">Option two</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Select Basic -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="cmbTipoCambio">Tipo Cambio</label>
+            <div class="col-md-4">
+              <select id="cmbTipoCambio" name="cmbTipoCambio" class="form-control">
+                <option value="1">Option one</option>
+                <option value="2">Option two</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Select Basic -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="cmbInstrumento">Instrumento</label>
+            <div class="col-md-4">
+              <select id="cmbInstrumento" name="cmbInstrumento" class="form-control">
+                <option value="1">Option one</option>
+                <option value="2">Option two</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="txtFecha">Fecha Desde</label>  
+            <div class="col-md-4">
+              <input id="txtFecha" name="txtFecha" type="text" placeholder="DD/MM/YYY" class="form-control input-md">
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>    
+            </div>
+          </div>
+
+          <!-- Button -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="btnBuscar"></label>
+            <div class="col-md-4">
+              <button id="btnBuscar" name="btnBuscar" class="btn btn-primary">Buscar</button>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+
+    </div>
+  </div> 
+</div>   
+<!--fin menu lateral cotizacines busqueda-->   
 
 
 <footer class="container-fluid">
