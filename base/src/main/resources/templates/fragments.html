@@ -20,10 +20,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/jquery-ui.min.css}" href="/css/jquery-ui.min.css">
     <link th:href="@{/css/custom.css}"  rel="stylesheet" type="text/css">
     <script th:src="@{/js/jquery-1.11.1.min.js}" src="/js/jquery-1.11.1.min.js" ></script>
     <script th:src="@{/js/bootstrap.min.js}" src="/js/bootstrap.min.js"></script>
+    <script th:src="@{/js/jquery-ui.min.js}" src="/js/jquery-ui.min.js"></script>
+
     <script th:src="@{/js/custom.js}" src="/js/custom.js"></script>
+
+
   </div>
 
 
@@ -92,7 +97,7 @@
   <!--Menu lateral cotizaciones busqueda-->  
   <div th:fragment="navbarside_cot">
     <div class="col-sm-3 sidenav">
-      <form class="form-horizontal">
+      <form class="" method="POST" th:action="@{/cotizaciones/search}" th:object="${cotizacionSearch}"  modelAttribute="cotizacionsearch">
         <fieldset>
 
           <!-- Form Name -->
@@ -100,53 +105,57 @@
 
           <!-- Select Basic -->
           <div class="form-group">
-            <label class="col-md-4 control-label" for="cmbTipoOp">Tipo Op</label>
-            <div class="col-md-4">
-              <select id="cmbTipoOp" name="cmbTipoOp" class="form-control">
-                <option value="1">Option one</option>
-                <option value="2">Option two</option>
+            <label class="" for="cmbTipoOp">Tipo Op</label>
+            <div class="">
+              <select id="cmbTipoOp" th:field="*{tipoOp}" name="tipoOp" class="form-control">
+                <option value="">Todos</option>
+                <option th:each=" tipoOp : ${dataMaster.tipoOperaciones}" th:value="${tipoOp}" th:text="${tipoOp}"></option>
+                
               </select>
             </div>
           </div>
 
           <!-- Select Basic -->
           <div class="form-group">
-            <label class="col-md-4 control-label" for="cmbMnd">Moneda</label>
-            <div class="col-md-4">
-              <select id="cmbMnd" name="cmbMnd" class="form-control">
-                <option value="1">Option one</option>
-                <option value="2">Option two</option>
+            <label class="" for="cmbMnd">Moneda</label>
+            <div class="">
+              <select id="cmbMnd" th:field="*{moneda}" name="moneda" class="form-control">
+                <option value="">Todos</option>
+                <option th:each=" moneda : ${dataMaster.monedas}" th:value="${moneda}" th:text="${moneda}"></option>
+               
               </select>
             </div>
           </div>
 
           <!-- Select Basic -->
           <div class="form-group">
-            <label class="col-md-4 control-label" for="cmbTipoCambio">Tipo Cambio</label>
-            <div class="col-md-4">
-              <select id="cmbTipoCambio" name="cmbTipoCambio" class="form-control">
-                <option value="1">Option one</option>
-                <option value="2">Option two</option>
+            <label class="" for="cmbTipoCambio">Tipo Cambio</label>
+            <div class="">
+              <select id="cmbTipoCambio" th:field="*{tipoCmb}" name="tipoCmb" class="form-control">
+                <option value="">Todos</option>
+                <option th:each=" tipoCambio : ${dataMaster.tipoCambios}" th:value="${tipoCambio}" th:text="${tipoCambio}"></option>
+              
               </select>
             </div>
           </div>
 
           <!-- Select Basic -->
           <div class="form-group">
-            <label class="col-md-4 control-label" for="cmbInstrumento">Instrumento</label>
-            <div class="col-md-4">
-              <select id="cmbInstrumento" name="cmbInstrumento" class="form-control">
-                <option value="1">Option one</option>
-                <option value="2">Option two</option>
+            <label class="" for="cmbInstrumento">Instrumento</label>
+            <div class="">
+              <select id="cmbInstrumento" th:field="*{instrumento}" name="instrumento" class="form-control">
+                <option value="">Todos</option>
+                <option th:each=" instrumento : ${dataMaster.instrumentos}" th:value="${instrumento}" th:text="${instrumento}"></option>
+               
               </select>
             </div>
           </div>
 
           <!-- Text input-->
           <div class="form-group">
-            <label class="col-md-4 control-label" for="txtFecha">Fecha Desde</label>  
-            <div class="col-md-4">
-              <input id="txtFecha" name="txtFecha" type="text" placeholder="DD/MM/YYY" class="form-control input-md">
+            <label class="" for="txtCotFechaDesde">Fecha Desde</label>  
+            <div class="c">
+              <input id="txtCotFechaDesde" name="fechaDesde" type="text" placeholder="DD/MM/AAAA" class="form-control input-md">
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>    
@@ -155,8 +164,8 @@
 
           <!-- Button -->
           <div class="form-group">
-            <label class="col-md-4 control-label" for="btnBuscar"></label>
-            <div class="col-md-4">
+            <label class="" for="btnBuscar"></label>
+            <div class="">
               <button id="btnBuscar" name="btnBuscar" class="btn btn-primary">Buscar</button>
             </div>
           </div>

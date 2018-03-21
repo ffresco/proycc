@@ -7,8 +7,11 @@ package com.proycc.base.controller;
 
 import com.proycc.base.domain.Cotizacion;
 import com.proycc.base.domain.DataMaster;
+import com.proycc.base.domain.dto.CotizacionSearchDTO;
 import com.proycc.base.service.CotizacionService;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 import javax.validation.Valid;
@@ -41,11 +44,13 @@ public class CotizacionesController {
     }
 
     @RequestMapping("/cotizaciones")
-    public ModelAndView getMainPage() {
+    public ModelAndView getMainPage(@ModelAttribute("cotizacionsearch") CotizacionSearchDTO cs) {
         ModelAndView mav = new ModelAndView("cotizaciones");
-        List<Cotizacion> cotizaciones = cotizacionService.getAll();
+        List<Cotizacion> cotizaciones = cotizacionService.getAllContaining(cs);
         LOGGER.debug("listado de cotizaciones " + cotizaciones);
         mav.addObject("cotizaciones", cotizaciones);
+        mav.addObject("dataMaster", dataMaster);
+        mav.addObject("cotizacionSearch",cs);
         return mav;
     }
 
@@ -67,33 +72,50 @@ public class CotizacionesController {
         LOGGER.info(dataMaster.toString());
         return mav;
     }
-    
-    @RequestMapping(value = "/cotizaciones/save",method = RequestMethod.POST)
-    public ModelAndView saveCotizacion(@Valid @ModelAttribute("cotizacion") Cotizacion cot,BindingResult bindingResult){
+
+    @RequestMapping(value = "/cotizaciones/save", method = RequestMethod.POST)
+    public ModelAndView saveCotizacion(@Valid @ModelAttribute("cotizacion") Cotizacion cot, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             LOGGER.debug(bindingResult.toString());
         }
-        LOGGER.debug("Cotizacion grabada "+ cotizacionService.saveOrUpdate(cot));
+        LOGGER.debug("Cotizacion grabada " + cotizacionService.saveOrUpdate(cot));
         LOGGER.debug("grabe una cotizacion");
-        return getMainPage();
+        return getMainPage(new CotizacionSearchDTO());
     }
-    
+
+    @RequestMapping(value = "/cotizaciones/search", method = RequestMethod.POST)
+    public ModelAndView cotizacionSearch(@ModelAttribute("cotizacionsearch") CotizacionSearchDTO cs, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            LOGGER.debug(bindingResult.toString());
+        }
+        LOGGER.debug(cs.toString());
+        LOGGER.debug(cs.getFechaDesde());
+        if (cs.getFechaDesde().length() > 0) {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            LocalDate formatDateTime = LocalDate.parse(cs.getFechaDesde(), formatter);
+            LOGGER.debug(formatDateTime.toString());
+
+        }
+        System.out.println("--Esto devulve la query");
+        System.out.println(cotizacionService.getAllContaining(cs));
+       // System.out.println(cotizacionService.getAllContaining(""));
+        return getMainPage(cs);
+    }
+
     @RequestMapping(value = "/cotizaciones/delete/{id}")
-    public ModelAndView deleteCotizacion(@PathVariable Long id){
+    public ModelAndView deleteCotizacion(@PathVariable Long id) {
         cotizacionService.delete(cotizacionService.getById(id));
-        return getMainPage();
+        return getMainPage(new CotizacionSearchDTO());
     }
-    
+
     @RequestMapping(value = "/cotizaciones/edit/{id}")
-    public ModelAndView editCotizacion(@PathVariable Long id){
+    public ModelAndView editCotizacion(@PathVariable Long id) {
         ModelAndView mav = new ModelAndView("cotizacion_create");
         mav.addObject("cotizacion", cotizacionService.getById(id));
         mav.addObject("dataMaster", dataMaster);
         LOGGER.info("ests es el mav " + mav.toString());
         LOGGER.info(dataMaster.toString());
         return mav;
- 
-        
     }
 
 }

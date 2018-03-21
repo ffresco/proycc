@@ -5,6 +5,8 @@ import com.proycc.base.domain.Item;
 import com.proycc.base.service.CotizacionService;
 import com.proycc.base.service.ItemService;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -59,7 +61,6 @@ public class BaseApplication implements CommandLineRunner {
         System.out.println(c1);
         cotizacionService.saveOrUpdate(c1);
         System.out.println("todo " + cotizacionService.getAll());
-        
         //exit(0);
     }
 }
