@@ -14,6 +14,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import org.springframework.util.SerializationUtils;
 
 /**
  *
@@ -173,7 +174,8 @@ public class Cotizacion implements Serializable{
     public String toString() {
         return "Cotizacion{" + "id=" + id + ", fecha=" + fecha + ", moneda=" + moneda + ", entidad=" + entidad + ", tipoCambio=" + tipoCambio + ", cotizacionVta=" + cotizacionVta + ", cotizacionCmp=" + cotizacionCmp + ", comisionVta=" + comisionVta + ", comisionCmp=" + comisionCmp + ", instrumento=" + instrumento + ", tipoOp=" + tipoOp + ", monedaBase=" + monedaBase + '}';
     }
-    
+
+ 
     
 
     

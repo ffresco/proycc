@@ -25,6 +25,7 @@ public class DataMaster {
     private final List<String> tipoCambios;
     private final List<String> tipoOperaciones;
     private final List<String> instrumentos;
+    private final List<TopeCompra> topes;
     private final String monedaBase;
 
     public DataMaster() {
@@ -34,7 +35,11 @@ public class DataMaster {
         this.monedas = Arrays.asList("USD","AR$","REAL");
         this.instrumentos = Arrays.asList("BILLETE","CHEQUE");
         this.monedaBase ="AR$";
+        this.topes = new ArrayList();
+        this.topes.add(new TopeCompra(new Long(1), "MENSUAL", new Float (10000)));
+        this.topes.add(new TopeCompra(new Long(1), "A", new Float (50000)));
     }
+                
 
     public List<String> getMonedas() {
         return monedas;

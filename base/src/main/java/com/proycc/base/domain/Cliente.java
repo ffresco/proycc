@@ -19,6 +19,7 @@ public class Cliente {
     private String email;
     private int edad;
     private Date fechaNac;
+    private AcumuladoCliente acumulado;
 
     public Cliente() {
     }
@@ -79,6 +80,15 @@ public class Cliente {
     public void setFechaNac(Date fechaNac) {
         this.fechaNac = fechaNac;
     }
+
+    public AcumuladoCliente getAcumulado() {
+        return acumulado;
+    }
+
+    public void setAcumulado(AcumuladoCliente acumulado) {
+        this.acumulado = acumulado;
+    }
+    
     
     
 }

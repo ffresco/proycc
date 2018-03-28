@@ -54,6 +54,7 @@ public class BaseApplication implements CommandLineRunner {
         System.out.println("Done!");
         
         System.out.println("------Prueba de cotizacion---------------");
+        /*
         Cotizacion c1 = new Cotizacion(LocalDateTime.now(), "USD", "EMPRES", "AGENCIA", Float.POSITIVE_INFINITY, Float.NaN, Float.MIN_NORMAL, Float.MIN_NORMAL, "Billetes", "compra", "$$");
         System.out.println("cotizacion " + c1.toString());
         cotizacionService.saveOrUpdate(c1);
@@ -61,6 +62,7 @@ public class BaseApplication implements CommandLineRunner {
         System.out.println(c1);
         cotizacionService.saveOrUpdate(c1);
         System.out.println("todo " + cotizacionService.getAll());
+        */
         //exit(0);
     }
 }

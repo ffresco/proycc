@@ -46,11 +46,15 @@ public class CotizacionesController {
     @RequestMapping("/cotizaciones")
     public ModelAndView getMainPage(@ModelAttribute("cotizacionsearch") CotizacionSearchDTO cs) {
         ModelAndView mav = new ModelAndView("cotizaciones");
-        List<Cotizacion> cotizaciones = cotizacionService.getAllContaining(cs);
+        List<Cotizacion> cotizaciones = cotizacionService.getAllContaining2(cs);
+        System.out.println("la ultima con el nuevo metodo " + cotizacionService.getDistinctByMoneda("USD"));
         LOGGER.debug("listado de cotizaciones " + cotizaciones);
         mav.addObject("cotizaciones", cotizaciones);
         mav.addObject("dataMaster", dataMaster);
         mav.addObject("cotizacionSearch",cs);
+        Cotizacion cot1 = cotizacionService.getAllContaining2(cs).get(0);
+        System.out.println("la ultima cotizacon " + cot1);
+        
         return mav;
     }
 
@@ -59,10 +63,10 @@ public class CotizacionesController {
         Cotizacion cotizacion = new Cotizacion();
         cotizacion.setFecha(LocalDateTime.now());
         cotizacion.setMonedaBase(dataMaster.getMonedaBase());
-        cotizacion.setComisionCmp(Float.MIN_NORMAL);
-        cotizacion.setComisionVta(Float.MIN_NORMAL);
-        cotizacion.setCotizacionCmp(Float.MIN_VALUE);
-        cotizacion.setCotizacionVta(Float.MIN_VALUE);
+        cotizacion.setComisionCmp(new Float(0));
+        cotizacion.setComisionVta(new Float(0));
+        cotizacion.setCotizacionCmp(new Float(0));
+        cotizacion.setCotizacionVta(new Float(0));
         System.out.println("Estoy en la cotizacion cotroller");
         LOGGER.info("aca estamos en controller");
         ModelAndView mav = new ModelAndView("cotizacion_create");
