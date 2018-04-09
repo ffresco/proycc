@@ -5,32 +5,62 @@
  */
 package com.proycc.base.domain;
 
+import java.io.Serializable;
 import java.util.Date;
+import javax.annotation.Generated;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
 
 /**
  *
  * @author fafre
  */
-public class Cliente {
+@Entity
+@Table(name = "clientes")
+public class Cliente implements Serializable{
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Long id;
     
+    @Column(name = "documento")
     private String documento;
-    private String Nombre;
-    private String Apellido;
+    @Column(name = "nombre")
+    private String nombre;
+    @Column(name = "apellido")
+    private String apellido;
+    @Column(name = "email")
     private String email;
+    @Column(name = "edad")
     private int edad;
+   
+    @Column(name = "fecha_nac")
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechaNac;
+    
+    @OneToOne(mappedBy = "cliente",cascade = CascadeType.PERSIST,optional = false,fetch = FetchType.EAGER,orphanRemoval = true)
     private AcumuladoCliente acumulado;
 
     public Cliente() {
     }
 
-    public Cliente(String documento, String Nombre, String Apellido, String email, int edad, Date fechaNac) {
+    public Cliente(String documento, String Nombre, String Apellido, String email,
+            int edad, Date fechaNac, AcumuladoCliente ac) {
         this.documento = documento;
-        this.Nombre = Nombre;
-        this.Apellido = Apellido;
+        this.nombre = Nombre;
+        this.apellido = Apellido;
         this.email = email;
         this.edad = edad;
         this.fechaNac = fechaNac;
+        this.acumulado = ac;
     }
 
     public String getDocumento() {
@@ -42,19 +72,19 @@ public class Cliente {
     }
 
     public String getNombre() {
-        return Nombre;
+        return nombre;
     }
 
     public void setNombre(String Nombre) {
-        this.Nombre = Nombre;
+        this.nombre = Nombre;
     }
 
     public String getApellido() {
-        return Apellido;
+        return apellido;
     }
 
     public void setApellido(String Apellido) {
-        this.Apellido = Apellido;
+        this.apellido = Apellido;
     }
 
     public String getEmail() {
@@ -87,6 +117,11 @@ public class Cliente {
 
     public void setAcumulado(AcumuladoCliente acumulado) {
         this.acumulado = acumulado;
+    }
+
+    @Override
+    public String toString() {
+        return "Cliente{" + "id=" + id + ", documento=" + documento + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email + ", edad=" + edad + ", fechaNac=" + fechaNac + ", acumulado=" + acumulado + '}';
     }
     
     

@@ -12,7 +12,6 @@ import com.proycc.base.service.CotizacionService;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.List;
 import javax.validation.Valid;
 import org.slf4j.Logger;
@@ -31,7 +30,8 @@ import org.springframework.web.servlet.ModelAndView;
  * @author fafre
  */
 @Controller
-public class CotizacionesController {
+@RequestMapping(value="/cotizaciones")
+public class CotizacionesController implements CrudControllerInterface<CotizacionSearchDTO,Cotizacion> {
 
     private final Logger LOGGER = LoggerFactory.getLogger(CotizacionesController.class);
     private final CotizacionService cotizacionService;
@@ -42,9 +42,13 @@ public class CotizacionesController {
         this.cotizacionService = cotizacionService;
         this.dataMaster = dataMaster;
     }
-
-    @RequestMapping("/cotizaciones")
-    public ModelAndView getMainPage(@ModelAttribute("cotizacionsearch") CotizacionSearchDTO cs) {
+    
+    
+    //@RequestMapping("/")
+    @Override
+    public ModelAndView getMainPage(@ModelAttribute(value="cotizacionsearch") CotizacionSearchDTO cs,
+            BindingResult bindingResult) {
+        LOGGER.debug("en la main page");
         ModelAndView mav = new ModelAndView("cotizaciones");
         List<Cotizacion> cotizaciones = cotizacionService.getAllContaining2(cs);
         System.out.println("la ultima con el nuevo metodo " + cotizacionService.getDistinctByMoneda("USD"));
@@ -52,14 +56,12 @@ public class CotizacionesController {
         mav.addObject("cotizaciones", cotizaciones);
         mav.addObject("dataMaster", dataMaster);
         mav.addObject("cotizacionSearch",cs);
-        Cotizacion cot1 = cotizacionService.getAllContaining2(cs).get(0);
-        System.out.println("la ultima cotizacon " + cot1);
-        
         return mav;
     }
 
-    @RequestMapping(value = "/cotizaciones/create", method = RequestMethod.GET)
-    public ModelAndView getCotizacionCreatePage() {
+    //@RequestMapping(value = "/cotizaciones/create", method = RequestMethod.GET)
+    @Override
+    public ModelAndView getCreatePage(Cotizacion objectDTO, BindingResult bindingResult) {
         Cotizacion cotizacion = new Cotizacion();
         cotizacion.setFecha(LocalDateTime.now());
         cotizacion.setMonedaBase(dataMaster.getMonedaBase());
@@ -77,18 +79,20 @@ public class CotizacionesController {
         return mav;
     }
 
-    @RequestMapping(value = "/cotizaciones/save", method = RequestMethod.POST)
-    public ModelAndView saveCotizacion(@Valid @ModelAttribute("cotizacion") Cotizacion cot, BindingResult bindingResult) {
+    //@RequestMapping(value = "/cotizaciones/save", method = RequestMethod.POST)
+    @Override
+    public ModelAndView save(@Valid @ModelAttribute(value="cotizacion") Cotizacion cot, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             LOGGER.debug(bindingResult.toString());
         }
         LOGGER.debug("Cotizacion grabada " + cotizacionService.saveOrUpdate(cot));
         LOGGER.debug("grabe una cotizacion");
-        return getMainPage(new CotizacionSearchDTO());
+        return getMainPage(new CotizacionSearchDTO(),bindingResult);
     }
 
-    @RequestMapping(value = "/cotizaciones/search", method = RequestMethod.POST)
-    public ModelAndView cotizacionSearch(@ModelAttribute("cotizacionsearch") CotizacionSearchDTO cs, BindingResult bindingResult) {
+    //@RequestMapping(value = "/cotizaciones/search", method = RequestMethod.POST)
+    @Override
+    public ModelAndView search(@ModelAttribute(value="cotizacionsearch") CotizacionSearchDTO cs, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             LOGGER.debug(bindingResult.toString());
         }
@@ -103,17 +107,19 @@ public class CotizacionesController {
         System.out.println("--Esto devulve la query");
         System.out.println(cotizacionService.getAllContaining(cs));
        // System.out.println(cotizacionService.getAllContaining(""));
-        return getMainPage(cs);
+        return getMainPage(cs,bindingResult);
     }
 
-    @RequestMapping(value = "/cotizaciones/delete/{id}")
-    public ModelAndView deleteCotizacion(@PathVariable Long id) {
+    //@RequestMapping(value = "/cotizaciones/delete/{id}")
+    @Override
+    public ModelAndView delete(@PathVariable Long id) {
         cotizacionService.delete(cotizacionService.getById(id));
-        return getMainPage(new CotizacionSearchDTO());
+        return getMainPage(new CotizacionSearchDTO(),null);
     }
 
-    @RequestMapping(value = "/cotizaciones/edit/{id}")
-    public ModelAndView editCotizacion(@PathVariable Long id) {
+    //@RequestMapping(value = "/cotizaciones/edit/{id}")
+    @Override
+    public ModelAndView edit(@PathVariable Long id) {
         ModelAndView mav = new ModelAndView("cotizacion_create");
         mav.addObject("cotizacion", cotizacionService.getById(id));
         mav.addObject("dataMaster", dataMaster);
@@ -121,5 +127,13 @@ public class CotizacionesController {
         LOGGER.info(dataMaster.toString());
         return mav;
     }
+
+   
+
+ 
+
+
+
+
 
 }

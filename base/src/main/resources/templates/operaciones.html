@@ -16,7 +16,7 @@ and open the template in the editor.
 		<div th:replace="fragments ::navbartop"></div> <!-- Menu superior --> 	
 
 		<div class="row content"> <!-- fila contine menuj lateral 3 col,  principal 9 col -->
-			<div th:replace="fragments ::navbarside"></div> <!-- Menu Lateral  -->  
+			<div th:replace="fragments ::navbarside_operaciones"></div> <!-- Menu Lateral  -->  
 
 			<!-- Contenido principal 9 columnas -->
 			<div class="col-sm-9">
@@ -26,7 +26,7 @@ and open the template in the editor.
 							<div class="panel panel-default">
 								<div class="panel-heading row">
 								<div class="col-sm-6"><h2>Operaciones</h2></div>
-									<div class="col-sm-3"><a class="btn btn-sm btn-success" th:href="@{/operaciones/add}" >Nuevo</a></div>
+									<div class="col-sm-3"><a class="btn btn-sm btn-success" th:href="@{/operaciones/create}" >Nuevo</a></div>
 								</div>
 
 						

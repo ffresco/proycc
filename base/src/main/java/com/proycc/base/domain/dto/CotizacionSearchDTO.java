@@ -19,6 +19,7 @@ public class CotizacionSearchDTO {
     private String tipoCmb;
     private String instrumento;
     private String fechaDesde;
+    private String entidad;
 
     public CotizacionSearchDTO() {
         
@@ -64,10 +65,21 @@ public class CotizacionSearchDTO {
         this.fechaDesde = fechaDesde;
     }
 
+    public String getEntidad() {
+        return entidad;
+    }
+
+    public void setEntidad(String entidad) {
+        this.entidad = entidad;
+    }
+
     @Override
     public String toString() {
-        return "CotizacionSearchDTO{" + "tipoOp=" + tipoOp + ", moneda=" + moneda + ", tipoCmb=" + tipoCmb + ", instrumento=" + instrumento + ", fechaDesde=" + fechaDesde + '}';
+        return "CotizacionSearchDTO{" + "tipoOp=" + tipoOp + ", moneda=" + moneda + ", tipoCmb=" + tipoCmb + ", instrumento=" + instrumento + ", fechaDesde=" + fechaDesde + ", entidad=" + entidad + '}';
     }
+    
+    
+
     
     
     

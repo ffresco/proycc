@@ -49,13 +49,13 @@
         <!--Barra que se ve en la web-->
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
-            <li><a href="" th:href="@{/entidades}">Clientes</a></li>
-            <li><a href="" th:href="@{/operaciones}">Operaciones</a></li> 
-            <li><a href="" th:href="@{/reportes}">Reportes</a></li>
-            <li><a href="#" th:href="@{/auditoria}">Auditoria</a></li>
-            <li><a href="#" th:href="@{/cajas}">Cajas</a></li>
-            <li><a href="#" th:href="@{/cotizaciones}">Cotizaciones</a></li>
-            <li><a href="#" th:href="@{/usuarios}">Usuarios</a></li>
+            <li><a href="" th:href="@{/entidades/}">Clientes</a></li>
+            <li><a href="" th:href="@{/operaciones/}">Operaciones</a></li> 
+            <li><a href="" th:href="@{/reportes/}">Reportes</a></li>
+            <li><a href="#" th:href="@{/auditoria/}">Auditoria</a></li>
+            <li><a href="#" th:href="@{/cajas/}">Cajas</a></li>
+            <li><a href="#" th:href="@{/cotizaciones/}">Cotizaciones</a></li>
+            <li><a href="#" th:href="@{/usuarios/}">Usuarios</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#"><span class="glyphicon glyphicon glyphicon-bell"></span>Notif </a></li>
@@ -176,6 +176,85 @@
   </div> 
 </div>   
 <!--fin menu lateral cotizacines busqueda-->   
+
+
+<!-- Menu lateral Operaciones Busqueda -->
+<div th:fragment="navbarside_operaciones">
+<div class="col-sm-3 sidenav">
+
+<form class="">
+<fieldset>
+
+<!-- Form Name -->
+<legend>Busqueda Op</legend>
+
+<!-- Search input-->
+<div class="form-group">
+  <label class=" control-label" for="idOperacion">Num Operacion</label>
+  <div class="">
+    <input id="idOperacion" name="idOperacion" type="search" placeholder="" class="form-control input-md">
+    
+  </div>
+</div>
+
+<!-- Search input-->
+<div class="form-group">
+  <label class=" control-label" for="numDoc">Num Doc</label>
+  <div class="">
+    <input id="numDoc" name="numDoc" type="search" placeholder="" class="form-control input-md">
+    
+  </div>
+</div>
+
+<!-- Search input-->
+<div class="form-group">
+  <label class=" control-label" for="nombre">Nombre</label>
+  <div class="">
+    <input id="nombre" name="nombre" type="search" placeholder="" class="form-control input-md">
+    
+  </div>
+</div>
+
+<!-- Search input-->
+<div class="form-group">
+  <label class=" control-label" for="apellido">Apellido Cli</label>
+  <div class="">
+    <input id="apellido" name="apellido" type="search" placeholder="" class="form-control input-md">
+    
+  </div>
+</div>
+
+<!-- Search input-->
+<div class="form-group">
+  <label class=" control-label" for="fechaDesde">Fecha Desde</label>
+  <div class="">
+    <input id="fechaDesde" name="fechaDesde" type="search" placeholder="" class="form-control input-md">
+    
+  </div>
+</div>
+
+<!-- Search input-->
+<div class="form-group">
+  <label class=" control-label" for="fechaHasta">Fecha Hasta</label>
+  <div class="">
+    <input id="fechaHasta" name="fechaHasta" type="search" placeholder="" class="form-control input-md">
+    
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+
+  <div class="">
+    <button id="singlebutton" name="singlebutton" class="btn btn-primary">Buscar</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+</div>
+</div>
+<!-- Fin menu lateral operaciones busqueda -->
 
 
 <footer class="container-fluid">

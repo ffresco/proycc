@@ -33,4 +33,7 @@ public interface CotizacionRepository extends CrudRepository<Cotizacion,Long>{
             String tipoCmb,String inst, Pageable page);
     
     Cotizacion findTopByMonedaOrderByFechaDesc(String moneda);
+    
+    Cotizacion findTopByMonedaAndEntidadAndTipoCambioAndTipoOpAndInstrumentoOrderByFechaDesc(String moneda,
+            String entidad, String tipoCmb, String tipoOp, String instrumento);
 }

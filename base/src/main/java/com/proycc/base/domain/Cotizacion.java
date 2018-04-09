@@ -61,6 +61,8 @@ public class Cotizacion implements Serializable{
     
     @Column(name="moneda_base")
     private String monedaBase;
+    
+    private boolean compra;
 
     public Cotizacion(LocalDateTime fecha, String moneda, String entidad, String tipoCambio, Float cotizacionVta, Float cotizacionCmp, Float comisionVta, Float comisionCmp, String instrumento, String tipoOp, String monedaBase) {
     
@@ -170,10 +172,22 @@ public class Cotizacion implements Serializable{
         this.monedaBase = monedaBase;
     }
 
+    public boolean isCompra() {
+        return compra;
+    }
+
+    public void setCompra(boolean compra) {
+        this.compra = compra;
+    }
+
     @Override
     public String toString() {
-        return "Cotizacion{" + "id=" + id + ", fecha=" + fecha + ", moneda=" + moneda + ", entidad=" + entidad + ", tipoCambio=" + tipoCambio + ", cotizacionVta=" + cotizacionVta + ", cotizacionCmp=" + cotizacionCmp + ", comisionVta=" + comisionVta + ", comisionCmp=" + comisionCmp + ", instrumento=" + instrumento + ", tipoOp=" + tipoOp + ", monedaBase=" + monedaBase + '}';
+        return "Cotizacion{" + "id=" + id + ", fecha=" + fecha + ", moneda=" + moneda + ", entidad=" + entidad + ", tipoCambio=" + tipoCambio + ", cotizacionVta=" + cotizacionVta + ", cotizacionCmp=" + cotizacionCmp + ", comisionVta=" + comisionVta + ", comisionCmp=" + comisionCmp + ", instrumento=" + instrumento + ", tipoOp=" + tipoOp + ", monedaBase=" + monedaBase + ", compra=" + compra + '}';
     }
+    
+    
+
+
 
  
     

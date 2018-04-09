@@ -29,11 +29,11 @@ public class DataMaster {
     private final String monedaBase;
 
     public DataMaster() {
-        this.tipoOperaciones = Arrays.asList("CPRA-VTA","ARBITRAJE","CANJE");
-        this.entidades =  Arrays.asList("EMPRESA","CLIENTE1");
-        this.tipoCambios = Arrays.asList("AGENCIA","CAMBISTA","ESPECIAL");
+        this.tipoOperaciones = Arrays.asList("CMP-VTA","ARBITRAJE","CANJE");
+        this.entidades =  Arrays.asList("EMPRESA");
+        this.tipoCambios = Arrays.asList("AGENCIA","ESPECIAL");
         this.monedas = Arrays.asList("USD","AR$","REAL");
-        this.instrumentos = Arrays.asList("BILLETE","CHEQUE");
+        this.instrumentos = Arrays.asList("BILLETES","CHEQUE");
         this.monedaBase ="AR$";
         this.topes = new ArrayList();
         this.topes.add(new TopeCompra(new Long(1), "MENSUAL", new Float (10000)));

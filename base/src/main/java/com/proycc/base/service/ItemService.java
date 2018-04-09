@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 
 @Service
-public class ItemService {
+public class ItemService  {
 
     private ItemRepository itemRepository;
 
@@ -20,6 +20,7 @@ public class ItemService {
     }
 
 
+  
     public Item getById(Long id){
         return itemRepository.findOne(id);
     }
@@ -29,6 +30,7 @@ public class ItemService {
         return  itemRepository.save(item);
     }
 
+  
     public void delete(Item item){
         itemRepository.delete(item);
     }

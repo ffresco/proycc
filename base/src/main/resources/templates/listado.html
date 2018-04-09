@@ -33,7 +33,7 @@
                             <td th:text="${cliente.email}"></td>
                             <td>
                                 <div class="btn-group pull-right">
-                                    <a class="btn btn-sm btn-primary" th:href="@{/editcli/{documento}(documento=${cliente.documento})}" >Editar</a>
+                                    <a class="btn btn-sm btn-primary" th:href="@{/editcli/{documento}(documento=${cliente.documento})} &" >Editar</a>
                                     <a class="delete btn btn-sm btn-danger" th:href="@{/deletecli/{documento}(documento=${cliente.documento})}">borrar</a>
                                </div>
                             </td>

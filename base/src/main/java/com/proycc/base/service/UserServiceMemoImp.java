@@ -12,6 +12,8 @@ import com.proycc.base.service.UserService;
 import java.util.Collection;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 /**
@@ -19,26 +21,24 @@ import org.springframework.stereotype.Service;
  * @author fafre
  */
 @Service
-public class UserServiceMemoImp implements UserService{
-    
+public class UserServiceMemoImp implements UserService {
+
     private final UserRepository userRepository;
 
     @Autowired
     public UserServiceMemoImp(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
-    
-    
-    
+
     @Override
     public Optional<User> getUserById(long id) {
-       return Optional.ofNullable(userRepository.getById(id));
+        return Optional.ofNullable(userRepository.getById(id));
     }
 
     @Override
     public Optional<User> getUserByEmail(String email) {
-      return Optional.of(userRepository.findOneByEmail(email));  
-      
+        return Optional.of(userRepository.findOneByEmail(email));
+
     }
 
     @Override
@@ -54,5 +54,16 @@ public class UserServiceMemoImp implements UserService{
         user.setRole(form.getRole());
         return userRepository.save(user);
     }
-    
+
+    @Override
+    public User getCurrentUser() {
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        UserDetails userDetails = null;
+        if (principal instanceof UserDetails) {
+            userDetails = (UserDetails) principal;
+        }
+        String userName = userDetails.getUsername();
+        return userRepository.findOneByEmail(userName);
+    }
+
 }

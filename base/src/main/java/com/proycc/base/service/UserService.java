@@ -23,5 +23,9 @@ public interface UserService {
     Collection<User> getAllUsers();
 
     User create(UserCreateFormDTO form);
+    
+    User getCurrentUser();
+
+
 
 }

@@ -5,54 +5,85 @@
  */
 package com.proycc.base.domain;
 
-import java.time.LocalDate;
+import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.time.Month;
 import java.time.Year;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 /**
  *
  * @author fafre
  */
-public class AcumuladoCliente {
+@Entity
+@Table(name = "acumulado_cli")
+public class AcumuladoCliente implements Serializable {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
-    private Float mensual;
-    private Float anual;
+    
+    @OneToOne
+    @JoinColumn(name="fk_cli_id")
+    private Cliente cliente;
+    
+    @Column(name="mes")
     private Month mes;
-    private Year ano;
-    private LocalDate fechaHasta;
+    
+    @Column(name="ano")
+    private int ano;
+    
+    @Column(name="acum_mes")
+    private Float acumuladoMes;
+    
+    @Column(name="acum_ano")
+    private Float acumuladoAno;
+    
+    @OneToOne
+    @JoinColumn(name="moneda_id")
+     private Parametro moneda;
+    
+    @Column(name="fecha_ult_op")
+    private LocalDateTime fechaUltimaOp;
 
-    public AcumuladoCliente(Long id, Float mensual, Float anual, Month mes, Year ano, LocalDate fechaHasta) {
-        this.id = id;
-        this.mensual = mensual;
-        this.anual = anual;
+    public AcumuladoCliente(Cliente cliente, Month mes, int ano, Float acumuladoMes, Float acumuladoAno, Parametro moneda, LocalDateTime fechaUltimaOp) {
+        this.cliente = cliente;
         this.mes = mes;
         this.ano = ano;
-        this.fechaHasta = fechaHasta;
+        this.acumuladoMes = acumuladoMes;
+        this.acumuladoAno = acumuladoAno;
+        this.moneda = moneda;
+        this.fechaUltimaOp = fechaUltimaOp;
     }
 
-
-    public Float getMensual() {
-        return mensual;
+    public AcumuladoCliente() {
     }
 
-    public void setMensual(Float mensual) {
-        this.mensual = mensual;
+    public Long getId() {
+        return id;
     }
 
-    public Float getAnual() {
-        return anual;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public void setAnual(Float anual) {
-        this.anual = anual;
+    public Cliente getCliente() {
+        return cliente;
     }
 
-    public LocalDate getFechaHasta() {
-        return fechaHasta;
-    }
-
-    public void setFechaHasta(LocalDate fechaHasta) {
-        this.fechaHasta = fechaHasta;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
     public Month getMes() {
@@ -63,19 +94,50 @@ public class AcumuladoCliente {
         this.mes = mes;
     }
 
-    public Year getAno() {
+    public int getAno() {
         return ano;
     }
 
-    public void setAno(Year ano) {
+    public void setAno(int ano) {
         this.ano = ano;
+    }
+
+    public Float getAcumuladoMes() {
+        return acumuladoMes;
+    }
+
+    public void setAcumuladoMes(Float acumuladoMes) {
+        this.acumuladoMes = acumuladoMes;
+    }
+
+    public Float getAcumuladoAno() {
+        return acumuladoAno;
+    }
+
+    public void setAcumuladoAno(Float acumuladoAno) {
+        this.acumuladoAno = acumuladoAno;
+    }
+
+    public Parametro getMoneda() {
+        return moneda;
+    }
+
+    public void setMoneda(Parametro moneda) {
+        this.moneda = moneda;
+    }
+
+    public LocalDateTime getFechaUltimaOp() {
+        return fechaUltimaOp;
+    }
+
+    public void setFechaUltimaOp(LocalDateTime fechaUltimaOp) {
+        this.fechaUltimaOp = fechaUltimaOp;
     }
 
     @Override
     public String toString() {
-        return "AcumuladoCliente{" + "id=" + id + ", mensual=" + mensual + ", anual=" + anual + ", mes=" + mes + ", ano=" + ano + ", fechaHasta=" + fechaHasta + '}';
+        return "AcumuladoCliente{" + "id=" + id + ", cliente=" + cliente.getDocumento() + ", mes=" + mes + ", ano=" + ano + ", acumuladoMes=" + acumuladoMes + ", acumuladoAno=" + acumuladoAno + ", moneda=" + moneda + ", fechaUltimaOp=" + fechaUltimaOp + '}';
     }
-
     
     
     
