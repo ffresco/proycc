@@ -59,7 +59,7 @@ public class CotizacionService {
         String inst = getTipoInstParam(csdto);
        
         System.out.println("--"+ tipoOp+moneda+tipoCmb+inst);
-        return (List<Cotizacion>) cotizacionRepository.findByConstrainLike(tipoOp,moneda,tipoCmb,inst, new Sort(Sort.Direction.ASC,"fecha"));
+        return (List<Cotizacion>) cotizacionRepository.findByConstrainLike(moneda,tipoCmb,inst, new Sort(Sort.Direction.DESC,"fecha"));
     }
 
     private String getTipoInstParam(CotizacionSearchDTO csdto) {
@@ -84,7 +84,7 @@ public class CotizacionService {
         String inst = getTipoInstParam(csdto);
        
         System.out.println("--"+ tipoOp+moneda+tipoCmb+inst);
-        Page<Cotizacion> page = cotizacionRepository.getLastCotizacionByMoneda(tipoOp,moneda,tipoCmb,inst, 
+        Page<Cotizacion> page = cotizacionRepository.getLastestCotizacionesByMoneda(moneda,tipoCmb,inst, 
                new PageRequest(0,5, new Sort(Sort.Direction.DESC,"fecha")));
         //System.out.println("la primer cotizacion " + page.getContent().get(0));
         return (List<Cotizacion>) page.getContent();
@@ -101,21 +101,20 @@ public class CotizacionService {
     }
             
     public Cotizacion getDistinctByMoneda(String moneda) {
-       return cotizacionRepository.findTopByMonedaOrderByFechaDesc(moneda);
+        return cotizacionRepository.findTopByMonedaValorOrderByFechaDesc(moneda);
     }
     
     public List<Cotizacion> getLatestCotizaciones(List monedas){
         List<Cotizacion> lastCots = new ArrayList<>();
         for (Iterator iterator = monedas.iterator(); iterator.hasNext();) {
             String next = (String) iterator.next();
-            lastCots.add(cotizacionRepository.findTopByMonedaOrderByFechaDesc(next));
+            lastCots.add(cotizacionRepository.findTopByMonedaValorOrderByFechaDesc(next));
         }
         return lastCots;
     }
  
-    public Cotizacion getLastCotizacionOpOD(Operacion op, OperacionItem opO, OperacionItem opD,Parametro monedaBase){
-        CotizacionSearchDTO csdto = getCotizacionSearchDTO(op,opO,opD,monedaBase);
-        
+    public Cotizacion getLastCotizacionForOp(Operacion op, OperacionItem opI,Parametro monedaBase){
+        CotizacionSearchDTO csdto = getCotizacionSearchDTO(op,opI,monedaBase);
         String tipoOp = getTipoOpParam(csdto);
         String moneda = getMonedaParam(csdto);
         String tipoCmb = getTipoCmbParam(csdto);
@@ -125,23 +124,23 @@ public class CotizacionService {
         System.out.println("Este es csdto " + csdto);
         System.out.println("--"+ tipoOp+moneda+tipoCmb+inst+entidad);
         Cotizacion cot = cotizacionRepository.
-                findTopByMonedaAndEntidadAndTipoCambioAndTipoOpAndInstrumentoOrderByFechaDesc(moneda, entidad, tipoCmb, tipoOp, inst);
+                findTopByMonedaValorAndEntidadValorAndTipoCambioValorAndInstrumentoValorOrderByFechaDesc(
+                        moneda, entidad, tipoCmb, inst);
         //System.out.println("la primer cotizacion " + page.getContent().get(0));
-        cot.setCompra(iscompra(opO.getMoneda(), monedaBase));
-        System.out.println("Cotizacion buscada y encotrada " + cot);
+        Optional cotO = Optional.ofNullable(cot);
+        
         return cot;
 
     }
 
-    private CotizacionSearchDTO getCotizacionSearchDTO(Operacion op, OperacionItem opO, OperacionItem opD, Parametro monedaBase) {
-        OperacionItem opAUtilizar = getOperacionAUtilizar(opO, monedaBase, opD);
+    private CotizacionSearchDTO getCotizacionSearchDTO(Operacion op, OperacionItem opI, Parametro monedaBase) {
         CotizacionSearchDTO csdto = new CotizacionSearchDTO();
         csdto.setEntidad("EMPRESA"); //en un futuro ver si hay una cotizacion especial para esta entidad
-        System.out.println(" moneda que traigo" + opAUtilizar.getMoneda().getValor());
+        System.out.println(" moneda que traigo" + opI.getMoneda().getValor());
         csdto.setTipoCmb(op.getTipoCambio().getValor());
         csdto.setTipoOp(op.getTipoOp().getValor());
-        csdto.setInstrumento(opAUtilizar.getInstrumento().getValor());
-        csdto.setMoneda(opAUtilizar.getMoneda().getValor());
+        csdto.setInstrumento(opI.getInstrumento().getValor());
+        csdto.setMoneda(opI.getMoneda().getValor());
         System.out.println("Este es el csdto que arme "+csdto);
         return csdto;
         }

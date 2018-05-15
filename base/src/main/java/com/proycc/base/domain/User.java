@@ -5,33 +5,51 @@
  */
 package com.proycc.base.domain;
 
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  *
  * @author fafre
  */
-public class User {
-    private long id;
+@Entity
+@Table(name = "usuario")
+public class User implements Serializable {
+    
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Long id;
+    
+    @Column(name = "email")
     private String email;
+    
+    @Column(name = "password")
     private String passwordHash;
+    
+    @Column(name="role")
     private Role role;
 
     public User() {
     }
 
-    public User(long id, String email, String passwordHash, Role role) {
-        this.id = id;
+    public User(String email, String passwordHash, Role role) {
         this.email = email;
         this.passwordHash = passwordHash;
         this.role = role;
     }
-    
-    
-    
-    public long getId() {
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -63,6 +81,10 @@ public class User {
     public String toString() {
         return "User{" + "id=" + id + ", email=" + email + ", passwordHash=" + passwordHash + ", role=" + role + '}';
     }
+    
+    
+ 
+ 
     
     
     

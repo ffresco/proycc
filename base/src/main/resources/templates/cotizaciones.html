@@ -14,9 +14,10 @@
 
 		<div th:replace="fragments ::navbartop"></div> <!-- Menu superior --> 	
 
-		<div class="row content"> <!-- fila contine menuj lateral 3 col,  principal 9 col -->
-			<div th:replace="fragments ::navbarside_cot"></div> <!-- Menu Lateral  -->  
-
+		<div class="row"> <!-- fila contine menuj lateral 3 col,  principal 9 col -->
+			<div class="col-sm-3 sidenav">
+				<div th:replace="fragments ::navbarside_cot"></div> <!-- Menu Lateral  -->  
+			</div>
 			<!-- Contenido principal 9 columnas -->
 			<div class="col-sm-9">
 
@@ -28,10 +29,8 @@
 					</div>	
 					<div class="panel-body"><!--dentro del panel body va mi contenido-->
 
-
-						<div class="table-responsive">
-							<table class="table table-sm table-striped table-hover table-bordered">
-								<thead>
+							<table class="table table-responsive table-striped table-hover table-bordered">
+								<thead class="bg-success">
 									<tr>
 										<th> Fecha </th>
 										<th> Mnd</th>
@@ -41,8 +40,8 @@
 										<th> Cot Cmp</th>
 										<th> Com Vta</th>
 										<th> Com Cmp</th>
-										<th> Instr</th>
-										<th> Tipo Op</th>
+										<th> Canje </th>
+										<th> Instr</th>										
 										<!--<th> Mnd Base</th>-->
 										<th></th>
 									</tr>
@@ -50,15 +49,15 @@
 								<tbody>
 									<tr th:each="cotizacion : ${cotizaciones}">
 										<td th:text="${#temporals.format(cotizacion.fecha, 'dd/MMM/yyyy HH:mm')}"></td>
-										<td th:text="${cotizacion.moneda}"></td>
-										<td th:text="${cotizacion.entidad}"></td>
-										<td th:text="${cotizacion.tipoCambio}"></td>
+										<td th:text="${cotizacion.moneda.valor}"></td>
+										<td th:text="${cotizacion.entidad.valor}"></td>
+										<td th:text="${cotizacion.tipoCambio.valor}"></td>
 										<td th:text="${cotizacion.cotizacionVta}"></td>
 										<td th:text="${cotizacion.cotizacionCmp}"></td>
 										<td th:text="${cotizacion.comisionVta}"></td>
 										<td th:text="${cotizacion.comisionCmp}"></td>
-										<td th:text="${cotizacion.instrumento}"></td>
-										<td th:text="${cotizacion.tipoOp}"></td>
+										<td th:text="${cotizacion.canje}"></td>
+										<td th:text="${cotizacion.instrumento.valor}"></td>
 										<!--<td th:text="${cotizacion.monedaBase}"></td>-->									
 										<td>
 										<div class="btn-group pull-right">
@@ -69,7 +68,7 @@
 								</tr>
 							</tbody>
 						</table>
-					</div>
+			
 				</div>
 
 			</div>

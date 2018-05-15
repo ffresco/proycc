@@ -8,6 +8,7 @@ package com.proycc.base.domain;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -40,11 +41,11 @@ public class Operacion implements Serializable{
     @JoinColumn(name = "fk_cli_id")
     private Cliente cliente;
     
-    /*
+    
     @OneToOne
     @JoinColumn(name = "fk_user_id")
     private User user;
-    */
+    
 
     @OneToOne
     @JoinColumn(name = "fk_caja_id")
@@ -58,10 +59,11 @@ public class Operacion implements Serializable{
     @JoinColumn(name = "fk_tipo_cam")
     private Parametro tipoCambio;
     
+    @Column(name = "tipo_mov")
+    private String tipoMov;
     
-    @OneToOne
-    @JoinColumn(name = "fk_cotizacion_id")
-    private Cotizacion cotizacion;
+    @Column(name = "valor_cotizacion_aplicado")
+    private Float valCotAplicado;
     
     @OneToOne
     @JoinColumn(name = "estado")
@@ -78,17 +80,18 @@ public class Operacion implements Serializable{
     public Operacion() {
     }
 
-    public Operacion( LocalDateTime fechaHora, Cliente cliente, Parametro caja, Parametro tipoOp, Parametro tipoCambio, Cotizacion cotizacion, Parametro estado, String observaciones, List<OperacionItem> operacionItems) {
+    public Operacion( LocalDateTime fechaHora, Cliente cliente, Parametro caja, Parametro tipoOp, Parametro tipoCambio, 
+            Parametro estado, String observaciones, List<OperacionItem> operacionItems, Float valCot) {
 
         this.fechaHora = fechaHora;
         this.cliente = cliente;
         this.caja = caja;
         this.tipoOp = tipoOp;
         this.tipoCambio = tipoCambio;
-        this.cotizacion = cotizacion;
         this.estado = estado;
         this.observaciones = observaciones;
         this.operacionItems = operacionItems;
+        this.valCotAplicado = valCot;
     }
 
     public Operacion(Long id) {
@@ -136,13 +139,15 @@ public class Operacion implements Serializable{
         this.tipoOp = tipoOp;
     }
 
-    public Cotizacion getCotizacion() {
-        return cotizacion;
+    public Float getValCotAplicado() {
+        return valCotAplicado;
     }
 
-    public void setCotizacion(Cotizacion cotizacion) {
-        this.cotizacion = cotizacion;
+    public void setValCotAplicado(Float valCotAplicado) {
+        this.valCotAplicado = valCotAplicado;
     }
+
+  
 
     public Parametro getEstado() {
         return estado;
@@ -189,10 +194,32 @@ public class Operacion implements Serializable{
         return null;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public String getTipoMov() {
+        return tipoMov;
+    }
+
+    public void setTipoMov(String tipoMov) {
+        this.tipoMov = tipoMov;
+    }
+    
+    
+    
 
     @Override
     public String toString() {
-        return "Operacion{" + "id=" + id + ", fechaHora=" + fechaHora + ", cliente=" + cliente + ", caja=" + caja + ", tipoOp=" + tipoOp + ", tipoCambio=" + tipoCambio + ", cotizacion=" + cotizacion + ", estado=" + estado + ", observaciones=" + observaciones + ", operacionItems=" + operacionItems + '}';
+        return "Operacion{" + "id=" + id + ", fechaHora=" + fechaHora + ", cliente=" + Optional.ofNullable(cliente) + 
+                ", caja=" + Optional.ofNullable(caja) + ", tipoOp=" + Optional.ofNullable(tipoOp) + ", tipoCambio=" + 
+                Optional.ofNullable(tipoCambio) + ", cotizacion=" + Optional.ofNullable(valCotAplicado) + ", estado=" + 
+                Optional.ofNullable(estado) + ", observaciones=" + observaciones + ", operacionItems=" +
+                Optional.ofNullable(operacionItems) + '}';
     }
     
     

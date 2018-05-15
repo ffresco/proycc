@@ -5,8 +5,7 @@
  */
 package com.proycc.base.domain.validator;
 
-
-import com.proycc.base.domain.DataMaster;
+import com.proycc.base.configuration.DataMaster;
 import com.proycc.base.domain.Operacion;
 import com.proycc.base.domain.OperacionItem;
 import com.proycc.base.domain.dto.OperacionDTO;
@@ -26,7 +25,7 @@ public class OperacionProcessValidator implements Validator {
 
     @Autowired
     DataMaster dataMaster;
-    
+
     @Override
     public boolean supports(Class<?> clazz) {
         return clazz.equals(OperacionDTO.class);
@@ -35,27 +34,34 @@ public class OperacionProcessValidator implements Validator {
     @Override
     public void validate(Object target, Errors errors) {
         //casteo a operacion
-        OperacionDTO opDTO = (OperacionDTO) target; 
+        OperacionDTO opDTO = (OperacionDTO) target;
         Operacion op = opDTO.getOperacion();
         OperacionItem opO = opDTO.getOpO();
         OperacionItem opD = opDTO.getOpD();
-        String monedaBase = dataMaster.getMonedaBase();
+        String monedaBase = dataMaster.getMonedaBase().getValor();
         
-        if(opO.getMoneda().getValor().equals(opD.getMoneda().getValor())){
+        if ((op.getTipoOp().getValor().equals("CMP"))||(op.getTipoOp().getValor().equals("VTA"))) {
+            validateCmpVta(opO, opD, errors, monedaBase);
+        }
+        if (op.getTipoOp().getValor().equals("CANJE")) {
+            System.out.println("Entro por canje");
+        }
+        if ((op.getTipoOp().getValor().equals("ARBITRAJE"))){
+            System.out.println("entro por arbitraje");
+        }
+
+    }
+
+   
+    private void validateCmpVta(OperacionItem opO, OperacionItem opD, Errors errors, String monedaBase) {
+        if (opO.getMoneda().getValor().equals(opD.getMoneda().getValor())) {
             errors.reject("operacion.igualMoneda", "La moneda de origen y destino son iguales");
         }
         
-        if (!(opO.getMoneda().getValor().equals(monedaBase)||
-                opD.getMoneda().getValor().equals(monedaBase))){
-            errors.reject("operacion.sinMonedaBase","El origen o el destino debe estar expresado en moneda base = " + monedaBase);
+        if (!(opO.getMoneda().getValor().equals(monedaBase)
+                || opD.getMoneda().getValor().equals(monedaBase))) {
+            errors.reject("operacion.sinMonedaBase", "El origen o el destino debe estar expresado en moneda base = " + monedaBase);
         }
-        
-        
-        if (opO.getMontoRecVlt()<opO.getMonto()) {
-            errors.reject("operacion.montoMenorARecibido","El monto recibido " + opO.getMontoRecVlt() +
-                    " debe ser mayor o igual al monto a operar " + opO.getMonto());
-        }
-        
-    }       
-    
+    }
+
 }

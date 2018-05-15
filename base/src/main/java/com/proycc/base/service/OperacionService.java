@@ -5,17 +5,23 @@
  */
 package com.proycc.base.service;
 
+import com.proycc.base.domain.AcumuladoCaja;
 import com.proycc.base.domain.AcumuladoCliente;
 import com.proycc.base.domain.Operacion;
 import com.proycc.base.domain.OperacionItem;
 import com.proycc.base.domain.Parametro;
+import com.proycc.base.domain.SesionCaja;
+import com.proycc.base.domain.User;
 import com.proycc.base.domain.dto.OperacionDTO;
+import com.proycc.base.repository.AcumuladoCajaRepo;
 import com.proycc.base.repository.AcumuladoRepo;
 import com.proycc.base.repository.OperacionRepo;
 import com.proycc.base.repository.ParametroRepo;
+import com.proycc.base.repository.SesionCajaRepo;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.ArrayList;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -30,12 +36,17 @@ public class OperacionService {
     private OperacionRepo opRep;
     private AcumuladoRepo acRep;
     private ParametroRepo paramRepo;
+    private SesionCajaRepo scr;
+    private AcumuladoCajaRepo acr;
 
     @Autowired
-    public OperacionService(OperacionRepo opRep, AcumuladoRepo acRep, ParametroRepo pr) {
+    public OperacionService(OperacionRepo opRep, AcumuladoRepo acRep,
+            ParametroRepo pr, SesionCajaRepo scr, AcumuladoCajaRepo acr) {
         this.opRep = opRep;
         this.acRep = acRep;
         this.paramRepo = pr;
+        this.scr = scr;
+        this.acr = acr;
     }
 
     /**
@@ -113,6 +124,47 @@ public class OperacionService {
         AcumuladoCliente acum = actualizarAcumulados(op);
         acRep.save(acum);
         Operacion opGravada = opRep.save(op);
+
+        //Quitar esto por codigo duplicado
+        //Busco los acumulados 
+        OperacionItem opO = op.getOpItemO();
+        AcumuladoCaja acumO = acr.findTopByMonedaIdAndInstrumentoIdAndCajaId(opO.getMoneda().getId(),
+                opO.getInstrumento().getId(), opO.getCaja().getId());
+        acumO.upadateEgreso(opO.getMonto());
+        acumO.upadateSaldo();
+
+        OperacionItem opD = op.getOpItemD();
+        AcumuladoCaja acumD = acr.findTopByMonedaIdAndInstrumentoIdAndCajaId(opD.getMoneda().getId(),
+                opD.getInstrumento().getId(), opD.getCaja().getId());
+        acumD.upadateIngreso(opO.getMonto());
+        acumD.upadateSaldo();
+        acr.save(acumO);
+        acr.save(acumD);
+        //Duplicado
+
+        return opGravada;
+
+    }
+
+    @Transactional
+    public Operacion saveContable(OperacionDTO opDTO) {
+        Operacion op = opDTO.getOperacion();
+        Operacion opGravada = opRep.save(op);
+
+        //Busco los acumulados 
+        OperacionItem opO = op.getOpItemO();
+        AcumuladoCaja acumO = acr.findTopByMonedaIdAndInstrumentoIdAndCajaId(opO.getMoneda().getId(),
+                opO.getInstrumento().getId(), opO.getCaja().getId());
+        acumO.upadateEgreso(opO.getMonto());
+        acumO.upadateSaldo();
+
+        OperacionItem opD = op.getOpItemD();
+        AcumuladoCaja acumD = acr.findTopByMonedaIdAndInstrumentoIdAndCajaId(opD.getMoneda().getId(),
+                opD.getInstrumento().getId(), opD.getCaja().getId());
+        acumD.upadateIngreso(opO.getMonto());
+        acumD.upadateSaldo();
+        opDTO.setAcumCajaO(acr.save(acumO));
+        opDTO.setAcumCajaD(acr.save(acumD));
         return opGravada;
 
     }
@@ -127,29 +179,6 @@ public class OperacionService {
 
         }
         return acum;
-    }
-
-    /*
-    * Se spuede modificar, no se puede guardar y no esta procesado
-     */
-    public void configAltaScreen(OperacionDTO opDTO) {
-        opDTO.setModificable(true);
-        opDTO.setProcesado(false);
-        opDTO.setReadOnly(false);
-
-    }
-
-    public void configProcessScreen(OperacionDTO opDTO) {
-        opDTO.setModificable(false);
-        opDTO.setProcesado(true);
-        opDTO.setReadOnly(false);
-
-    }
-
-    public void configReadOnlyScreen(OperacionDTO opDTO) {
-        opDTO.setModificable(false);
-        opDTO.setProcesado(true);
-        opDTO.setReadOnly(true);
     }
 
     public Operacion buildOperacionFromDTO(OperacionDTO opDTO) {
@@ -186,6 +215,23 @@ public class OperacionService {
         opAGravar.getOperacionItems().add(opDTO.getOpD());
 
         return opAGravar;
+
+    }
+
+    public Operacion findOne(Long id) {
+        return opRep.findOne(id);
+    }
+
+    public List<Operacion> findAll() {
+        return (List<Operacion>) opRep.findAll();
+
+    }
+
+    public Parametro getCaja(User user) {
+        System.out.println("tratando de ejecutar esto ");
+        SesionCaja sc = scr.findTopByUserOrderByInicioSesionDesc(user);
+        System.out.println(sc);
+        return sc.getCaja();
 
     }
 

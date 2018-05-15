@@ -10,3 +10,8 @@
       };
       date_input.datepicker(options);
     })
+
+    $(document).ready(function(){
+        $('[data-toggle="popover"]').popover(); 
+    });
+  

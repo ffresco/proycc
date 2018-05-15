@@ -28,6 +28,16 @@
   align-content: center;
 
 }
+.disabled{
+    pointer-events: none;
+    cursor: not-allowed;
+    background-color: lightgrey;
+}
+.enabled{
+    pointer-events: auto;
+    cursor: auto;
+
+}
 
 
 

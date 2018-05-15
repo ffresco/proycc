@@ -31,7 +31,12 @@ public class EntidadesController {
 
     @RequestMapping(value = "/entidades")
     public ModelAndView findAll() {
-        return new ModelAndView("entidades", "clientes", cliRepo.findAll());
+        return new ModelAndView("addcli", "clientes", cliRepo.findAll());
+    }
+  
+    @RequestMapping(value = "/entidades_facade")
+    public ModelAndView getFacade() {
+        return new ModelAndView("entidades");
     }
 
     @RequestMapping(value = "/savecli", method = RequestMethod.POST)
@@ -43,7 +48,7 @@ public class EntidadesController {
     @RequestMapping(value="/addcli")
     public ModelAndView add(Cliente cliente) {
         
-        return new ModelAndView("addcli", "cliente",cliente);
+        return new ModelAndView("entidad_create", "cliente",cliente);
     
     }
 

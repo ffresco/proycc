@@ -6,42 +6,94 @@
 package com.proycc.base.domain;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author fafre
  */
+@Entity
+@Table(name="tope_operacion")
 public class TopeCompra implements Serializable {
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="Id")
     private Long id;
-    private String tipo;
-    private Float tope;
+    
+        
+    @Column(name = "tope_mes")
+    private Float topeMes;
+    
+    @Column(name = "tope_ano")
+    private Float topeAno;
+
+    @Column(name = "fecha_alta")
+    private LocalDateTime fechaAlta;
+    
     //Agregar una entidad cuando reodri termine
 
-    public TopeCompra(Long id, String tipo, Float tope) {
-        this.id = id;
-        this.tipo = tipo;
-        this.tope = tope;
+    public TopeCompra(Float topeMes, Float topeAno, LocalDateTime fechaAlta) {
+        this.topeMes = topeMes;
+        this.topeAno = topeAno;
+        this.fechaAlta = fechaAlta;
     }
+    
 
     public TopeCompra() {
     }
 
-    public String getTipo() {
-        return tipo;
+    public Long getId() {
+        return id;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public Float getTope() {
-        return tope;
+    public Float getTopeMes() {
+        return topeMes;
     }
 
-    public void setTope(Float tope) {
-        this.tope = tope;
+    public void setTopeMes(Float topeMes) {
+        this.topeMes = topeMes;
     }
+
+    public Float getTopeAno() {
+        return topeAno;
+    }
+
+    public void setTopeAno(Float topeAno) {
+        this.topeAno = topeAno;
+    }
+
+    public LocalDateTime getFechaAlta() {
+        return fechaAlta;
+    }
+
+    public void setFechaAlta(LocalDateTime fechaAlta) {
+        this.fechaAlta = fechaAlta;
+    }
+
+    @Override
+    public String toString() {
+        return "TopeCompra{" + "id=" + id + ", topeMes=" + topeMes + ", topeAno=" + topeAno + ", fechaAlta=" + fechaAlta + '}';
+    }
+
+  
+  
+
+
+    
+    
+    
+    
     
     
 }

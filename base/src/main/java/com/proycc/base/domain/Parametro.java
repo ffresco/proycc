@@ -29,6 +29,12 @@ public class Parametro implements Serializable {
     @Column(name = "valor")
     private String valor;
     
+    @Column(name = "sub_valor")
+    private String subValor;
+    
+    @Column(name = "codigo")
+    private String codigo;
+    
     @Column(name = "tipo")
     private String tipo;
 
@@ -39,6 +45,14 @@ public class Parametro implements Serializable {
         this.valor = valor;
         this.tipo = tipo;
     }
+
+    public Parametro(String valor, String subValor, String tipo) {
+        this.valor = valor;
+        this.subValor = subValor;
+        this.tipo = tipo;
+    }
+    
+    
     
     
 
@@ -66,10 +80,30 @@ public class Parametro implements Serializable {
         this.tipo = tipo;
     }
 
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getSubValor() {
+        return subValor;
+    }
+
+    public void setSubValor(String subValor) {
+        this.subValor = subValor;
+    }
+
+    
+ 
     @Override
     public String toString() {
-        return "Parametro{" + "id=" + id + ", valor=" + valor + ", tipo=" + tipo + '}';
+        return "Parametro{" + "id=" + id + ", valor=" + valor + ", codigo=" + codigo + ", tipo=" + tipo + '}';
     }
+
+   
     
     
     

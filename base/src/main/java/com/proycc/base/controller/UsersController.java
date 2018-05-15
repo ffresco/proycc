@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -31,6 +32,17 @@ public class UsersController {
     @RequestMapping("/usuarios")
     public ModelAndView getUsersPage() {
         LOGGER.debug("Getting users page");
-        return new ModelAndView("users", "users", userService.getAllUsers());
+        return new ModelAndView("users", "users", userService.getAllUsers());        
     }
+    
+    @RequestMapping("/users/create")
+    public ModelAndView create(){        
+        return getUsersPage();
+    }
+    
+    @RequestMapping("/users/edit/{id}")
+    public ModelAndView edit(@PathVariable Long id){
+        return getUsersPage();
+    }
+   
 }

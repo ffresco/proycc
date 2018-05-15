@@ -13,6 +13,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import org.springframework.util.SerializationUtils;
 
@@ -32,14 +34,18 @@ public class Cotizacion implements Serializable{
     @Column(name="fecha")    
     private LocalDateTime fecha;
     
-    @Column(name="moneda")
-    private String moneda;
+    @OneToOne
+    @JoinColumn(name="fk_moneda")
+    private Parametro moneda;
     
-    @Column(name="entidad")
-    private String entidad;
+    @OneToOne
+    @JoinColumn(name="fk_entidad")
+    private Parametro entidad;
     
-    @Column(name="tipoCambio")
-    private String tipoCambio;
+    @OneToOne
+    @JoinColumn(name="fk_tipoCambio")
+    private Parametro tipoCambio;
+    
     
     @Column(name="cotizacion_vta")
     private Float cotizacionVta;
@@ -53,19 +59,22 @@ public class Cotizacion implements Serializable{
     @Column(name="comision_cmp")
     private Float comisionCmp;
     
-    @Column(name="instrumento")
-    private String instrumento;
+    //A que valor tomo la moneda esta expresado en la misma moneda que moneda
+    @Column(name="cotizacion_canje")
+    private Float canje;
     
-    @Column(name="tipo_op")
-    private String tipoOp;
+    @OneToOne
+    @JoinColumn(name="fk_instrumento")
+    private Parametro instrumento;
     
-    @Column(name="moneda_base")
-    private String monedaBase;
+        
+    @OneToOne
+    @JoinColumn(name="fk_moneda_base")
+    private Parametro monedaBase;
     
-    private boolean compra;
+ 
 
-    public Cotizacion(LocalDateTime fecha, String moneda, String entidad, String tipoCambio, Float cotizacionVta, Float cotizacionCmp, Float comisionVta, Float comisionCmp, String instrumento, String tipoOp, String monedaBase) {
-    
+    public Cotizacion(LocalDateTime fecha, Parametro moneda, Parametro entidad, Parametro tipoCambio, Float cotizacionVta, Float cotizacionCmp, Float comisionVta, Float comisionCmp, Parametro instrumento, Parametro monedaBase, Float canje) {
         this.fecha = fecha;
         this.moneda = moneda;
         this.entidad = entidad;
@@ -75,11 +84,21 @@ public class Cotizacion implements Serializable{
         this.comisionVta = comisionVta;
         this.comisionCmp = comisionCmp;
         this.instrumento = instrumento;
-        this.tipoOp = tipoOp;
         this.monedaBase = monedaBase;
+        this.canje = canje;
     }
 
+   
+
     public Cotizacion() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public LocalDateTime getFecha() {
@@ -90,29 +109,27 @@ public class Cotizacion implements Serializable{
         this.fecha = fecha;
     }
 
-
-
-    public String getMoneda() {
+    public Parametro getMoneda() {
         return moneda;
     }
 
-    public void setMoneda(String moneda) {
+    public void setMoneda(Parametro moneda) {
         this.moneda = moneda;
     }
 
-    public String getEntidad() {
+    public Parametro getEntidad() {
         return entidad;
     }
 
-    public void setEntidad(String entidad) {
+    public void setEntidad(Parametro entidad) {
         this.entidad = entidad;
     }
 
-    public String getTipoCambio() {
+    public Parametro getTipoCambio() {
         return tipoCambio;
     }
 
-    public void setTipoCambio(String tipoCambio) {
+    public void setTipoCambio(Parametro tipoCambio) {
         this.tipoCambio = tipoCambio;
     }
 
@@ -148,60 +165,45 @@ public class Cotizacion implements Serializable{
         this.comisionCmp = comisionCmp;
     }
 
-    public String getInstrumento() {
+    public Parametro getInstrumento() {
         return instrumento;
     }
 
-    public void setInstrumento(String instrumento) {
+    public void setInstrumento(Parametro instrumento) {
         this.instrumento = instrumento;
     }
 
-    public String getTipoOp() {
-        return tipoOp;
-    }
-
-    public void setTipoOp(String tipoOp) {
-        this.tipoOp = tipoOp;
-    }
-
-    public String getMonedaBase() {
+ 
+    public Parametro getMonedaBase() {
         return monedaBase;
     }
 
-    public void setMonedaBase(String monedaBase) {
+    public void setMonedaBase(Parametro monedaBase) {
         this.monedaBase = monedaBase;
     }
 
-    public boolean isCompra() {
-        return compra;
+    
+
+    public Float getCanje() {
+        return canje;
     }
 
-    public void setCompra(boolean compra) {
-        this.compra = compra;
+    public void setCanje(Float canje) {
+        this.canje = canje;
     }
 
     @Override
     public String toString() {
-        return "Cotizacion{" + "id=" + id + ", fecha=" + fecha + ", moneda=" + moneda + ", entidad=" + entidad + ", tipoCambio=" + tipoCambio + ", cotizacionVta=" + cotizacionVta + ", cotizacionCmp=" + cotizacionCmp + ", comisionVta=" + comisionVta + ", comisionCmp=" + comisionCmp + ", instrumento=" + instrumento + ", tipoOp=" + tipoOp + ", monedaBase=" + monedaBase + ", compra=" + compra + '}';
-    }
-    
-    
-
-
-
- 
-    
-
-    
-    
-    
-
-    public Long getId() {
-        return id;
+        return "Cotizacion{" + "id=" + id + ", fecha=" + fecha + ", moneda=" + moneda + ", entidad=" + entidad + ", tipoCambio=" + tipoCambio + ", cotizacionVta=" + cotizacionVta + ", cotizacionCmp=" + cotizacionCmp + ", comisionVta=" + comisionVta + ", comisionCmp=" + comisionCmp + ", canje=" + canje + ", instrumento=" + instrumento + ", monedaBase=" + monedaBase + '}';
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    
+
+    
+    
+    
+
+   
+    
     
 }

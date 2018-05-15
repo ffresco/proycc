@@ -50,17 +50,17 @@
 			</div>
 			<!--columna link iniciar sesiÃ³n solo es visible en xs-->
 			<div class="col-xs-4 visible-xs">
-				<small><a href="index.html">Volver</a></small>
+				<small><a href="/">Volver</a></small>
 			</div>
 			<!--columna botÃ³n crear cuenta solo es visible en xs-->
 			<div class="col-xs-3 visible-xs">
-				<button type="button" class="btn btn-primary">Crear una Cuenta</button>
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#notificacion_cta">Crear una Cuenta</button>
 			</div>
 			<!--columna link y boton solo son visibles en sm md lg-->
 			<div class="col-sm-4 col-sm-offset-3 visible-sm visible-md
 			visible-lg col-md-4 col-md-offset-4 col-lg-4 col-lg-offset-3">
-			<small><a href="index.php" class="enlace-menu">Volver</a></small>
-			<button type="button" class="btn btn-primary">Crear una Cuenta</button>
+			<small><a href="/" class="enlace-menu">Volver</a></small>
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#notificacion_cta">Crear una Cuenta</button>
 		</div>
 
 	</div>
@@ -95,13 +95,30 @@
         
         <div class="alert alert-danger" th:if="${error.isPresent()}">
         	<p> The email or password you have entered is invalid, try again.</p>
-        </div>
-
-
+        </div>              
 		
+	</div>
 
-                
-		
+	<!--modal de notificacion de crear una cuenta-->
+	<div class="modal" id="notificacion_cta" tabindex="-1" role="dialog">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header bg-success">
+	        <h5 class="modal-title">Creacion de cuentas</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	        <p>Actualmente las cuentas son creadas previo cumplimiento del proceso de autorizacion, para 
+	        solicitar una nueva cuenta por favor comuniquese a la siguiente direccion</p>
+	        <p>soporte@arscambios.com.ar</p>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
 	</div>
 
 </body>

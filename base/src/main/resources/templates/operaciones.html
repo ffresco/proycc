@@ -15,28 +15,63 @@ and open the template in the editor.
 
 		<div th:replace="fragments ::navbartop"></div> <!-- Menu superior --> 	
 
-		<div class="row content"> <!-- fila contine menuj lateral 3 col,  principal 9 col -->
-			<div th:replace="fragments ::navbarside_operaciones"></div> <!-- Menu Lateral  -->  
-
+		<div class="row"> <!-- fila contine menuj lateral 3 col,  principal 9 col -->
+			<div class="col-sm-3 sidenav">
+				<div th:replace="fragments ::navbarside_operaciones"></div> <!-- Menu Lateral  -->  
+			</div>
 			<!-- Contenido principal 9 columnas -->
 			<div class="col-sm-9">
-			
-					<div class="panel-group">
+
+				<div class="panel-group">
+					<div class="panel panel-default">
 						<div class="panel panel-default">
-							<div class="panel panel-default">
-								<div class="panel-heading row">
-								<div class="col-sm-6"><h2>Operaciones</h2></div>
-									<div class="col-sm-3"><a class="btn btn-sm btn-success" th:href="@{/operaciones/create}" >Nuevo</a></div>
-								</div>
+							<div class="panel-heading row">
+								<div class="col-sm-6"><h2>Operaciones</h2></div> <span class="col-sm-6"><a class="btn btn-sm btn-success" th:href="@{/operaciones/create}" >Nuevo</a></span>
+							</div>		
+							<div class="panel-body"><!--dentro del panel body va mi contenido-->
+
 
 						
-
-							</div>
-
-							
+								   	<table class="table table-responsive table-sm table-striped table-hover table-bordered">
+										<thead class="bg-success">
+											<tr>
+												<th> Fecha </th>
+												<th> Num</th>
+												<th> Estado</th>
+												<th> Cli DNI</th>
+												<th> Cli Nom</th>
+												<th> Tipo Op</th>
+												<th> </th>
+												<!--<th> Mnd Base</th>-->
+									
+											</tr>
+										</thead>
+										<tbody>
+											<tr th:each="operacion : ${operaciones}">
+												<td th:text="${#temporals.format(operacion.fechaHora, 'dd/MMM/yyyy HH:mm')}"></td>
+												<td th:text="${operacion.id}"></td>
+												<td th:text="${operacion.estado.valor}"></td>
+												<!--<td th:text="${(operacion.cliente!=null)?operacion.cliente.documento:''}"></td>
+												<td th:text="${(operacion.cliente!=null)?operacion.cliente.apellido:''}"></td>-->
+												<td></td><td></td><td></td>
+												<!--<td th:text="${operacion.tipoOp.valor}"></td>-->
+												<td>
+													<div class="btn-group pull-right">
+														<a class="btn btn-sm btn-primary" th:href="@{/operaciones/edit/{id}(id=${operacion.id})}" >Ver</a>
+														
+													</div>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>								
 						</div>
+
+
+
 					</div>
-			
+				</div>
+
 			</div> <!-- Fin Contenido principal 9 columnas -->
 
 		</div>	<!-- fila contine menuj lateral 3 col,  principal 9 col -->

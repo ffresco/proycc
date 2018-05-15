@@ -6,6 +6,7 @@
 package com.proycc.base.domain;
 
 import java.io.Serializable;
+import java.util.Optional;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -44,13 +45,19 @@ public class OperacionItem implements Serializable {
     @JoinColumn(name = "fk_instrumnto",nullable = false)   
     private Parametro instrumento;
     
+    @OneToOne
+    @JoinColumn(name = "fk_cotizacion_id")
+    private Cotizacion cotizacion;
+
     @Column(name = "monto_rec_vlt")
     private Float montoRecVlt;
     
     @Column(name = "monto")
     private Float monto;
     
-    
+    @OneToOne    
+    @JoinColumn(name="fk_caja_id")
+    private Parametro caja;
     
     @Column(name = "fuente")
     private String fuente;
@@ -137,7 +144,27 @@ public class OperacionItem implements Serializable {
         this.orden = orden;
     }
 
-    public OperacionItem(Operacion operacion, Parametro moneda, Parametro instrumento, Float montoRecVlt, Float monto, String fuente, Parametro movimiento, int orden) {
+    public Cotizacion getCotizacion() {
+        return cotizacion;
+    }
+
+    public void setCotizacion(Cotizacion cotizacion) {
+        this.cotizacion = cotizacion;
+    }
+
+    public Parametro getCaja() {
+        return caja;
+    }
+
+    public void setCaja(Parametro caja) {
+        this.caja = caja;
+    }
+    
+    
+
+    public OperacionItem(Operacion operacion, Parametro moneda, Parametro instrumento, Float montoRecVlt, 
+            Float monto, String fuente, Parametro movimiento, int orden,Cotizacion cot, Parametro
+                    caja) {
         this.operacion = operacion;
         this.moneda = moneda;
         this.instrumento = instrumento;
@@ -146,6 +173,8 @@ public class OperacionItem implements Serializable {
         this.fuente = fuente;
         this.movimiento = movimiento;
         this.orden = orden;
+        this.cotizacion = cot;
+        this.caja = caja;
     }
     
     
@@ -156,9 +185,10 @@ public class OperacionItem implements Serializable {
 
     @Override
     public String toString() {
-        return "OperacionItem{" + "operacion=" + operacion.getId() + ", moneda=" + moneda + 
-                ", instrumento=" + instrumento + ", monto=" + monto + ", fuente=" + fuente + 
-                ", movimiento=" + movimiento + ", orden=" + orden + "'}'";
+        String idOp = operacion==null?"":operacion.getId()+"";
+        return "OperacionItem{" + "operacion=" + Optional.ofNullable(idOp) + ", moneda=" + Optional.ofNullable(moneda) + 
+                ", instrumento=" + Optional.ofNullable(instrumento) + ", monto=" + monto + ", fuente=" + Optional.ofNullable(fuente) + 
+                ", movimiento=" + Optional.ofNullable(movimiento) + ", orden=" + orden + "'}'";
     }
     
     

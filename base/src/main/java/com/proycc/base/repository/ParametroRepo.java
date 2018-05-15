@@ -6,6 +6,7 @@
 package com.proycc.base.repository;
 
 import com.proycc.base.domain.Parametro;
+import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 
 /**
@@ -15,4 +16,10 @@ import org.springframework.data.repository.CrudRepository;
 public interface ParametroRepo extends CrudRepository<Parametro,Long> {
     
     public Parametro findByValor(String valor);
+    
+    public List<Parametro> findByTipo(String tipo);
+    
+
+    
+    
 }

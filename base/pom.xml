@@ -73,7 +73,19 @@
             <groupId>org.thymeleaf.extras</groupId>
             <artifactId>thymeleaf-extras-java8time</artifactId>
             <version>2.1.0.RELEASE</version>
-        </dependency>                    
+        </dependency>      
+        <!--probar jasper-->
+        <dependency>
+            <groupId>net.sf.jasperreports</groupId>
+            <artifactId>jasperreports</artifactId>
+            <version>6.4.0</version>
+        </dependency> 
+        <!--super cvs para generar archivo opcam-->
+        <dependency>
+            <groupId>net.sf.supercsv</groupId>
+            <artifactId>super-csv</artifactId>
+            <version>2.4.0</version>
+        </dependency>             
     </dependencies>
 
     <build>

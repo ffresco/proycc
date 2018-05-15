@@ -22,18 +22,19 @@ import org.springframework.data.repository.CrudRepository;
 public interface CotizacionRepository extends CrudRepository<Cotizacion,Long>{
     
   
-    @Query("select c from Cotizacion c where c.tipoOp like ?1% and c.moneda like ?2% "
-            + "and c.tipoCambio like ?3% and c.instrumento like ?4% ")
-    List<Cotizacion> findByConstrainLike(String tipoOp,String moneda,
+    @Query("select c from Cotizacion c where  c.moneda.valor like ?1% "
+            + "and c.tipoCambio.valor like ?2% and c.instrumento.valor like ?3% ")
+    List<Cotizacion> findByConstrainLike(String moneda,
             String tipoCmb,String inst, Sort sort);
+    
 
-    @Query("select  c from Cotizacion c where c.tipoOp like ?1% and c.moneda like ?2% "
-            + "and c.tipoCambio like ?3% and c.instrumento like ?4%")
-    Page<Cotizacion> getLastCotizacionByMoneda(String tipoOp,String moneda,
+    @Query("select  c from Cotizacion c where  c.moneda.valor like ?1% "
+            + "and c.tipoCambio.valor like ?2% and c.instrumento.valor like ?3%")            
+    Page<Cotizacion> getLastestCotizacionesByMoneda(String moneda,
             String tipoCmb,String inst, Pageable page);
     
-    Cotizacion findTopByMonedaOrderByFechaDesc(String moneda);
+    Cotizacion findTopByMonedaValorOrderByFechaDesc(String moneda);
     
-    Cotizacion findTopByMonedaAndEntidadAndTipoCambioAndTipoOpAndInstrumentoOrderByFechaDesc(String moneda,
-            String entidad, String tipoCmb, String tipoOp, String instrumento);
+    Cotizacion findTopByMonedaValorAndEntidadValorAndTipoCambioValorAndInstrumentoValorOrderByFechaDesc(String moneda,
+            String entidad, String tipoCmb,  String instrumento);
 }
