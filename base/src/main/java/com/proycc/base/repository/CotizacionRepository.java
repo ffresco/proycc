@@ -6,6 +6,8 @@
 package com.proycc.base.repository;
 
 import com.proycc.base.domain.Cotizacion;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -37,4 +39,6 @@ public interface CotizacionRepository extends CrudRepository<Cotizacion,Long>{
     
     Cotizacion findTopByMonedaValorAndEntidadValorAndTipoCambioValorAndInstrumentoValorOrderByFechaDesc(String moneda,
             String entidad, String tipoCmb,  String instrumento);
+    //find from fecha1 to fecha2
+    List<Cotizacion> findByFechaAfterAndFechaBefore(LocalDateTime fechaDesde,LocalDateTime fechaHasta);
 }

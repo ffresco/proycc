@@ -41,15 +41,15 @@ and open the template in the editor.
 											</tr>
 										</thead>
 										<tbody>
-											<tr>
-												<td>12-01-2018</td>
-												<td>Semana 01-09-2018</td>
-												<td>OP_CAMB.TXT</td>
-												<td>Original</td>
+										<tr th:each="filereg : ${archivos}">
+												<td th:text="${#temporals.format(filereg.fechaCreacion, 'dd/MM/yyyy HH:mm')}">>12-01-2018</td>
+												<td th:text="${#temporals.format(filereg.semana, 'dd/MM/yyyy')}">Semana 01-09-2018</td>
+												<td th:text="${filereg.fileName}">OP_CAMB.TXT</td>
+												<td th:text="${filereg.estado}">Original</td>
 												<td>	
 													<div class="btn-group pull-right">
-														<a class="btn btn-sm btn-primary" th:href="@{/opcamtxt}" >rectificar</a>
-														<a class="btn btn-sm btn-success" th:href="@{/getFile}" >descargar</a>
+														<a class="btn btn-sm btn-primary" th:href="@{/auditoria/getfile/{id}(id=${filereg.id})}">rectificar</a>
+														<a class="btn btn-sm btn-success" th:href="@{/auditoria/getfile/{id}(id=${filereg.id})}">descargar</a>
 													</div>
 												</td>
 										</tr>

@@ -7,14 +7,23 @@
 package com.proycc.base.controller;
 
 import com.proycc.base.domain.Cotizacion;
+import com.proycc.base.domain.FileTextRegistry;
 import com.proycc.base.domain.Operacion;
+import com.proycc.base.domain.dto.AuditoriaDTO;
 import com.proycc.base.domain.dto.OperacionReportDTO;
 import com.proycc.base.domain.dto.TextFileDTO;
+import com.proycc.base.repository.FileTextRegistryRepo;
+import com.proycc.base.service.OperacionService;
+import com.proycc.base.utils.cvs.CvsProducerAdministrator;
 import com.proycc.base.utils.cvs.CvsUtils;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
@@ -37,8 +46,11 @@ import net.sf.jasperreports.export.SimpleWriterExporterOutput;
 import net.sf.jasperreports.export.WriterExporterOutput;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -52,96 +64,92 @@ import org.springframework.web.servlet.ModelAndView;
 public class AuditoriaController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(AuditoriaController.class);
+    private OperacionService operacionService;
+    private FileTextRegistryRepo fileTextRegistryRepo;
+    private CvsProducerAdministrator cvsProducerAdministrator;
+
+    @Autowired
+    public AuditoriaController(OperacionService operacionService, FileTextRegistryRepo fileTextRegistryRepo,
+            CvsProducerAdministrator cvsProducerAdministrator) {
+        this.operacionService = operacionService;
+        this.fileTextRegistryRepo = fileTextRegistryRepo;
+        this.cvsProducerAdministrator = cvsProducerAdministrator;
+    }
 
     @RequestMapping("/auditoria")
     public ModelAndView getMainPage() {
-        return new ModelAndView("auditoria");
+        List<FileTextRegistry> archivosCreados = (List<FileTextRegistry>) fileTextRegistryRepo.findAll();
+        ModelAndView mav = new ModelAndView("auditoria", "archivos", archivosCreados);
+        return mav;
     }
 
     @RequestMapping("/auditoria/create")
-    public ModelAndView getCreatePage() {
-        return new ModelAndView("auditoria_create");
+    public ModelAndView getCreatePage(@ModelAttribute AuditoriaDTO dto, BindingResult result) {
+        dto.setPorSemana(true);
+        ModelAndView mav = new ModelAndView("auditoria_create", "dto", dto);
+        return mav;
     }
 
-    @RequestMapping(value = "/getFile")
-    void getFile(HttpServletResponse response) throws IOException {
-
-        System.out.println("Headr " + response);
-        System.out.println("Print header " + response.getHeader("X-Frame-Options"));
-        System.out.println(response.getHeaderNames());
-        String fileName = "opcam.txt";
-        String path = "txt/" + fileName;
-
+    @RequestMapping(value = "/auditoria/getfile/{id}")
+    void getFile(@PathVariable Long id, HttpServletResponse response) throws IOException {
+        FileTextRegistry fileReg = fileTextRegistryRepo.findOne(id);
+        String path = "txt/" + fileReg.getFileName();
         File file = new File(path);
         FileInputStream inputStream = new FileInputStream(file);
-
         response.setContentType("application/txt");
         response.setContentLength((int) file.length());
-        response.setHeader("Content-Disposition", "inline;filename=\"" + fileName + "\"");
+        response.setHeader("Content-Disposition", "inline;filename=\"" + fileReg.getFileName() + "\"");
         response.setHeader("X-Frame-Options", "SAMEORIGIN");
-
         FileCopyUtils.copy(inputStream, response.getOutputStream());
 
     }
 
-    @RequestMapping(path = "/opcamtxt", method = RequestMethod.GET)
-    public void generateReport(HttpServletResponse response)  {
+    @RequestMapping(path = "/auditoria/produce", method = RequestMethod.POST)
+    public ModelAndView generateReport(@ModelAttribute(value = "dto") AuditoriaDTO dto,
+            BindingResult bindingResult) {
         LOGGER.info("--Le pegue al print --Generando TXT-");
-        /*
-        InputStream reporte = getClass().getResourceAsStream("/opcam.jasper");
-
-        //meto en memoria la operacion
-        List<TextFileDTO> aux = new ArrayList<>();
+        LOGGER.info("Archivo pedido sobre esta semana " + dto.getSemana());
         
-        LOGGER.debug("La operacion recuperada es ");
-        aux.add(new TextFileDTO("pepe", "333333", "dni", 11.f));
-        aux.add(new TextFileDTO("hhhh","343434", "CUIT", 44.8f));
+        //1-Genero el pedido----
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd"); 
+        LocalDate fechaDesde,fechaHasta;
+        if (dto.isPorSemana()) {
+            //Valido la semana no sea null
+            if (dto.getSemana().isEmpty()) {
+                bindingResult.reject("3", "la valor seleccionado es invalido, seleccione un dia valido");
+                return getCreatePage(dto, bindingResult);
+            }
+            //Busco el lunes de esa semana           
+            LocalDate formatDateTime = LocalDate.parse(dto.getSemana(), formatter);
+            fechaDesde = formatDateTime.with(DayOfWeek.MONDAY);
+            fechaHasta = fechaDesde.plusDays(6);
 
-        try {
-            //Pido el reporte ya compilado (si tuviera uno y quiero recuperarlo
-            JasperReport jasperReport = (JasperReport) JRLoader.loadObject(reporte);
+        } else {
+            if (dto.getFechaDesde().isEmpty() || dto.getFechaHasta().isEmpty()) {
+                bindingResult.reject("3", "la valor seleccionado es invalido, seleccione un dia valido");
+                return getCreatePage(dto, bindingResult);
+            }
+            fechaDesde = LocalDate.parse(dto.getFechaDesde(), formatter);
+            fechaHasta = LocalDate.parse(dto.getFechaHasta(), formatter);
 
-            // fills compiled report with parameters and a connection
-            System.out.println("Empezando a llenar el reporte");
-
-            //O puedo usar una coleccion en memoria
-            JRBeanCollectionDataSource dsMemo = new JRBeanCollectionDataSource(aux);
-            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, dsMemo);
-
-            System.out.println("el jasper print " + jasperPrint);
-     
-            // exports report to pdf      
-            System.out.println("empezandoa a exportar");
-            System.out.println("este es el expoerter ");
-            
-            //desde aca
-            JRCsvExporter exporter = new JRCsvExporter();
-
-            exporter.setExporterInput(new SimpleExporterInput(jasperPrint));
-            System.out.println("Tratando de abrir el output");
-
-            exporter.setExporterOutput(new SimpleWriterExporterOutput("txt/opcam2.txt"));
-            System.out.println("");
-            System.out.println("Pude abrir el output");
-            
-            SimpleCsvExporterConfiguration exportConfig
-                    = new SimpleCsvExporterConfiguration();
-            SimpleCsvReportConfiguration reportConfig = new SimpleCsvReportConfiguration();
-          
-
-            
-            exporter.setConfiguration(reportConfig);
-            exporter.setConfiguration(exportConfig);
-            System.out.println("por generar el export");
-            exporter.exportReport();
-            */
-        try{  
-        CvsUtils.writeWithCsvBeanWriter();
-
-        } catch (Exception e) {
-            System.out.println("salio por el catch hubo exceptcion " + e);
         }
-        // compiles jrxml
+        
+        String fileName = fechaDesde.toString() + "_" + fechaHasta.toString() + "_OPCAM.txt";
+        FileTextRegistry pedido = new FileTextRegistry(LocalDateTime.now(), fechaDesde, fechaDesde, fechaHasta, fileName, "", "");
+        System.out.println("Pedido resultante " + pedido);
+        //1-Fin de generacion del pedido
+        
+        //2-Mando a resolver el pedido
+        boolean aceptado = cvsProducerAdministrator.encargarCVS(pedido, operacionService, fileTextRegistryRepo);
+        String mensaje;
+        if (!aceptado) {
+            System.out.println("TRABAJO RECHAZADO ");
+            bindingResult.reject("1", "el sitema se encuentra generando un archivo y no puede tomar este pedido");
+        } else {
+            bindingResult.reject("2", "su arhivo esta siendo generado");
+            System.out.println("El trabajo FUE ACEPTADO");
+        }
+        return getCreatePage(dto, bindingResult);
     }
 
-    }
+}

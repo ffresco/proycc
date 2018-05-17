@@ -28,7 +28,7 @@ import javax.persistence.Table;
 public class OperacionItem implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     private Long id;
 
@@ -62,7 +62,8 @@ public class OperacionItem implements Serializable {
     @Column(name = "fuente")
     private String fuente;
     
-    @Column(name = "fk_movimiento" )
+    @OneToOne    
+    @JoinColumn(name = "fk_movimiento" )
     private Parametro movimiento;
     
     @Column(name = "orden")

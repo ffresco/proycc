@@ -7,24 +7,31 @@ package com.proycc.base.service;
 
 import com.proycc.base.domain.AcumuladoCaja;
 import com.proycc.base.domain.AcumuladoCliente;
+import com.proycc.base.domain.FileTextRegistry;
 import com.proycc.base.domain.Operacion;
 import com.proycc.base.domain.OperacionItem;
 import com.proycc.base.domain.Parametro;
 import com.proycc.base.domain.SesionCaja;
 import com.proycc.base.domain.User;
 import com.proycc.base.domain.dto.OperacionDTO;
+import com.proycc.base.domain.dto.builder.OpDTOBuilder;
 import com.proycc.base.repository.AcumuladoCajaRepo;
-import com.proycc.base.repository.AcumuladoRepo;
 import com.proycc.base.repository.OperacionRepo;
 import com.proycc.base.repository.ParametroRepo;
 import com.proycc.base.repository.SesionCajaRepo;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import com.proycc.base.repository.AcumuladoClienteRepo;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 /**
  *
@@ -34,13 +41,16 @@ import org.springframework.transaction.annotation.Transactional;
 public class OperacionService {
 
     private OperacionRepo opRep;
-    private AcumuladoRepo acRep;
+    private AcumuladoClienteRepo acRep;
     private ParametroRepo paramRepo;
     private SesionCajaRepo scr;
     private AcumuladoCajaRepo acr;
 
+    @PersistenceContext
+    private EntityManager em;
+
     @Autowired
-    public OperacionService(OperacionRepo opRep, AcumuladoRepo acRep,
+    public OperacionService(OperacionRepo opRep, AcumuladoClienteRepo acRep,
             ParametroRepo pr, SesionCajaRepo scr, AcumuladoCajaRepo acr) {
         this.opRep = opRep;
         this.acRep = acRep;
@@ -56,7 +66,7 @@ public class OperacionService {
      * @return Retorna el objeto acumulado cliente igual, o con acumulado mes y
      * año reseteado a cero si el mes o el año es distinto al de la operacion
      */
-    public AcumuladoCliente configAcumulados(Operacion op, AcumuladoCliente ac) {
+    public AcumuladoCliente configAcumuladoCliente(Operacion op, AcumuladoCliente ac) {
         Month opMonth = op.getFechaHora().getMonth();
         int opYear = op.getFechaHora().getYear();
         System.out.println("Comparando el año del acumulado : " + ac.getAno() + " año de la op " + opYear
@@ -85,7 +95,7 @@ public class OperacionService {
      * @return El objeto acumulado cliente con los acumulados actualizados con
      * los montos de la ultima operacion
      */
-    public AcumuladoCliente calcAcumulado(AcumuladoCliente acuCli, float monto) {
+    public AcumuladoCliente calcAcumuladoCliente(AcumuladoCliente acuCli, float monto) {
         float acuMes = 0;
         float acuAno = 0;
         acuCli.getAcumuladoAno();
@@ -115,66 +125,90 @@ public class OperacionService {
 
     /**
      * Al grabar una operacion tambien se debe actualizar los acumulados del
-     * cliente
+     * cliente y los de las cajas, Este metodo es para gravar operaciones
+     * comerciales las que hacen los cajero
      *
      * @param op
      */
-    @Transactional
-    public Operacion save(Operacion op) {
-        AcumuladoCliente acum = actualizarAcumulados(op);
-        acRep.save(acum);
-        Operacion opGravada = opRep.save(op);
+    @Transactional(rollbackFor = {Exception.class})
+    public Operacion saveComercial(Operacion op) {
+        try {
+            //Actualizo los acumulados del cliente
+            AcumuladoCliente acum = actualizarAcumuladoCliente(op);
+            acRep.save(acum);
 
-        //Quitar esto por codigo duplicado
-        //Busco los acumulados 
-        OperacionItem opO = op.getOpItemO();
-        AcumuladoCaja acumO = acr.findTopByMonedaIdAndInstrumentoIdAndCajaId(opO.getMoneda().getId(),
-                opO.getInstrumento().getId(), opO.getCaja().getId());
-        acumO.upadateEgreso(opO.getMonto());
-        acumO.upadateSaldo();
+            //Actualizo los saldos de caja
+            //en la comercial el origin te da el ingreso a tu caja
+            OperacionItem opO = op.getOpItemO();
+            AcumuladoCaja acumO = registrarIngresoAcumCaja(opO);
+            //el destino es lo que le entrego al cliente y es el egreso
+            OperacionItem opD = op.getOpItemD();
+            AcumuladoCaja acumD = registrarEgresoAcumCaja(opD);
+            acr.save(acumO);
+            acr.save(acumD);
 
-        OperacionItem opD = op.getOpItemD();
-        AcumuladoCaja acumD = acr.findTopByMonedaIdAndInstrumentoIdAndCajaId(opD.getMoneda().getId(),
-                opD.getInstrumento().getId(), opD.getCaja().getId());
-        acumD.upadateIngreso(opO.getMonto());
-        acumD.upadateSaldo();
-        acr.save(acumO);
-        acr.save(acumD);
-        //Duplicado
-
-        return opGravada;
+            //Gravo la operacion
+            Operacion opGravada = opRep.save(op);
+            return opGravada;
+        } catch (Exception e) {
+            em.flush();
+            throw e;
+        }
 
     }
 
-    @Transactional
+
+
+    @Transactional(rollbackFor = {Exception.class})
     public Operacion saveContable(OperacionDTO opDTO) {
-        Operacion op = opDTO.getOperacion();
-        Operacion opGravada = opRep.save(op);
+        try {
 
-        //Busco los acumulados 
-        OperacionItem opO = op.getOpItemO();
-        AcumuladoCaja acumO = acr.findTopByMonedaIdAndInstrumentoIdAndCajaId(opO.getMoneda().getId(),
-                opO.getInstrumento().getId(), opO.getCaja().getId());
-        acumO.upadateEgreso(opO.getMonto());
-        acumO.upadateSaldo();
+            Operacion op = opDTO.getOperacion();
+            Operacion opGravada = opRep.save(op);
 
-        OperacionItem opD = op.getOpItemD();
-        AcumuladoCaja acumD = acr.findTopByMonedaIdAndInstrumentoIdAndCajaId(opD.getMoneda().getId(),
-                opD.getInstrumento().getId(), opD.getCaja().getId());
-        acumD.upadateIngreso(opO.getMonto());
-        acumD.upadateSaldo();
-        opDTO.setAcumCajaO(acr.save(acumO));
-        opDTO.setAcumCajaD(acr.save(acumD));
-        return opGravada;
+            //En la contabiliad saco del origen etonces es egreso
+            OperacionItem opO = op.getOpItemO();
+            AcumuladoCaja acumO = registrarEgresoAcumCaja(opO);
+
+            //El destino recibe la plata es ingreso
+            OperacionItem opD = op.getOpItemD();
+            AcumuladoCaja acumD = registrarIngresoAcumCaja(opD);
+
+            opDTO.setAcumCajaO(acr.save(acumO));
+            opDTO.setAcumCajaD(acr.save(acumD));
+            return opGravada;
+        } catch (Exception e) {
+            em.flush();
+            throw e;
+        }
 
     }
 
-    private AcumuladoCliente actualizarAcumulados(Operacion op) {
+        private AcumuladoCaja registrarIngresoAcumCaja(OperacionItem opItem) {
+        AcumuladoCaja acum = registrarIngresoEgresoAcumCaja(opItem, opItem.getMonto(), 0f);
+        return acum;
+    }
+
+    private AcumuladoCaja registrarEgresoAcumCaja(OperacionItem opItem) {
+        AcumuladoCaja acum = registrarIngresoEgresoAcumCaja(opItem, 0f, opItem.getMonto());
+        return acum;
+    }
+
+    private AcumuladoCaja registrarIngresoEgresoAcumCaja(OperacionItem opItem, float ingreso, float egreso) {
+        //busco el acumulado para la caja y el instrumento
+        AcumuladoCaja acum = acr.findTopByMonedaIdAndInstrumentoIdAndCajaId(opItem.getMoneda().getId(),
+                opItem.getInstrumento().getId(), opItem.getCaja().getId());
+        acum.upadateIngreso(ingreso);
+        acum.upadateEgreso(egreso);
+        acum.upadateSaldo();
+        return acum;
+    }
+    private AcumuladoCliente actualizarAcumuladoCliente(Operacion op) {
         //tomo de la operacion cuanto fue el monto de moneda Base para calcular tope del cliente
         AcumuladoCliente acum = op.getCliente().getAcumulado();
         for (OperacionItem t : op.getOperacionItems()) {
             if (t.getMoneda().getValor().equals("AR$")) {
-                acum = calcAcumulado(acum, t.getMonto());
+                acum = calcAcumuladoCliente(acum, t.getMonto());
             }
 
         }
@@ -233,6 +267,21 @@ public class OperacionService {
         System.out.println(sc);
         return sc.getCaja();
 
+    }
+
+    /**
+     * Metodo utilizado por el CVS opcam para abrir stream a la base con los archivos necesarios
+     * @param fileReg
+     * @return 
+     */
+    public Stream<Operacion> getStreamOpOpCam(FileTextRegistry fileReg) {
+        LocalDateTime fechaDesde = LocalDateTime.of(fileReg.getFechaDesde(), LocalTime.MIDNIGHT);
+        LocalDateTime fechaHasta = LocalDateTime.of(fileReg.getFechaHasta(), LocalTime.MAX);
+        return opRep.findByFechaHoraAfterAndFechaHoraBeforeAndTipoMov(fechaDesde, fechaHasta,OpDTOBuilder.OPERACION_COMERCIAL);
+    }
+    
+    public List<Operacion> findAllByTipoMovimiento(String tipoMov){
+        return opRep.findByTipoMov(tipoMov);
     }
 
 }

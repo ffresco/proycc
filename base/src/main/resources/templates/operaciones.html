@@ -51,10 +51,9 @@ and open the template in the editor.
 												<td th:text="${#temporals.format(operacion.fechaHora, 'dd/MMM/yyyy HH:mm')}"></td>
 												<td th:text="${operacion.id}"></td>
 												<td th:text="${operacion.estado.valor}"></td>
-												<!--<td th:text="${(operacion.cliente!=null)?operacion.cliente.documento:''}"></td>
-												<td th:text="${(operacion.cliente!=null)?operacion.cliente.apellido:''}"></td>-->
-												<td></td><td></td><td></td>
-												<!--<td th:text="${operacion.tipoOp.valor}"></td>-->
+												<td th:text="${operacion.cliente.documento}"></td>
+												<td th:text="${operacion.cliente.apellido}"></td>
+												<td th:text="${operacion.tipoOp.valor}"></td>
 												<td>
 													<div class="btn-group pull-right">
 														<a class="btn btn-sm btn-primary" th:href="@{/operaciones/edit/{id}(id=${operacion.id})}" >Ver</a>

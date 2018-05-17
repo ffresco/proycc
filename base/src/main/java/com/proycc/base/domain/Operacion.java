@@ -30,14 +30,14 @@ import javax.persistence.Table;
 public class Operacion implements Serializable{
   
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     private Long id;
     
     @Column(name="fecha_hora")    
     private LocalDateTime fechaHora;
     
-    @OneToOne(cascade = CascadeType.PERSIST)
+    @OneToOne
     @JoinColumn(name = "fk_cli_id")
     private Cliente cliente;
     

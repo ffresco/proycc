@@ -150,16 +150,18 @@
           <legend>Busqueda  </legend>
 
           <!-- Select Basic -->
+          <!--
           <div class="form-group">
             <label class="" for="cmbTipoOp">Tipo Op</label>
             <div class="">
               <select id="cmbTipoOp" th:field="*{tipoOp}" name="tipoOp" class="form-control">
                 <option value="">Todos</option>
-                <option th:each=" tipoOp : ${dataMaster.tipoOperaciones}" th:value="${tipoOp}" th:text="${tipoOp}"></option>
+                <option th:each=" tipoOp : ${dataMaster.tipoOperaciones}" th:value="${tipoOp.id}" th:text="${tipoOp.valor}"></option>
                 
               </select>
             </div>
           </div>
+          -->
 
           <!-- Select Basic -->
           <div class="form-group">
@@ -167,7 +169,7 @@
             <div class="">
               <select id="cmbMnd" th:field="*{moneda}" name="moneda" class="form-control">
                 <option value="">Todos</option>
-                <option th:each=" moneda : ${dataMaster.monedas}" th:value="${moneda}" th:text="${moneda}"></option>
+                <option th:each=" moneda : ${dataMaster.monedas}" th:value="${moneda.id}" th:text="${moneda.valor}"></option>
                
               </select>
             </div>
@@ -179,7 +181,7 @@
             <div class="">
               <select id="cmbTipoCambio" th:field="*{tipoCmb}" name="tipoCmb" class="form-control">
                 <option value="">Todos</option>
-                <option th:each=" tipoCambio : ${dataMaster.tipoCambios}" th:value="${tipoCambio}" th:text="${tipoCambio}"></option>
+                <option th:each=" tipoCambio : ${dataMaster.tipoCambios}" th:value="${tipoCambio.id}" th:text="${tipoCambio.valor}"></option>
               
               </select>
             </div>
@@ -191,7 +193,7 @@
             <div class="">
               <select id="cmbInstrumento" th:field="*{instrumento}" name="instrumento" class="form-control">
                 <option value="">Todos</option>
-                <option th:each=" instrumento : ${dataMaster.instrumentos}" th:value="${instrumento}" th:text="${instrumento}"></option>
+                <option th:each=" instrumento : ${dataMaster.instrumentos}" th:value="${instrumento.id}" th:text="${instrumento.valor}"></option>
                
               </select>
             </div>

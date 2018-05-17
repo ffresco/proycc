@@ -15,6 +15,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Version;
 
 /**
  *
@@ -24,6 +25,9 @@ import javax.persistence.Table;
 @Table(name = "acumulado_caja")
 public class AcumuladoCaja implements Serializable{
 
+    @Version
+    private long version;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")

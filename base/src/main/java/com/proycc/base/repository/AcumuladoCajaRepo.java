@@ -7,12 +7,24 @@ package com.proycc.base.repository;
 
 import com.proycc.base.domain.AcumuladoCaja;
 import java.io.Serializable;
+import javax.persistence.LockModeType;
+import org.springframework.data.jpa.repository.Lock;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
  * @author fafre
  */
+
 public interface AcumuladoCajaRepo extends CrudRepository<AcumuladoCaja, Long> {
-        AcumuladoCaja findTopByMonedaIdAndInstrumentoIdAndCajaId(Long idMoneda,Long idInstrumento, Long idCaja);
+        
+    @Transactional
+    @Lock(LockModeType.OPTIMISTIC)
+    AcumuladoCaja findTopByMonedaIdAndInstrumentoIdAndCajaId(Long idMoneda,Long idInstrumento, Long idCaja);
+    
+    @Transactional
+    @Lock(LockModeType.PESSIMISTIC_WRITE)
+    @Override
+    AcumuladoCaja save(AcumuladoCaja caja);
 }

@@ -38,6 +38,9 @@ import org.springframework.validation.BindingResult;
  */
 public abstract class OpDTOBuilder {
 
+    public static final String OPERACION_CONTABLE = "CONTABLE";
+    public static final String OPERACION_COMERCIAL = "COMERCIAL";
+    
     @Autowired
     protected static final Logger LOGGER = LoggerFactory.getLogger(OpDTOBuilder.class);
     @Autowired

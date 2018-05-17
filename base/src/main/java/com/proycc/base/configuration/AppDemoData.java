@@ -10,6 +10,9 @@ import com.proycc.base.domain.AcumuladoCaja;
 import com.proycc.base.domain.AcumuladoCliente;
 import com.proycc.base.domain.Cliente;
 import com.proycc.base.domain.Cotizacion;
+import com.proycc.base.domain.FileTextRegistry;
+import com.proycc.base.domain.Operacion;
+import com.proycc.base.domain.OperacionItem;
 import com.proycc.base.domain.Parametro;
 import com.proycc.base.domain.Role;
 import com.proycc.base.domain.SesionCaja;
@@ -18,6 +21,8 @@ import com.proycc.base.domain.User;
 import com.proycc.base.repository.AcumuladoCajaRepo;
 import com.proycc.base.repository.ClienteRepository;
 import com.proycc.base.repository.CotizacionRepository;
+import com.proycc.base.repository.FileTextRegistryRepo;
+import com.proycc.base.repository.OperacionRepo;
 import com.proycc.base.repository.ParametroRepo;
 import com.proycc.base.repository.SesionCajaRepo;
 import com.proycc.base.repository.TopesRepo;
@@ -48,11 +53,13 @@ public class AppDemoData {
     private UserRepo ur;
     private SesionCajaRepo scr;
     private AcumuladoCajaRepo acr;
+    private FileTextRegistryRepo ftrr;
+    private OperacionRepo opRepo;
 
     @Autowired
     public AppDemoData(ClienteRepository cliR, CotizacionService cotS,
             ParametroRepo pr, TopesRepo tr, DataMaster dm, UserRepo ur, SesionCajaRepo scr,
-            AcumuladoCajaRepo acr) {
+            AcumuladoCajaRepo acr, FileTextRegistryRepo ftrr, OperacionRepo opRepo) {
         this.cliR = cliR;
         this.cotS = cotS;
         this.pr = pr;
@@ -61,6 +68,8 @@ public class AppDemoData {
         this.ur = ur;
         this.scr = scr;
         this.acr = acr;
+        this.ftrr = ftrr;
+        this.opRepo = opRepo;
                 
     }
 
@@ -107,7 +116,8 @@ public class AppDemoData {
         scr.save(new SesionCaja(cin, pCaja3, LocalDateTime.now(), null));
 
         //estados
-        pr.save(new Parametro("NUEVO", "ESTADO"));
+        Parametro pENuevo = new Parametro("NUEVO", "ESTADO");
+        pr.save(pENuevo);
         pr.save(new Parametro("PROCESADO", "ESTADO"));
         pr.save(new Parametro("OK", "ESTADO"));
         pr.save(new Parametro("OBSERVADO", "ESTADO"));
@@ -124,13 +134,14 @@ public class AppDemoData {
                 new Float(100), pMBase, LocalDateTime.now());
         ac1.setCliente(c1);
         Cliente c2 = new Cliente("22478700", "Tito", "Sixto", "tito@cc.com", 38, new Date(), null);
-        Cliente c3 = new Cliente("28478718", "Fernando", "Fresco", "ffresco.com", 38, new Date(), null);
+        Cliente c3 = cliR.save(new Cliente("28478718", "Fernando", "Fresco", "ffresco.com", 38, new Date(), null));
         c1.setAcumulado(ac1);
         //     c2.setAcumulado(ac1);
         //     c3.setAcumulado(ac1);
         cliR.save(c1);
         cliR.save(c2);
-        cliR.save(c3);
+
+
 
         /**
          * *****Cotizaciones+++++++++++++++
@@ -153,7 +164,21 @@ public class AppDemoData {
         cotS.saveOrUpdate(cot3);
         cotS.saveOrUpdate(cot4);
         cotS.saveOrUpdate(cot6);
-   
+        
+        //Algunas operaciones
+        Operacion op = new Operacion(fechaAlta, c1, pCaja,pOpCmpVta , pTcMin, pENuevo, "", null,10f );
+        OperacionItem opI1 = new OperacionItem(op, pMUsd, pIBillete, 10f, 10f, "INGRESO", pMovIng, 1, cot6, pCaja);
+        OperacionItem opI2 = new OperacionItem(op, pMUsd, pIBillete, 10f, 10f, "EGRESO", pMovEg, 2, cot6, pCaja);
+        ArrayList<OperacionItem> opItems = new ArrayList();
+        opItems.add(opI2);
+        opItems.add(opI1);
+        op.setOperacionItems(opItems);
+        opRepo.save(op);
+        
+        
+        //***************Un par de archivos opcammentirosos
+        this.ftrr.save(new FileTextRegistry(LocalDateTime.now(), LocalDate.now(),LocalDate.now(),LocalDate.now(), "opcam.txt", "ok", "Fue bien realizado"));
+        
         //*****************Asociar una caja a cada usuario********************/
         dm.intiData();
    

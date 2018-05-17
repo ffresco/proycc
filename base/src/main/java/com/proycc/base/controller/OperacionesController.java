@@ -96,7 +96,7 @@ public class OperacionesController implements CrudControllerInterface<Object, Op
 
     @Override
     public ModelAndView getMainPage(Object searchDTO, BindingResult bindingResult) {
-        List<Operacion> operaciones = operacionService.findAll();
+        List<Operacion> operaciones = operacionService.findAllByTipoMovimiento(OpDTOBuilder.OPERACION_COMERCIAL);
         ModelAndView mav = new ModelAndView("operaciones");
         mav.addObject("operaciones", operaciones);
         return mav;
@@ -225,7 +225,7 @@ public class OperacionesController implements CrudControllerInterface<Object, Op
 
         //Si el estado es observado lo guardo con comentarios
         //Guardo la operacion
-        Operacion op = operacionService.save(opDTO.getOperacion());
+        Operacion op = operacionService.saveComercial(opDTO.getOperacion());
             //op.setUser(userService.getCurrentUser());
         opDTO.setOperacion(op);
         LOGGER.debug("operacion gravada " + op);

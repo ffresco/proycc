@@ -26,7 +26,8 @@ import org.springframework.validation.BindingResult;
  */
 @Service
 public class OpContableDTOBuilder extends OpDTOBuilder {
-
+    
+    
     @Override
     protected void buildSpecificHeader(OperacionDTO opDTO, BindingResult result) {
         //en la operaion contable el cliente es null
@@ -52,7 +53,7 @@ public class OpContableDTOBuilder extends OpDTOBuilder {
     @Override
     public void setTipoMov(OperacionDTO opDTO) {                
         //pongo el tipo de mov
-        opDTO.getOperacion().setTipoMov("CONTABLE");
+        opDTO.getOperacion().setTipoMov(OPERACION_CONTABLE);
     }
 
     @Override

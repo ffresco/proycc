@@ -20,6 +20,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Version;
 
 /**
  *
@@ -28,6 +29,9 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "acumulado_cli")
 public class AcumuladoCliente implements Serializable {
+    
+    @Version
+    private long version;
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

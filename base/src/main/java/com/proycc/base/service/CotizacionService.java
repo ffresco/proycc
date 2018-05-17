@@ -11,6 +11,8 @@ import com.proycc.base.domain.OperacionItem;
 import com.proycc.base.domain.Parametro;
 import com.proycc.base.domain.dto.CotizacionSearchDTO;
 import com.proycc.base.repository.CotizacionRepository;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -165,6 +167,10 @@ public class CotizacionService {
         //si la mone
         boolean venta = (monedaO.getValor().equals(monedaB.getValor()));
         return !venta;
+    }
+
+    public List<Cotizacion> getByFecha(LocalDateTime of, LocalDateTime of0) {
+        return cotizacionRepository.findByFechaAfterAndFechaBefore(of, of0);
     }
     
   

@@ -62,7 +62,7 @@ public class OpComercialDTOBuilder extends OpDTOBuilder {
     @Override
     public void setTipoMov(OperacionDTO opDTO) {
         //pongo el tipo de mov
-        opDTO.getOperacion().setTipoMov("COMERCIAL");
+        opDTO.getOperacion().setTipoMov(OPERACION_COMERCIAL);
     }
 
     @Override

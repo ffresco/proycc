@@ -5,12 +5,21 @@
  */
 package com.proycc.base.repository;
 import com.proycc.base.domain.Operacion;
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.stream.Stream;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
  * @author fafre
  */
 public interface OperacionRepo extends CrudRepository<Operacion,Long> {
+    
+
+    Stream<Operacion> findByFechaHoraAfterAndFechaHoraBeforeAndTipoMov(LocalDateTime fechaDesde,LocalDateTime fechaHasta,String tipoMov);
+    
+    List<Operacion> findByTipoMov(String tipoMov);
     
 }
