@@ -15,10 +15,10 @@ and open the template in the editor.
 
 		<div th:replace="fragments ::navbartop"></div> <!-- Menu superior --> 	
 
-		<div class="row"> <!-- fila contine menuj lateral 3 col,  principal 9 col -->
+		<div id="result"  class="row"> <!-- fila contine menuj lateral 3 col,  principal 9 col -->
 			 
 
-			<!-- Contenido principal 9 columnas -->
+			<!-- Contenido principal full page -->
 			<div class="col-sm-12">
 				
 				<div class="panel-group">
@@ -26,7 +26,8 @@ and open the template in the editor.
 						<div class="panel-heading"><h4>Cotizaciones</<h2></h2></div>
 					</div>
 					<div class="panel-body">
-						<form class="form-horizontal" method="POST" th:action="@{/cotizaciones/save}" th:object="${cotizacionDTO.cotizacion}">
+					    <!--<iframe name="formFrame" th:src="@{/cotizaciones/save}" frameborder="0" style="display:none"></iframe>--> 
+							<form class="form-horizontal" method="POST" th:action="@{/cotizaciones/save}" th:object="${cotizacionDTO.cotizacion}" >
 							<fieldset>
 
 								<!-- Form Name -->
@@ -39,7 +40,7 @@ and open the template in the editor.
 								<div class="form-group">
 									<label class="col-md-4 control-label" for="txtFecha">Fecha</label>  
 									<div class="col-md-4">
-										<input id="fecha" th:field="*{fecha}" readonly="true"  name="txtFecha" type="text" placeholder="fecha creacion" class="form-control input-md">
+										<input id="fecha" name="fecha" th:value="${#temporals.format(cotizacionDTO.cotizacion.fecha, 'yyyy-MM-dd HH:mm:ss')}" readonly="true"  type="text" placeholder="fecha creacion" class="form-control input-md">
 
 									</div>
 								</div>
@@ -162,7 +163,7 @@ and open the template in the editor.
 									<label class="col-md-4 control-label" for="btnGuardar"></label>
 									<div class="col-md-4">
 										<button id="btnGuardar" name="btnGuardar" class="btn btn-success" type="submit">Guardar</button>
-										<a th:href="@{/cotizaciones/}" class="btn btn-danger">Cancelar</a>
+										<a href="#" onClick="cargarContenido('/cotizaciones/');return false;" class="btn btn-danger">Cancelar</a>
 										
 									</div>
 								</div>
@@ -178,5 +179,6 @@ and open the template in the editor.
 		</div>	<!-- fila contine menuj lateral 3 col,  principal 9 col -->
 
 	</div>	<!-- fin contenedor de pagina-->
+
 </body>
 </html>

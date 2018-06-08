@@ -17,6 +17,7 @@ import java.io.Serializable;
 public class CotizacionDTO implements Serializable{
     
     private Cotizacion cotizacion;
+    private String fecha;
 
     public CotizacionDTO() {
     }
@@ -28,7 +29,23 @@ public class CotizacionDTO implements Serializable{
     public void setCotizacion(Cotizacion cotizacion) {
         this.cotizacion = cotizacion;
     }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+    
+    
+
+    @Override
+    public String toString() {
+        return "CotizacionDTO{" + "cotizacion=" + cotizacion + '}';
+    }
  
+    
    
     
 }

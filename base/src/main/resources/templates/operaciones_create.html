@@ -15,7 +15,7 @@ and open the template in the editor.
 
 		<div th:replace="fragments ::navbartop"></div> <!-- Menu superior --> 	
 
-		<div class="row"> <!-- fila contine menuj lateral 3 col,  principal 9 col -->
+		<div id="result" class="row"> <!-- fila contine menuj lateral 3 col,  principal 9 col -->
 			
 			<!--
 			<div th:replace="fragments ::navbarside"></div> <!-- Menu Lateral  -->  
@@ -41,6 +41,7 @@ and open the template in the editor.
 										<!--datos que necesito bindear al form-->
 										<input type="hidden"  th:field="*{operacion.cliente}">
 										<input type="hidden"  th:field="*{tope}">
+										<input type="hidden"  th:field="*{operacion.montoMndBase}">
 
 
 										<!--datos para funciones js-->
@@ -49,7 +50,7 @@ and open the template in the editor.
 
 										<!-- Text input-->
 										<div class="col-sm-3 form-group">
-											<label class=" control-label" for="txtNumComprobante">Comprobante</label>  
+											<label class="control-label" for="txtNumComprobante">Comprobante</label>  
 											<div class="">
 												<input id="txtNumComprobante" th:field="*{operacion.id}" readonly="yes" name="txtNumComprobante" type="text" placeholder="" class="form-control input-md" tabIndex="-1">
 
@@ -335,7 +336,7 @@ and open the template in the editor.
 												<input id="printUrl" type="hidden" th:value="@{/operaciones/pdf/{id}(id=*{operacion.id})}">
 												<button type="button" id="btnprint" onclick="" name="print"  class="btn btn-default" onclick="printPDF('')">Imprimir</button>
 											</span>
-											<a th:href="@{/operaciones/}" class="btn btn-danger">Cancelar</a>
+											<a href="#" onClick="cargarContenido('/operaciones/');return false;" class="btn btn-danger">Cancelar</a>
 											
 											
 													

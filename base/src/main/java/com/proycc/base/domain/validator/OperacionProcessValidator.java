@@ -25,7 +25,7 @@ public class OperacionProcessValidator implements Validator {
 
     @Autowired
     DataMaster dataMaster;
-
+    
     @Override
     public boolean supports(Class<?> clazz) {
         return clazz.equals(OperacionDTO.class);
@@ -49,6 +49,8 @@ public class OperacionProcessValidator implements Validator {
         if ((op.getTipoOp().getValor().equals("ARBITRAJE"))){
             System.out.println("entro por arbitraje");
         }
+        
+  
 
     }
 
@@ -62,6 +64,8 @@ public class OperacionProcessValidator implements Validator {
                 || opD.getMoneda().getValor().equals(monedaBase))) {
             errors.reject("operacion.sinMonedaBase", "El origen o el destino debe estar expresado en moneda base = " + monedaBase);
         }
+        
+       
     }
 
 }

@@ -1,20 +1,3 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html xmlns="http://www.w3.org/1999/xhtml"      xmlns:th="http://www.thymeleaf.org">
-<head><div th:replace="fragments ::app_head('titulo')"></div></head>
-
-
-</head>
-<body>
-	<div class="container-fluid"> <!-- contenedor de pagina-->
-
-		<div th:replace="fragments ::navbartop"></div> <!-- Menu superior --> 	
-
-		<div class="row content"> <!-- fila contine menuj lateral 3 col,  principal 9 col -->
 		<div class="col-sm-3 sidenav">
 			<div th:replace="fragments ::navbarside_report"></div> <!-- Menu Lateral  -->  
 		</div>
@@ -32,8 +15,4 @@ and open the template in the editor.
 		
 			</div> <!-- Fin Contenido principal 9 columnas -->
 
-		</div>	<!-- fila contine menuj lateral 3 col,  principal 9 col -->
-
-			</div>	<!-- fin contenedor de pagina-->
-		</body>
-		</html>
+	

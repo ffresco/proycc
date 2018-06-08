@@ -25,7 +25,6 @@
     <script th:src="@{/js/jquery-1.11.1.min.js}" src="/js/jquery-1.11.1.min.js" ></script>
     <script th:src="@{/js/bootstrap.min.js}" src="/js/bootstrap.min.js"></script>
     <script th:src="@{/js/jquery-ui.min.js}" src="/js/jquery-ui.min.js"></script>
-
     <script th:src="@{/js/custom.js}" src="/js/custom.js"></script>
 
 
@@ -49,13 +48,14 @@
         <!--Barra que se ve en la web-->
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
-            <li><a href="" th:href="@{/entidades_facade/}">Clientes</a></li>
-            <li><a href="" th:href="@{/operaciones/}">Operaciones</a></li> 
-            <li><a href="" th:href="@{/reportes/}">Reportes</a></li>
-            <li><a href="#" th:href="@{/auditoria/}">Auditoria</a></li>
-            <li><a href="#" th:href="@{/cajas/}">Cajas</a></li>
-            <li><a href="#" th:href="@{/cotizaciones/}">Cotizaciones</a></li>
-            <li><a href="#" th:href="@{/usuarios/}">Usuarios</a></li>
+            <li><a href="#" onClick="cargarContenido('/clientes/');return false;" data-toggle="tooltip" title="Clientes Humanos">Clientes H</a></li>
+            <li><a href="#" onClick="cargarContenido('/juridicos/');return false;" data-toggle="tooltip" title="Clientes Juridicos">Clientes J</a></li>
+            <li><a href="#" onClick="cargarContenido('/operaciones/');return false;">Operaciones</a></li> 
+            <li><a href="#" onClick="cargarContenido('/reportes/');return false;">Reportes</a></li>
+            <li><a href="#" onClick="cargarContenido('/auditoria/');return false;"">Auditoria</a></li>
+            <li><a href="#" onClick="cargarContenido('/cajas/');return false;"">Cajas</a></li>
+            <li><a href="#" onClick="cargarContenido('/cotizaciones/');return false;"">Cotizaciones</a></li>
+            <li><a href="#" onClick="cargarContenido('/usuarios/');return false;">Usuarios</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#" data-toggle="popover" title="" data-content="Ninguna Notificacion" data-placement="bottom"><span class="glyphicon glyphicon glyphicon-bell"></span> Notificaciones</a></li>
@@ -113,8 +113,7 @@
 
   <!--Menu lateral reportes fragment-->  
   <div th:fragment="navbarside_report">
-      <br>
-      <h4>Menu</h4>
+      <legend>Busqueda  </legend>
       <ul class="nav nav-pills nav-stacked">
         <li class="active"><a href="#1">Reporte 1</a></li>
         <li><a href="#2">Reporte 2</a></li>
@@ -128,10 +127,9 @@
 
  <!--Menu lateral usuarios fragment-->  
   <div th:fragment="navbarside_users">
-      <br>
-      <h4>Menu</h4>
+        <legend>Busqueda  </legend>
         <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search user by email..">
+        <input id="txtSearch" type="search" class="form-control" onkeyup="filterTable(0,this)" placeholder="Search user by email..">
         <span class="input-group-btn">
           <button class="btn btn-default" type="button">
             <span class="glyphicon glyphicon-search"></span>
@@ -143,7 +141,7 @@
 
   <!--Menu lateral cotizaciones busqueda-->  
   <div th:fragment="navbarside_cot">
-      <form class="" method="POST" th:action="@{/cotizaciones/search}" th:object="${cotizacionSearch}"  modelAttribute="cotizacionsearch">
+      <form class="" method="POST" th:action="@{/cotizaciones/search}" th:object="${cotizacionSearch}" >
         <fieldset>
 
           <!-- Form Name -->
@@ -169,7 +167,7 @@
             <div class="">
               <select id="cmbMnd" th:field="*{moneda}" name="moneda" class="form-control">
                 <option value="">Todos</option>
-                <option th:each=" moneda : ${dataMaster.monedas}" th:value="${moneda.id}" th:text="${moneda.valor}"></option>
+                <option th:each=" moneda : ${dataMaster.monedas}" th:value="${moneda.valor}" th:text="${moneda.valor}"></option>
                
               </select>
             </div>
@@ -181,8 +179,7 @@
             <div class="">
               <select id="cmbTipoCambio" th:field="*{tipoCmb}" name="tipoCmb" class="form-control">
                 <option value="">Todos</option>
-                <option th:each=" tipoCambio : ${dataMaster.tipoCambios}" th:value="${tipoCambio.id}" th:text="${tipoCambio.valor}"></option>
-              
+                <option th:each=" tipoCambio : ${dataMaster.tipoCambios}" th:value="${tipoCambio.valor}" th:text="${tipoCambio.valor}"></option>              
               </select>
             </div>
           </div>
@@ -193,28 +190,32 @@
             <div class="">
               <select id="cmbInstrumento" th:field="*{instrumento}" name="instrumento" class="form-control">
                 <option value="">Todos</option>
-                <option th:each=" instrumento : ${dataMaster.instrumentos}" th:value="${instrumento.id}" th:text="${instrumento.valor}"></option>
+                <option th:each=" instrumento : ${dataMaster.instrumentos}" th:value="${instrumento.valor}" th:text="${instrumento.valor}"></option>
                
               </select>
             </div>
           </div>
 
           <!-- Text input-->
+          <!--
           <div class="form-group">
-            <label class="" for="txtCotFechaDesde">Fecha Desde</label>  
-            <div class="c">
-              <input id="txtCotFechaDesde" name="fechaDesde" type="text" placeholder="DD/MM/AAAA" class="form-control input-md">
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>    
+            <label class="" for="txtCotFechaDesde">Fecha Desde</label>
+            <div class="input-group date" data-provide="datepicker">
+              <input id="txtCotFechaDesde" type="date" class="form-control">
+              <div class="input-group-addon">
+                <span class="glyphicon glyphicon-th"></span>
+              </div>
             </div>
-          </div>
+          </div>   
+          -->
+     
 
           <!-- Button -->
           <div class="form-group">
             <label class="" for="btnBuscar"></label>
             <div class="">
               <button id="btnBuscar" name="btnBuscar" class="btn btn-primary">Buscar</button>
+              <button type="reset" id="singlebutton"  class="btn btn-default">Limpiar</button>
             </div>
           </div>
         </fieldset>
@@ -222,21 +223,22 @@
 </div>   
 <!--fin menu lateral cotizacines busqueda-->   
 
-<!--Menu lateral entidades busqueda-->  
-<div th:fragment="navbarside_entidades">
-<form class="">
+
+
+
+<!--Menu lateral Clientes Fisicos busqueda-->  
+<div th:fragment="navbarside_clientes">
+<form method="POST" th:action="@{/clientes/search}" th:object="${searchDTO}">
 <fieldset>
 
 <!-- Form Name -->
 <legend>Busqueda</legend>
 
-
 <!-- Search input-->
 <div class="form-group">
   <label class=" control-label" for="numDoc">Num Doc</label>
   <div class="">
-    <input id="numDoc" name="numDoc" type="search" placeholder="" class="form-control input-md">
-    
+    <input th:field="*{documento}" onkeydown="upperCaseF(this)" type="search" placeholder="" class="form-control input-md">
   </div>
 </div>
 
@@ -244,7 +246,7 @@
 <div class="form-group">
   <label class=" control-label" for="nombre">Nombre</label>
   <div class="">
-    <input id="nombre" name="nombre" type="search" placeholder="" class="form-control input-md">
+    <input th:field="*{nombre}" onkeydown="upperCaseF(this)" type="search" placeholder="" class="form-control input-md">
     
   </div>
 </div>
@@ -253,7 +255,7 @@
 <div class="form-group">
   <label class=" control-label" for="apellido">Apellido</label>
   <div class="">
-    <input id="apellido" name="apellido" type="search" placeholder="" class="form-control input-md">
+    <input th:field="*{apellido}" onkeydown="upperCaseF(this)" type="search" placeholder="" class="form-control input-md">
     
   </div>
 </div>
@@ -262,32 +264,31 @@
 <div class="form-group">
 
   <div class="">
-    <button id="singlebutton" name="singlebutton" class="btn btn-primary">Buscar</button>
+    <button type="submit" id="singlebutton"  class="btn btn-primary">Buscar</button>
+    <button type="reset" id="singlebutton"  class="btn btn-default">Limpiar</button>
   </div>
 </div>
 
 </fieldset>
 </form>
 </div>
+<!--fin menu lateral Clientes Fisicos busqueda-->   
 
-
-<!--fin menu lateral entidades busqueda-->   
 
 
 <!-- Menu lateral Operaciones Busqueda -->
 <div th:fragment="navbarside_operaciones">
-<form class="">
+<form class="" th:action="@{/operaciones/search}" th:object="${searchDTO}" method="POST">
 <fieldset>
 
 <!-- Form Name -->
-<legend>Busqueda Op</legend>
+<legend>Busqueda</legend>
 
 <!-- Search input-->
 <div class="form-group">
   <label class=" control-label" for="idOperacion">Num Operacion</label>
   <div class="">
-    <input id="idOperacion" name="idOperacion" type="search" placeholder="" class="form-control input-md">
-    
+    <input id="idOperacion" th:field="*{operacion}" type="number" placeholder="El num debe coincider exactamente" class="form-control input-md">    
   </div>
 </div>
 
@@ -295,7 +296,7 @@
 <div class="form-group">
   <label class=" control-label" for="numDoc">Num Doc</label>
   <div class="">
-    <input id="numDoc" name="numDoc" type="search" placeholder="" class="form-control input-md">
+    <input id="numDoc" th:field="*{documento}"  onkeydown="upperCaseF(this)" type="search" placeholder="" class="form-control input-md">
     
   </div>
 </div>
@@ -304,7 +305,7 @@
 <div class="form-group">
   <label class=" control-label" for="nombre">Nombre</label>
   <div class="">
-    <input id="nombre" name="nombre" type="search" placeholder="" class="form-control input-md">
+    <input id="nombre" th:field="*{nombre}" type="search"  onkeydown="upperCaseF(this)" placeholder="" class="form-control input-md">
     
   </div>
 </div>
@@ -313,34 +314,39 @@
 <div class="form-group">
   <label class=" control-label" for="apellido">Apellido Cli</label>
   <div class="">
-    <input id="apellido" name="apellido" type="search" placeholder="" class="form-control input-md">
+    <input id="apellido" th:field="*{apellido}" type="search"  onkeydown="upperCaseF(this)" placeholder="" class="form-control input-md">
     
   </div>
 </div>
 
 <!-- Search input-->
+<!--
 <div class="form-group">
   <label class=" control-label" for="fechaDesde">Fecha Desde</label>
   <div class="">
-    <input id="fechaDesde" name="fechaDesde" type="search" placeholder="" class="form-control input-md">
+    <input id="fechaDesde" th:field="*{fechaDesde}" type="date" placeholder="" class="form-control input-md">
     
   </div>
 </div>
+-->
 
 <!-- Search input-->
+<!--
 <div class="form-group">
   <label class=" control-label" for="fechaHasta">Fecha Hasta</label>
   <div class="">
-    <input id="fechaHasta" name="fechaHasta" type="search" placeholder="" class="form-control input-md">
+    <input id="fechaHasta" th:field="*{fechaHasta}" type="date" placeholder="" class="form-control input-md">
     
   </div>
 </div>
+-->
 
 <!-- Button -->
 <div class="form-group">
 
   <div class="">
     <button id="singlebutton" name="singlebutton" class="btn btn-primary">Buscar</button>
+    <button type="reset" id="singlebutton"  class="btn btn-default">Limpiar</button>
   </div>
 </div>
 

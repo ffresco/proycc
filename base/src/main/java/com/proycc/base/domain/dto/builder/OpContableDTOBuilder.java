@@ -48,6 +48,8 @@ public class OpContableDTOBuilder extends OpDTOBuilder {
 
     @Override
     protected void buildSpecificBody(OperacionDTO opDTO, BindingResult result) {
+        opDTO.getOperacion().getOpItemO().setMovimiento(dataMaster.getMovEgr());
+        opDTO.getOperacion().getOpItemD().setMovimiento(dataMaster.getMovIng());
     }
 
     @Override

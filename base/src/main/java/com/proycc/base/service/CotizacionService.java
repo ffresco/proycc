@@ -61,7 +61,7 @@ public class CotizacionService {
         String inst = getTipoInstParam(csdto);
        
         System.out.println("--"+ tipoOp+moneda+tipoCmb+inst);
-        return (List<Cotizacion>) cotizacionRepository.findByConstrainLike(moneda,tipoCmb,inst, new Sort(Sort.Direction.DESC,"fecha"));
+        return (List<Cotizacion>) cotizacionRepository.findByValoresLike(moneda,tipoCmb,inst, new Sort(Sort.Direction.DESC,"fecha"));
     }
 
     private String getTipoInstParam(CotizacionSearchDTO csdto) {

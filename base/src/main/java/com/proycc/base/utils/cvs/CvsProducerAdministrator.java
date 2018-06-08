@@ -98,12 +98,7 @@ public class CvsProducerAdministrator {
             System.out.println("Productor de archivos opcam " + this.producerName);;
             System.out.println("Comenzando generacion de archivo " + this.fileRegistry.getFileName());
             System.out.println("Dentro del hilo, productor :"+ producerName+ "pedidos " + this.producerAdministrator.pedidos );
-            try {
-                Thread.sleep(5000);
-                System.out.println("--pedidos ahora" + this.producerAdministrator.pedidos);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(CvsProducerAdministrator.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            System.out.println("--pedidos ahora" + this.producerAdministrator.pedidos);
             boolean exito = cvsUtils.writeWithCsvBeanWriter(service, fileRegistry);
             if (exito) {
                 fileRegistry.setEstado("ok");                

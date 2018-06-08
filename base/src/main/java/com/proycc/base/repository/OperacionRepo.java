@@ -22,4 +22,7 @@ public interface OperacionRepo extends CrudRepository<Operacion,Long> {
     
     List<Operacion> findByTipoMov(String tipoMov);
     
+    List<Operacion> findByTipoMovAndClienteDocumentoStartingWithAndClienteNombreStartingWithAndClienteApellidoStartingWith(String tipoMov,
+            String documento, String nombre, String apellido);
+    
 }

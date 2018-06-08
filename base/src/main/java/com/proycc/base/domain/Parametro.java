@@ -51,6 +51,15 @@ public class Parametro implements Serializable {
         this.subValor = subValor;
         this.tipo = tipo;
     }
+
+    public Parametro(String valor, String subValor, String codigo, String tipo) {
+        this.valor = valor;
+        this.subValor = subValor;
+        this.codigo = codigo;
+        this.tipo = tipo;
+    }
+    
+    
     
     
     

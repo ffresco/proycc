@@ -38,19 +38,24 @@ public class CmpVtaHandler extends OperacionHandler {
 
         float montoOp;
         float cotizacionAplicada;
+        float montoMndBase;
         if (opDTO.isCompra()) {
-            //si le compro la mnd ext -> mnd ext * cot.compra
+            //si le compro la mnd ext -> mnd ext * cot.compra = mnd Base
             cotizacionAplicada = cot.getCotizacionCmp();
             montoOp = opDTO.getOpO().getMonto() * cotizacionAplicada;
+            montoMndBase = montoOp;
+            
         } else {
-            //si le vendo moneda ext es --> monedabase Recibida / cot.vta  
+            //si le vendo moneda ext es --> monedabase Recibida / cot.vta = mnd Ext 
             cotizacionAplicada = cot.getCotizacionVta();
             montoOp = opDTO.getOpO().getMonto() / cotizacionAplicada;
+            montoMndBase = opDTO.getOpO().getMonto();
         }
         System.out.println("a ver donde explota");
         opDTO.getOpD().setMonto(montoOp);
         opDTO.getOpO().setCotizacion(cot);
         opDTO.getOperacion().setValCotAplicado(cotizacionAplicada);
+        opDTO.getOperacion().setMontoMndBase(montoMndBase);
 
     }
     

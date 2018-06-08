@@ -15,6 +15,7 @@ import com.proycc.base.domain.TopeCompra;
 import com.proycc.base.domain.User;
 import com.proycc.base.domain.dto.OperacionDTO;
 import com.proycc.base.domain.dto.OperacionReportDTO;
+import com.proycc.base.domain.dto.OperacionSearchDTO;
 import com.proycc.base.domain.dto.builder.OpComercialDTOBuilder;
 import com.proycc.base.domain.dto.builder.OpDTOBuilder;
 import com.proycc.base.domain.enums.Estado;
@@ -33,6 +34,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
@@ -55,10 +57,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.DataBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -67,7 +71,7 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 @RequestMapping(value = "/operaciones")
-public class OperacionesController implements CrudControllerInterface<Object, OperacionDTO> {
+public class OperacionesController implements CrudControllerInterface<OperacionSearchDTO, OperacionDTO> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(OperacionesController.class);
     private ClienteService clienteService;
@@ -95,36 +99,69 @@ public class OperacionesController implements CrudControllerInterface<Object, Op
     }
 
     @Override
-    public ModelAndView getMainPage(Object searchDTO, BindingResult bindingResult) {
+    public ModelAndView getMainPage(OperacionSearchDTO searchDTO, BindingResult bindingResult) {
         List<Operacion> operaciones = operacionService.findAllByTipoMovimiento(OpDTOBuilder.OPERACION_COMERCIAL);
         ModelAndView mav = new ModelAndView("operaciones");
         mav.addObject("operaciones", operaciones);
+        mav.addObject("searchDTO", searchDTO);
         return mav;
     }
 
     @Override
-    public ModelAndView search(Object searchDTO, BindingResult bindingResult) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public ModelAndView search(@ModelAttribute(value = "searchDTO") OperacionSearchDTO searchDTO,
+            BindingResult bindingResult) {
+        System.out.println("DTO search " + searchDTO);
+        List<Operacion> operaciones = operacionService.findAllContaining(searchDTO,OpDTOBuilder.OPERACION_COMERCIAL);
+        ModelAndView mav = new ModelAndView("operaciones");
+        mav.addObject("operaciones", operaciones);
+        mav.addObject("searchDTO", searchDTO);
+        return mav;
+    }
+
+    @RequestMapping(value = "/operar/{id}")
+    public ModelAndView operar(@PathVariable Long id) {
+        LOGGER.debug("----Preparando un cliente para operar -------");
+        Cliente clienteAEditar = clienteService.getById(id);
+        OperacionDTO opDTO = new OperacionDTO();
+        opDTO.setCliente(clienteAEditar);
+        DataBinder dataBinder = new DataBinder(opDTO);
+        return getCreatePage(opDTO, dataBinder.getBindingResult());
+    }
+
+    @RequestMapping(value = "/operardni")
+    public ModelAndView operarDni(@RequestParam Map<String, String> parametros) {
+        LOGGER.debug("----Preparando un cliente para operar -------");
+        System.out.println(parametros.get("dni"));
+        String dni = parametros.get("dni");
+        Cliente clienteAEditar = clienteService.findByDocumento(dni);
+        System.out.println("cliente a editar " + clienteAEditar);
+        if (clienteAEditar == null) {
+            return getMainPage(null, null);
+        }
+        OperacionDTO opDTO = new OperacionDTO();
+        opDTO.setCliente(clienteAEditar);
+        DataBinder dataBinder = new DataBinder(opDTO);
+        return getCreatePage(opDTO, dataBinder.getBindingResult());
     }
 
     @Override
-    public ModelAndView getCreatePage(OperacionDTO objectDTO, BindingResult bindingResult) {
+    public ModelAndView getCreatePage(OperacionDTO opDTO, BindingResult bindingResult) {
         LOGGER.debug("-------Le peuge a main page------------");
-   
+
         //recupero el cliente
-        Cliente cliente = clienteService.findByDocumento("27444999");
+        //Cliente cliente = clienteService.findByDocumento("27444999");
+        Cliente cliente = opDTO.getCliente();
         LOGGER.info("El cliente recuperado para la op : " + cliente.toString());
 
-        //Genero el DTO
-        OperacionDTO opDTO = new OperacionDTO();
-        opDTO.setCliente(cliente);
-        
+        //Genero el DTO -- Esto era cuando no estaba enganchado
+        //OperacionDTO opDTO = new OperacionDTO();
+        //opDTO.setCliente(cliente);
         dTOBuilder.buildHeader(opDTO, bindingResult);
         dTOBuilder.buildBody(opDTO, bindingResult);
         if (bindingResult.hasErrors()) {
             return getMainPage(null, bindingResult);
         }
-      
+
         LOGGER.info("Cree el siguiente dto para operar : " + opDTO);
 
         //seto los flags de configuracion
@@ -137,7 +174,6 @@ public class OperacionesController implements CrudControllerInterface<Object, Op
 
     }
 
-    
     @RequestMapping(value = "/save", params = {"procesar"})
     public ModelAndView process(@ModelAttribute(value = "operacionDTO") OperacionDTO opDTO,
             BindingResult result) {
@@ -151,7 +187,7 @@ public class OperacionesController implements CrudControllerInterface<Object, Op
 
         //implemantar un factory que me de un manejador
         OperacionHandler opHandler = operacionHandlerFactory.getHandler(op.getTipoOp().getValor());
-     
+
         //no encontro manejador
         if (opHandler == null) {
             opDTO.configAltaScreen(opDTO);
@@ -168,7 +204,7 @@ public class OperacionesController implements CrudControllerInterface<Object, Op
             opDTO.configAltaScreen(opDTO);
             return mav;
         }
-        
+
         //dependiendo que selecciono activa un tipo deoperacion
         opDTO.setFlagsTipoOperacion();
         opHandler.generarOperacion(opDTO, result);
@@ -214,19 +250,18 @@ public class OperacionesController implements CrudControllerInterface<Object, Op
 
         //Le cambio el estado al OK
         opDTO.getOperacion().setEstado(Estado.OK.getEstado());
-        
+
         dTOBuilder.setTipoMov(opDTO);
-       
 
         //construyo  el objeto a grabar
-            //Operacion opAGravar = operacionService.buildOperacionFromDTO(opDTO);
+        //Operacion opAGravar = operacionService.buildOperacionFromDTO(opDTO);
         Operacion opAGravar = dTOBuilder.buildOpToSaveFromDTO(opDTO);
         LOGGER.info("Esta es la operacion a grabar " + opAGravar);
 
         //Si el estado es observado lo guardo con comentarios
         //Guardo la operacion
         Operacion op = operacionService.saveComercial(opDTO.getOperacion());
-            //op.setUser(userService.getCurrentUser());
+        //op.setUser(userService.getCurrentUser());
         opDTO.setOperacion(op);
         LOGGER.debug("operacion gravada " + op);
         opDTO.configReadOnlyScreen(opDTO);
@@ -311,7 +346,7 @@ public class OperacionesController implements CrudControllerInterface<Object, Op
             // exports report to pdf
             JasperExportManager.exportReportToPdfFile(jasperPrint, "pdf/report.pdf");
             System.out.println("empezandoa a exportar");
-            
+
             /*
             JRPdfExporter exporter = new JRPdfExporter();
 
@@ -366,7 +401,7 @@ public class OperacionesController implements CrudControllerInterface<Object, Op
         rDTO.setInstrumentoR(op.getOpItemO().getInstrumento().getValor());
         rDTO.setCantidadR(op.getOpItemO().getMonto());
         rDTO.setCotizacion(op.getValCotAplicado());
-      
+
         //entregado
         rDTO.setCliNombre(op.getCliente().getNombre() + "," + op.getCliente().getApellido());
         rDTO.setCliTipoDoc("XXX");
@@ -378,7 +413,5 @@ public class OperacionesController implements CrudControllerInterface<Object, Op
         rDTO.setCantidadE(op.getOpItemD().getMonto());
         return rDTO;
     }
-
- 
 
 }

@@ -24,5 +24,10 @@ public class LoginController {
         return new ModelAndView("login","error",error);
     }
     
+    @RequestMapping(value="/main")
+    public String getMainPage(){
+        return "main";
+    }
+    
 
 }

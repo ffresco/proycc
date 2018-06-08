@@ -11,6 +11,7 @@ import com.proycc.base.domain.dto.TextFileDTO;
 import com.proycc.base.service.OperacionService;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -74,48 +75,78 @@ public class CvsUtils {
         //Implemento un try catch con recursos para no tener que cerrar los archivos
         try (ICsvBeanWriter beanWriter = new CsvBeanWriter(new FileWriter("txt/" + fileReg.getFileName()),
                 OPCAM_DELIMITED);
-                Stream<Operacion> todoStream = service.getStreamOpOpCam(fileReg);
-                ) {
+                Stream<Operacion> todoStream = service.getStreamOpOpCam(fileReg);) {
 
-            // the header elements are used to map the bean values to each column (names must match) so name are equals to the properties names
-            final String[] header = new String[]{"nombre", "documento", "dni", "monto"};
+            //Creo la cabecera del archivo
+            String[] header = getOpCamHeader();
+            //creo el procesador de las filas del cuerco
             final CellProcessor[] processors = getProcessors();
 
             //-->write the header lo saco porque por ahora el opcam va sin cabecera
             //beanWriter.writeHeader(header);
-            
             //--Aca hago la lectura y escritura con el Stream abierto en el try
-    	    todoStream.forEach(todo -> {			
+            todoStream.forEach(todo -> {
                 TextFileDTO rowFile = convertOpToFileTextDTO(todo);
                 try {
                     beanWriter.write(rowFile, header, processors);
                 } catch (IOException ex) {
                     Logger.getLogger(CvsUtils.class.getName()).log(Level.SEVERE, null, ex);
                 }
-        	});
-           //--Fin de la letura       
-            
-           /* Esto es el ejemplo como venia 
-            // create the customer beans
-            List<TextFileDTO> aux = new ArrayList();
-            aux.add(new TextFileDTO("pepe", "333333", "dni", 11.f));
-            aux.add(new TextFileDTO("hhhh", "343434", "CUIT", 44.8f));
-            for (final TextFileDTO customer : aux) {
-                    beanWriter.write(customer, header, processors);
-                }
-            // Fin del ejemplo de prueba como venia */    
-                generado = true;
+            });
+            //--Fin de la letura       
 
-            } catch (IOException ex) {
-                generado = false;
-                fileReg.setObservaciones(ex.getMessage());
-                System.out.println("Se cancelo la generacion del archivo " + ex);
-            }
-            return generado;
+            generado = true;
+
+        } catch (IOException ex) {
+            generado = false;
+            fileReg.setObservaciones(ex.getMessage());
+            System.out.println("Se cancelo la generacion del archivo " + ex);
         }
+        return generado;
+    }
 
-    private static TextFileDTO convertOpToFileTextDTO(Operacion todo) {
-      TextFileDTO fileDTO = new TextFileDTO(todo.getCliente().getNombre(), todo.getCliente().getDocumento()+"", "dni", 0);
-      return fileDTO;
+    private String[] getOpCamHeader() {
+        // the header elements are used to map the bean values to each column (names must match) so name are equals to the properties names
+        final String[] header = new String[]{"nombre", "documento", "dni", "monto"};
+        return header;
     }
+
+    private static TextFileDTO convertOpToFileTextDTO(Operacion op) {
+        TextFileDTO fileDTO = new TextFileDTO(op.getCliente().getNombre(), op.getCliente().getDocumento()+"", "dni", 0);
+
+        /*
+        TextFileDTO fileDTO = new TextFileDTO();
+        DateTimeFormatter formatter3 = DateTimeFormatter.ofPattern("yyyyMMdd");
+
+        //construir el archivo
+        fileDTO.setCodDiseno_1("2713");
+        fileDTO.setCodEntidad_2("LODEBE"); 
+        fileDTO.setFechaOp_3(op.getFechaHora().format(formatter3));
+        fileDTO.setCodJurisdiccion_4("01");
+        fileDTO.setTipoOp_5(op.getTipoOp().getCodigo());
+        fileDTO.setNumRegistro_6(op.getId().toString());
+        fileDTO.setNumEntidad_7();
+        fileDTO.setTipoEntidad_8();
+        fileDTO.setNumIdentificador_9();
+        fileDTO.setDenominacionCli_10();
+        fileDTO.setResidenciaCli_11();
+        fileDTO.setCondicionCli_12();
+        fileDTO.setCodigoCorresponsal_13();
+        fileDTO.setCodInstrumentoVtaCmp_14();
+        fileDTO.setCodInstrumentoRecEnt_15();
+        fileDTO.setCodPaisBeneficiario_16();
+        fileDTO.setDenominacionBeneficiario_17();
+        fileDTO.setPaisOrigenCli_18();
+        fileDTO.setCodConcepto_19();
+        fileDTO.setFechaOpOriginal_20();
+        fileDTO.setCodMoneda_21();
+        fileDTO.setImporteMndRecibida_22();
+        fileDTO.setImporteMndBase_23();
+        fileDTO.setNumOficializacion_24();
+        fileDTO.setSinUso_25();
+        fileDTO.setRectificativa_26();
+        */
+
+        return fileDTO;
     }
+}

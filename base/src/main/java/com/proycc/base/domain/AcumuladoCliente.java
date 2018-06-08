@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.Month;
 import java.time.Year;
+import java.util.Optional;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -140,7 +141,8 @@ public class AcumuladoCliente implements Serializable {
 
     @Override
     public String toString() {
-        return "AcumuladoCliente{" + "id=" + id + ", cliente=" + cliente.getDocumento() + ", mes=" + mes + ", ano=" + ano + ", acumuladoMes=" + acumuladoMes + ", acumuladoAno=" + acumuladoAno + ", moneda=" + moneda + ", fechaUltimaOp=" + fechaUltimaOp + '}';
+        Long cliId = cliente!=null?cliente.getId():-1L;
+        return "AcumuladoCliente{" + "id=" + id + ", cliente=" + cliId +  ", mes=" + mes + ", ano=" + ano + ", acumuladoMes=" + acumuladoMes + ", acumuladoAno=" + acumuladoAno + ", moneda=" + moneda + ", fechaUltimaOp=" + fechaUltimaOp + '}';
     }
     
     

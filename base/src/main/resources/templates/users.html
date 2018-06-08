@@ -1,23 +1,3 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html xmlns="http://www.w3.org/1999/xhtml"      xmlns:th="http://www.thymeleaf.org">
-
-<head><div th:replace="fragments ::app_head('Usuarios')"></div></head>
-
-
-</head>
-<body>
-
-
-<div class="container-fluid"> <!-- contenedor de pagina-->
-
-		<div th:replace="fragments ::navbartop"></div> <!-- Menu superior --> 	
-
-		<div class="row content"> <!-- fila contine menuj lateral 3 col,  principal 9 col -->
 			<div class="col-sm-3 sidenav">
 				<div th:replace="fragments ::navbarside_users"></div> <!-- Menu Lateral  -->  
 			</div>
@@ -34,24 +14,30 @@ and open the template in the editor.
 
 
 						
-							<table class="table table-responsive table-sm table-striped table-hover table-bordered">
+							<table class="table table-responsive table-sm table-striped table-hover table-bordered" id="searchTable">
 								<thead class="bg-success">
 									<tr>
 										<th> Usuario </th>
 										<th> Rol</th>
+										<th> Caja</th>
+										<th> Inicio Session</th>
 										<!--<th> Mnd Base</th>-->
 										<th></th>
 									</tr>
 								</thead>
 								<tbody>
-									<tr th:each="user : ${users}">
-										<td th:text="${user.email}"></td>
-										<td th:text="${user.role}"></td>
+									<tr th:each="sc : ${users}">
+										<td th:text="${sc.user.email}"></td>
+										<td th:text="${sc.user.role}"></td>
+										<td th:text="${sc.caja.valor}"></td>
+										<td th:text="${#temporals.format(sc.inicioSesion, 'dd/MMM/yyyy HH:mm:ss')}"> </td>
 										<!--<td th:text="${cotizacion.monedaBase}"></td>-->									
 										<td>
+										<!--
 										<div class="btn-group pull-right">
 											<a class="btn btn-sm btn-primary" th:href="@{/users/edit/{id}(id=${user.id})}" >Editar</a>
 										</div>
+										-->
 									</td>
 								</tr>
 							</tbody>
@@ -62,10 +48,3 @@ and open the template in the editor.
 			</div>
 
 		</div> <!-- Fin Contenido principal 9 columnas -->
-
-	</div>	<!-- fila contine menuj lateral 3 col,  principal 9 col -->
-
-</div>	<!--
-
-</body>
-</html>

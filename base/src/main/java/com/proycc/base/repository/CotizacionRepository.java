@@ -26,8 +26,13 @@ public interface CotizacionRepository extends CrudRepository<Cotizacion,Long>{
   
     @Query("select c from Cotizacion c where  c.moneda.valor like ?1% "
             + "and c.tipoCambio.valor like ?2% and c.instrumento.valor like ?3% ")
-    List<Cotizacion> findByConstrainLike(String moneda,
+    List<Cotizacion> findByValoresLike(String moneda,
             String tipoCmb,String inst, Sort sort);
+    
+    @Query("select c from Cotizacion c where  c.moneda.id like ?1% "
+            + "and c.tipoCambio.id like ?2% and c.instrumento.id like ?3% ")
+    List<Cotizacion> findByIdsLike(Long monedaId,
+            Long tipoCmbID,Long instId, Sort sort);
     
 
     @Query("select  c from Cotizacion c where  c.moneda.valor like ?1% "

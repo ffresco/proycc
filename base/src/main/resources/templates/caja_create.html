@@ -15,7 +15,7 @@ and open the template in the editor.
 
 		<div th:replace="fragments ::navbartop"></div> <!-- Menu superior --> 	
 
-		<div class="row"> <!-- fila contine menuj lateral 3 col,  principal 9 col -->
+		<div id="result" class="row"> <!-- fila contine menuj lateral 3 col,  principal 9 col -->
 			
 			<!--
 			<div th:replace="fragments ::navbarside"></div> <!-- Menu Lateral  -->  
@@ -254,7 +254,7 @@ and open the template in the editor.
 											<span th:if="*{readOnly}">
 												<input id="printUrl" type="hidden" th:value="@{/operaciones/pdf/{id}(id=*{operacion.id})}">
 											</span>
-											<a th:href="@{/cajas/}" class="btn btn-danger">Cancelar</a>
+											<a href="#" onClick="cargarContenido('/cajas/');return false;" class="btn btn-danger">Cancelar</a>
 											
 											
 													

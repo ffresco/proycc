@@ -75,9 +75,9 @@ public abstract class OpDTOBuilder {
     }
 
     private void buildGenericBody(OperacionDTO opDTO, BindingResult result) {
-        List<OperacionItem> itemsOp = new ArrayList<>();
-        itemsOp.add(new OperacionItem(opDTO.getOperacion(), null, null, 0f, 0f, "ORIGEN", new Parametro("INGRESO", "M"), 1, new Cotizacion(), opDTO.getOperacion().getCaja()));
-        itemsOp.add(new OperacionItem(opDTO.getOperacion(), null, null, 0f, 0f, "DESTINO", new Parametro("EGRESO", "M"), 2, new Cotizacion(), opDTO.getOperacion().getCaja()));
+        List<OperacionItem> itemsOp = new ArrayList<>();       
+        itemsOp.add(new OperacionItem(opDTO.getOperacion(), null, null, 0f, 0f, "ORIGEN", null, 1, new Cotizacion(), opDTO.getOperacion().getCaja()));
+        itemsOp.add(new OperacionItem(opDTO.getOperacion(), null, null, 0f, 0f, "DESTINO", null, 2, new Cotizacion(), opDTO.getOperacion().getCaja()));
         opDTO.getOperacion().setOperacionItems(itemsOp);
         opDTO.setOpO(opDTO.getOperacion().getOpItemO());
         opDTO.setOpD(opDTO.getOperacion().getOpItemD());

@@ -15,7 +15,7 @@ and open the template in the editor.
 
 		<div th:replace="fragments ::navbartop"></div> <!-- Menu superior --> 	
 
-		<div class="row"> <!-- fila contine menuj lateral 3 col,  principal 9 col -->
+		<div id="result" class="row"> <!-- fila contine menuj lateral 3 col,  principal 9 col -->
 			 
 
 			<!-- Contenido principal full page -->
@@ -105,7 +105,7 @@ and open the template in the editor.
 								<div class="col-sm-12 form-group">
 									<label class="control-label" for="btnGuardar"></label>									
 										<button id="btnGuardar" name="btnGuardar" class="btn btn-success" type="submit">Generar</button>
-										<a th:href="@{/auditoria}" class="btn btn-danger">Cancelar</a>			
+										<a href="#" onClick="cargarContenido('/auditoria/');return false;" class="btn btn-danger">Cancelar</a>			
 								</div>
 							
 

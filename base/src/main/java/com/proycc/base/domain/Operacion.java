@@ -65,6 +65,9 @@ public class Operacion implements Serializable{
     @Column(name = "valor_cotizacion_aplicado")
     private Float valCotAplicado;
     
+    @Column(name = "monto_mnd_base_op")
+    private Float montoMndBase;
+    
     @OneToOne
     @JoinColumn(name = "estado")
     private Parametro estado;
@@ -209,6 +212,17 @@ public class Operacion implements Serializable{
     public void setTipoMov(String tipoMov) {
         this.tipoMov = tipoMov;
     }
+
+    public Float getMontoMndBase() {
+        return montoMndBase;
+    }
+
+    public void setMontoMndBase(Float montoMndBase) {
+        this.montoMndBase = montoMndBase;
+    }
+
+
+    
     
     
     

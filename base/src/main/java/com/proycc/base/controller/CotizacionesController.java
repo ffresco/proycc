@@ -1,4 +1,4 @@
-/*
+    /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -73,6 +73,7 @@ public class CotizacionesController implements CrudControllerInterface<Cotizacio
         cotizacion.setCotizacionCmp(new Float(0));
         cotizacion.setCotizacionVta(new Float(0));
         cotizacion.setCanje(0.1f);
+        System.out.println(cotizacion);
         CotizacionDTO cotDTO = new CotizacionDTO();
         cotDTO.setCotizacion(cotizacion);
         ModelAndView mav = new ModelAndView("cotizacion_create");
@@ -88,8 +89,12 @@ public class CotizacionesController implements CrudControllerInterface<Cotizacio
         if (result.hasErrors()) {
             LOGGER.debug(result.toString());
         }
-        LOGGER.debug("Cotizacion grabada " + cotizacionService.saveOrUpdate(cotDTO.getCotizacion()));
-        return getMainPage(new CotizacionSearchDTO(),result);
+        System.out.println("cotizacion recu "+cotDTO);
+        Cotizacion cotizacionAGravar = cotDTO.getCotizacion();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        cotizacionAGravar.setFecha(LocalDateTime.parse(cotDTO.getFecha(), formatter));
+        LOGGER.debug("Cotizacion grabada " + cotizacionService.saveOrUpdate(cotizacionAGravar));
+        return getCreatePage(null, result);
     }
 
    
@@ -101,7 +106,7 @@ public class CotizacionesController implements CrudControllerInterface<Cotizacio
         }
         LOGGER.debug(cs.toString());
         LOGGER.debug(cs.getFechaDesde());
-        if (cs.getFechaDesde().length() > 0) {
+        if (cs.getFechaDesde()!=null) {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
             LocalDate formatDateTime = LocalDate.parse(cs.getFechaDesde(), formatter);
             LOGGER.debug(formatDateTime.toString());

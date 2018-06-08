@@ -60,10 +60,15 @@
         height: auto;
         padding: 15px;
       }
-#subNavBar {
-	color: #000000;
-}
 
-      .row.content {height: auto;}
+
+
+    #subNavBar {
+	     color: #000000;
     }
+
+    .row.content {height: auto;}
+    
+    } /*fin del media query*/ 
+
 

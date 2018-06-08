@@ -61,6 +61,7 @@ import org.springframework.web.servlet.ModelAndView;
  * @rodrti hjhh
  */
 @Controller
+@RequestMapping(value="/auditoria")
 public class AuditoriaController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(AuditoriaController.class);
@@ -76,21 +77,21 @@ public class AuditoriaController {
         this.cvsProducerAdministrator = cvsProducerAdministrator;
     }
 
-    @RequestMapping("/auditoria")
+    @RequestMapping("/")
     public ModelAndView getMainPage() {
         List<FileTextRegistry> archivosCreados = (List<FileTextRegistry>) fileTextRegistryRepo.findAll();
         ModelAndView mav = new ModelAndView("auditoria", "archivos", archivosCreados);
         return mav;
     }
 
-    @RequestMapping("/auditoria/create")
+    @RequestMapping("/create")
     public ModelAndView getCreatePage(@ModelAttribute AuditoriaDTO dto, BindingResult result) {
         dto.setPorSemana(true);
         ModelAndView mav = new ModelAndView("auditoria_create", "dto", dto);
         return mav;
     }
 
-    @RequestMapping(value = "/auditoria/getfile/{id}")
+    @RequestMapping(value = "/getfile/{id}")
     void getFile(@PathVariable Long id, HttpServletResponse response) throws IOException {
         FileTextRegistry fileReg = fileTextRegistryRepo.findOne(id);
         String path = "txt/" + fileReg.getFileName();
@@ -104,7 +105,7 @@ public class AuditoriaController {
 
     }
 
-    @RequestMapping(path = "/auditoria/produce", method = RequestMethod.POST)
+    @RequestMapping(path = "/produce", method = RequestMethod.POST)
     public ModelAndView generateReport(@ModelAttribute(value = "dto") AuditoriaDTO dto,
             BindingResult bindingResult) {
         LOGGER.info("--Le pegue al print --Generando TXT-");

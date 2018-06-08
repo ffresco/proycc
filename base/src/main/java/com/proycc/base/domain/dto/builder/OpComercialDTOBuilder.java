@@ -57,6 +57,8 @@ public class OpComercialDTOBuilder extends OpDTOBuilder {
 
     @Override
     protected void buildSpecificBody(OperacionDTO opDTO, BindingResult result) {
+        opDTO.getOperacion().getOpItemO().setMovimiento(dataMaster.getMovIng());
+        opDTO.getOperacion().getOpItemD().setMovimiento(dataMaster.getMovEgr());
     }
 
     @Override

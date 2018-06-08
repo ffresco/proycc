@@ -39,6 +39,13 @@ public class DataMaster {
     private Long idMBase;
     private TopeCompra topeVigente;
 
+    //para abm clientes
+    private List<Parametro> provincias;
+    private List<Parametro> estadosCiviles;
+    private List<Parametro> actividadesLaborales;
+    private List<Parametro> paises;
+    private List<Parametro> tiposDocumentos;
+
     //creado para pantalla operaciones especialmente
     private List<Parametro> tipoSubOps;
 
@@ -53,6 +60,13 @@ public class DataMaster {
     public static final String TIPO_MOV_IN = "TIPO_MOV_INGRESO";
     public static final String TIPO_MOV_EG = "TIPO_MOV_EGRESO";
     public static final String TIPO_OP_A_COMBINAR = "CMP-VTA";
+
+    //para ABM CLientes
+    public static final String PROVINCIAS = "PROVINCIAS";
+    public static final String ESTADOS_CIVILES = "ESTADOS_CIVILES";
+    public static final String ACTIVIDADES_LABORALES = "ACTIVIDADES_LABORALES";
+    public static final String PAISES = "PAISES";
+    public static final String TIPOS_DOCUMENTOS = "TIPOS_DOCUMENTOS";
 
     private final ParametroRepo parametroRepo;
     private final TopesRepo topesRepo;
@@ -79,7 +93,12 @@ public class DataMaster {
         this.movEgr = parametroRepo.findByTipo(TIPO_MOV_EG).get(0);
         this.tipoSubOps = parametroRepo.findByTipo(TIPO_OPERACIONES);
         this.topeVigente = this.topes.get(0);
-        
+        //para abm clientes
+        this.provincias = parametroRepo.findByTipo(PROVINCIAS);
+        this.estadosCiviles=parametroRepo.findByTipo(ESTADOS_CIVILES);
+        this.actividadesLaborales=parametroRepo.findByTipo(ACTIVIDADES_LABORALES);
+        this.paises=parametroRepo.findByTipo(PAISES);
+        this.tiposDocumentos=parametroRepo.findByTipo(TIPOS_DOCUMENTOS);
 
     }
 
@@ -159,17 +178,58 @@ public class DataMaster {
         this.topeVigente = topeVigente;
     }
 
+    public List<Parametro> getProvincias() {
+        return provincias;
+    }
+
+    public void setProvincias(List<Parametro> provincias) {
+        this.provincias = provincias;
+    }
+
+    public List<Parametro> getEstadosCiviles() {
+        return estadosCiviles;
+    }
+
+    public void setEstadosCiviles(List<Parametro> estadosCiviles) {
+        this.estadosCiviles = estadosCiviles;
+    }
+
+    public List<Parametro> getActividadesLaborales() {
+        return actividadesLaborales;
+    }
+
+    public void setActividadesLaborales(List<Parametro> actividadesLaborales) {
+        this.actividadesLaborales = actividadesLaborales;
+    }
+
+    public List<Parametro> getPaises() {
+        return paises;
+    }
+
+    public void setPaises(List<Parametro> paises) {
+        this.paises = paises;
+    }
+
+    public List<Parametro> getTiposDocumentos() {
+        return tiposDocumentos;
+    }
+
+    public void setTiposDocumentos(List<Parametro> tiposDocumentos) {
+        this.tiposDocumentos = tiposDocumentos;
+    }
+
+    
     private void quitarDuplicados(List<Parametro> tipoOperaciones) {
         String ant = "";
         Iterator<Parametro> it = tipoOperaciones.iterator();
         while (it.hasNext()) {
             Parametro nuevo = it.next();
             String nuevoValor = nuevo.getValor();
-            if(nuevo.getValor().equals(ant)){
+            if (nuevo.getValor().equals(ant)) {
                 it.remove();
             }
-            ant=nuevoValor;
-            
+            ant = nuevoValor;
+
         }
 
     }

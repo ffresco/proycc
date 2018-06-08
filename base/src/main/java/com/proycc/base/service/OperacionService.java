@@ -13,7 +13,9 @@ import com.proycc.base.domain.OperacionItem;
 import com.proycc.base.domain.Parametro;
 import com.proycc.base.domain.SesionCaja;
 import com.proycc.base.domain.User;
+import com.proycc.base.domain.dto.ClienteSearchDTO;
 import com.proycc.base.domain.dto.OperacionDTO;
+import com.proycc.base.domain.dto.OperacionSearchDTO;
 import com.proycc.base.domain.dto.builder.OpDTOBuilder;
 import com.proycc.base.repository.AcumuladoCajaRepo;
 import com.proycc.base.repository.OperacionRepo;
@@ -201,6 +203,7 @@ public class OperacionService {
         acum.upadateIngreso(ingreso);
         acum.upadateEgreso(egreso);
         acum.upadateSaldo();
+        acum.setFechaActualizacion(LocalDateTime.now());
         return acum;
     }
     private AcumuladoCliente actualizarAcumuladoCliente(Operacion op) {
@@ -282,6 +285,24 @@ public class OperacionService {
     
     public List<Operacion> findAllByTipoMovimiento(String tipoMov){
         return opRep.findByTipoMov(tipoMov);
+    }
+    
+    /**
+     * Si recibe un id busca por el id, si no solo busca por el dto usando like
+     */
+    public List<Operacion> findAllContaining(OperacionSearchDTO search,String tipoMov){
+        Long id = search.getOperacion()==null?0:search.getOperacion();
+        String documento = search.getDocumento()==null?"":search.getDocumento();
+        String nombre = search.getNombre()==null?"":search.getNombre();
+        String apellido = search.getApellido()==null?"":search.getApellido();
+        if (id>0) {
+         List<Operacion> list = new ArrayList();
+         Operacion op = opRep.findOne(id);
+         if (op!=null) list.add(op);
+         return list; 
+        }
+        return opRep.findByTipoMovAndClienteDocumentoStartingWithAndClienteNombreStartingWithAndClienteApellidoStartingWith(tipoMov,documento, nombre, apellido);
+       
     }
 
 }

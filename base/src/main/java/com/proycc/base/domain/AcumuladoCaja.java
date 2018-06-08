@@ -7,6 +7,7 @@ package com.proycc.base.domain;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -34,7 +35,7 @@ public class AcumuladoCaja implements Serializable{
     private Long id;
     
     @Column(name = "fecha")
-    private LocalDate fechaActualizacion;
+    private LocalDateTime fechaActualizacion;
     
     @OneToOne
     @JoinColumn(name = "instrumento_id")
@@ -61,7 +62,7 @@ public class AcumuladoCaja implements Serializable{
     }
 
     
-    public AcumuladoCaja(LocalDate fechaActualizacion, Parametro instrumento, Parametro moneda, 
+    public AcumuladoCaja(LocalDateTime fechaActualizacion, Parametro instrumento, Parametro moneda, 
             float ingreso, float egreso, float saldo, Parametro caja) {
         this.fechaActualizacion = fechaActualizacion;
         this.instrumento = instrumento;
@@ -81,13 +82,14 @@ public class AcumuladoCaja implements Serializable{
         this.id = id;
     }
 
-    public LocalDate getFechaActualizacion() {
+    public LocalDateTime getFechaActualizacion() {
         return fechaActualizacion;
     }
 
-    public void setFechaActualizacion(LocalDate fechaActualizacion) {
+    public void setFechaActualizacion(LocalDateTime fechaActualizacion) {
         this.fechaActualizacion = fechaActualizacion;
     }
+
 
     public Parametro getInstrumento() {
         return instrumento;

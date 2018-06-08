@@ -15,7 +15,11 @@ and open the template in the editor.
 
 		<div th:replace="fragments ::navbartop"></div> <!-- Menu superior --> 	
 
-		<div class="row"> <!-- fila contine menuj lateral 3 col,  principal 9 col -->
+		<div id="result"  class="row"> <!-- fila contine menuj lateral 3 col,  principal 9 col -->
+		<!---------------A partir de aca es el codigo unico de la pagina-------------------------->			
+
+
+
 			<div class="col-sm-3 sidenav">
 				<div th:replace="fragments ::navbarside_operaciones"></div> <!-- Menu Lateral  -->  
 			</div>
@@ -26,7 +30,14 @@ and open the template in the editor.
 					<div class="panel panel-default">
 						<div class="panel panel-default">
 							<div class="panel-heading row">
-								<div class="col-sm-6"><h2>Operaciones</h2></div> <span class="col-sm-6"><a class="btn btn-sm btn-success" th:href="@{/operaciones/create}" >Nuevo</a></span>
+								<div class="col-sm-6"><h2>Operaciones</h2></div> 
+								<div class="col-sm-6">									
+									<form class="form-inline" th:action="@{/operaciones/operardni}">
+									  <input id="txtDni" name="dni" type="text" placeholder="Num Documento" class="form-control">	
+									  <button id="linkNuevo" class="btn btn-sm btn-success">Nuevo</button>							  
+									</form>
+									
+								</div>
 							</div>		
 							<div class="panel-body"><!--dentro del panel body va mi contenido-->
 
@@ -73,8 +84,11 @@ and open the template in the editor.
 
 			</div> <!-- Fin Contenido principal 9 columnas -->
 
-		</div>	<!-- fila contine menuj lateral 3 col,  principal 9 col -->
-
+        <!---------------Fin codigo unico de la pagina-------------------------->
+		</div>	<!-- fila ROW contine menuj lateral 3 col,  principal 9 col -->
 	</div>	<!-- fin contenedor de pagina-->
+
 </body>
 </html>
+
+

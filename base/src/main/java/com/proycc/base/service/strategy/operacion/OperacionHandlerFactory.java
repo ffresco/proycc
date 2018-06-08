@@ -5,6 +5,7 @@
  */
 package com.proycc.base.service.strategy.operacion;
 
+import com.proycc.base.domain.Operacion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.ApplicationContext;
@@ -38,5 +39,22 @@ public class OperacionHandlerFactory {
         }
         return null;
 
+    }
+    
+    
+    public static boolean isCompra(Operacion op){
+        return op.getTipoOp().getValor().equals("CMP");
+    }
+    
+    public static boolean isVenta(Operacion op){
+        return op.getTipoOp().getValor().equals("VTA");
+    }
+    
+    public static boolean isArbitraje(Operacion op){
+        return op.getTipoOp().getValor().equals("ARBITRAJE");                
+    }
+    
+    public static boolean isCanje(Operacion op){
+        return op.getTipoOp().getValor().equals("CANJE");
     }
 }

@@ -10,6 +10,7 @@ import com.proycc.base.domain.AcumuladoCaja;
 import com.proycc.base.domain.AcumuladoCliente;
 import com.proycc.base.domain.Cliente;
 import com.proycc.base.domain.Cotizacion;
+
 import com.proycc.base.domain.FileTextRegistry;
 import com.proycc.base.domain.Operacion;
 import com.proycc.base.domain.OperacionItem;
@@ -18,6 +19,7 @@ import com.proycc.base.domain.Role;
 import com.proycc.base.domain.SesionCaja;
 import com.proycc.base.domain.TopeCompra;
 import com.proycc.base.domain.User;
+import com.proycc.base.domain.dto.builder.OpDTOBuilder;
 import com.proycc.base.repository.AcumuladoCajaRepo;
 import com.proycc.base.repository.ClienteRepository;
 import com.proycc.base.repository.CotizacionRepository;
@@ -79,14 +81,14 @@ public class AppDemoData {
         User fer =ur.save(new User("ffresco@gd","1",Role.ADMIN));
         User rodri =ur.save(new User("mulo@mulo.com", "1", Role.USER));
         ur.save(new User("ffresco@gmail.com", "1", Role.ADMIN));
-        User cin= ur.save(new User("czinna@clg.com.ar","1",Role.ADMIN));
+        User cin= ur.save(new User("czinna@clg.com.ar","1",Role.ADMIN));        
       
       
         /**Parametro*****************************/
-        Parametro pOpCmpVta = pr.save(new Parametro("VTA","", DataMaster.TIPO_OPERACIONES));
-        Parametro pOpCmpVta2 = pr.save(new Parametro("CMP","", DataMaster.TIPO_OPERACIONES));
-        Parametro pOpArb= pr.save(new Parametro("ARBITRAJE", "",DataMaster.TIPO_OPERACIONES));
-        Parametro pOpCanje= pr.save(new Parametro("CANJE", "",DataMaster.TIPO_OPERACIONES));
+        Parametro pOpCmpVta = pr.save(new Parametro("VTA","","A11", DataMaster.TIPO_OPERACIONES));
+        Parametro pOpCmpVta2 = pr.save(new Parametro("CMP","","A11", DataMaster.TIPO_OPERACIONES));
+        Parametro pOpArb= pr.save(new Parametro("ARBITRAJE", "","A11",DataMaster.TIPO_OPERACIONES));
+        Parametro pOpCanje= pr.save(new Parametro("CANJE", "","A11",DataMaster.TIPO_OPERACIONES));
         Parametro pEntidad= pr.save(new Parametro("EMPRESA", DataMaster.ENTIDADES));
         Parametro pTcMin= pr.save(new Parametro("MINORISTA", DataMaster.TIPO_CAMBIOS));
         Parametro pTcesp= pr.save(new Parametro("PREFER-1", DataMaster.TIPO_CAMBIOS));
@@ -121,6 +123,19 @@ public class AppDemoData {
         pr.save(new Parametro("PROCESADO", "ESTADO"));
         pr.save(new Parametro("OK", "ESTADO"));
         pr.save(new Parametro("OBSERVADO", "ESTADO"));
+        
+        //Provincias
+        Parametro pProv = pr.save(new Parametro("BSAS","01",DataMaster.PROVINCIAS));
+        //Paises
+        Parametro pPaisArg = pr.save(new Parametro("ARG","02",DataMaster.PAISES));
+        //estado civil
+        Parametro pEstCivil = pr.save(new Parametro("SOLTERO",DataMaster.ESTADOS_CIVILES));
+        //Actividad Laboral
+        Parametro pActLaboral = pr.save(new Parametro("EMPLEADO",DataMaster.ACTIVIDADES_LABORALES));
+        //Tipo Doc
+        Parametro pTipoDoC = pr.save(new Parametro("DNI",DataMaster.TIPOS_DOCUMENTOS));
+        
+
         //topes
         LocalDateTime fechaAlta = LocalDateTime.now();
         topesRepo.save(new TopeCompra(5000f, 50000f, fechaAlta));
@@ -128,18 +143,21 @@ public class AppDemoData {
   
 
         //*******Clientes data**********
-        Cliente c1 = new Cliente("27444999", "Rodrigo", "Suarez", "rsuarez@cc.com", 38, new Date(), null);
+        Cliente c1 = new Cliente(pTipoDoC, "27444999", LocalDate.now(), LocalDate.now(), "FERNANDO", "FRESCO", pEstCivil, 
+                pPaisArg,pPaisArg,"45098877" ,"ffresco@gg.com", null);
+        c1.setDireccion("Lincoln 239");
+        c1.setFechaFirmaPep(LocalDate.now());
         //Acumulado siempre debo poner el padre en el dueño de la realacion, para que me guarde la relacion
         AcumuladoCliente ac1 = new AcumuladoCliente(c1, Month.MAY, 0, new Float(20),
                 new Float(100), pMBase, LocalDateTime.now());
         ac1.setCliente(c1);
-        Cliente c2 = new Cliente("22478700", "Tito", "Sixto", "tito@cc.com", 38, new Date(), null);
-        Cliente c3 = cliR.save(new Cliente("28478718", "Fernando", "Fresco", "ffresco.com", 38, new Date(), null));
+        //esta es la realion que manda para que se grave en la base de datos, setear el acumulado al cliente
+        //la anterior setear el clente al acumulado genera un update
         c1.setAcumulado(ac1);
         //     c2.setAcumulado(ac1);
         //     c3.setAcumulado(ac1);
-        cliR.save(c1);
-        cliR.save(c2);
+        c1 = cliR.save(c1);
+
 
 
 
@@ -173,6 +191,7 @@ public class AppDemoData {
         opItems.add(opI2);
         opItems.add(opI1);
         op.setOperacionItems(opItems);
+        op.setTipoMov(OpDTOBuilder.OPERACION_COMERCIAL);
         opRepo.save(op);
         
         
@@ -187,7 +206,7 @@ public class AppDemoData {
         for (Parametro caja : dm.getCajas()) {
             for (Parametro moneda : dm.getMonedas()) {
                  for (Parametro inst : dm.getInstrumentos()){
-                  acr.save(new AcumuladoCaja(LocalDate.now(),inst, moneda, 0, 0, 0,caja)); 
+                  acr.save(new AcumuladoCaja(LocalDateTime.now(),inst, moneda, 0, 0, 0,caja)); 
                 }
             }
         }
