@@ -6,6 +6,7 @@
 package com.proycc.base.controller;
 
 import com.proycc.base.configuration.DataMaster;
+import com.proycc.base.domain.AcumuladoCaja;
 import com.proycc.base.domain.Cliente;
 import com.proycc.base.domain.Operacion;
 import com.proycc.base.domain.dto.OperacionDTO;
@@ -21,6 +22,9 @@ import com.proycc.base.service.UserService;
 import com.proycc.base.service.strategy.operacion.OperacionHandler;
 import com.proycc.base.service.strategy.operacion.OperacionHandlerFactory;
 import org.springframework.stereotype.Controller;
+
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -213,12 +217,19 @@ public class CajasController implements CrudControllerInterface<Object, Operacio
 
     @RequestMapping(value = "/detalle/{id}")
     public ModelAndView detalle(@PathVariable Long id) {
-        return new ModelAndView("cajas_detalle");
+    	AcumuladoCaja acumCaja = acumuladoCajaRepo.findOne(id);
+        List<Operacion> operaciones = operacionService.findAllByCajaIdAndInstrumentoIdAndMonedaId(
+        													acumCaja.getCaja().getId(),
+        													acumCaja.getInstrumento().getId(),
+        													acumCaja.getMoneda().getId());
+    	ModelAndView mav = new ModelAndView("cajas_detalle");
+        mav.addObject("operaciones", operaciones);    	
+    	return mav;
     }
 
     @ModelAttribute("dataMaster")
     public DataMaster getDataMaster() {
-        System.out.println("--Me meti en el data master--");
+        System.out.println("--Me meti en el data master de CajasController--");
         return dataMaster;
     }
 }

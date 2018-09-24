@@ -1,3 +1,19 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"      xmlns:th="http://www.thymeleaf.org">
+
+<head><div th:replace="fragments ::app_head('titulo')"></div></head>
+
+
+</head>
+<body>
+	<div class="container-fluid"> <!-- contenedor de pagina-->
+
+		<div th:replace="fragments ::navbartop"></div> <!-- Menu superior --> 	
 
 		
 
@@ -45,8 +61,8 @@
 												<td th:text="${acum.saldo}">1000</td>
 												<td>	
 													<div class="btn-group pull-right">
-														<a class="btn btn-sm btn-primary" th:href="@{/cajas/detalle/{id}(id=${acum.id})}" >Detalle</a>
-
+<!--   														<a class="btn btn-sm btn-primary" th:href="@{/cajas/detalle/{id}(id=${acum.id})}" >Detalle</a>
+ -->         												<a class="btn btn-sm btn-primary" href="#" th:onClick="'cargarContenido(\'/cajas/detalle/'+${acum.id}+'\');return false;'">Detalle</a>
 													</div>
 												</td>
 										</tr>
@@ -59,4 +75,6 @@
 						</div>
 					</div>		
 			</div> <!-- Fin Contenido principal 12 columnas -->
-
+</div>
+</body>
+</html>

@@ -24,24 +24,22 @@ and open the template in the editor.
 						<div class="panel panel-default">
 							<div class="panel-heading">
 								<div class="col-sm-6"><h2>Detalle Movimientos Caja</h2></div>
-								<div class="col-sm-6"><a class="btn btn-sm btn-success" th:href="@{/cajas/}" >Volver</a></div>	
+								<div class="col-sm-6"><a class="btn btn-sm btn-success" href="#" onClick="cargarContenido('/cajas/');return false;">Volver</a></div>	
 							</div>
 							<div class="panel-body">
 									<table class="table table-responsive table-sm table-striped table-hover table-bordered">
 										<thead class="bg-success">
 											<tr>
-												<th>Fecha</th>
+												<th>Fecha y Hora</th>
 												<th>Usuario</th>
 												<th>Caja</th>
-												<th>Inst</th>
-												<th>Mnd</th>
-												<th>Mov</th>
-												<th>Monto</th>
-												<th>Acumulado</th>												
+												<th>Tipo Movimiento</th>
+												<th>Debito</th>
+												<th>Credito</th>
 												<th></th>
 											</tr>
 										</thead>
-										<tbody>
+<!--										<tbody>
 											<tr>
 												<td>12-01-2018</td>
 												<td>User 1</td>
@@ -58,6 +56,22 @@ and open the template in the editor.
 												</td>
 										</tr>
 									</tbody>
+  -->
+											<tr th:each="operacion : ${operaciones}">
+												<td th:text="${#temporals.format(operacion.fechaHora, 'dd/MMM/yyyy HH:mm:ss')}"></td>
+											 	<td th:text="${operacion.user.email}"></td>
+												<td th:text="${operacion.caja.valor}"></td>
+												<td th:text="${operacion.tipoOp.valor}+' '+${operacion.tipoCambio.valor}+' '+${operacion.tipoMov}"></td>
+												<td th:text="${operacion.opItemD.moneda.valor}+' '+${operacion.opItemD.monto}"></td>
+												<td th:text="${operacion.opItemO.moneda.valor}+' '+${operacion.opItemO.monto}"></td>
+												<td>	
+													<div class="btn-group pull-right">
+														<a class="btn btn-sm btn-primary" href="#" th:onclick="'cargarContenido(\'/operaciones/edit/'+${operacion.id}+'\'); return false;'" >Ver</a>
+													</div>
+												</td>
+											</tr>
+										</tbody>
+
 								</table>
 
 							</div>

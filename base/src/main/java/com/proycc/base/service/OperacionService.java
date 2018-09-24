@@ -287,6 +287,13 @@ public class OperacionService {
         return opRep.findByTipoMov(tipoMov);
     }
     
+    public List<Operacion> findAllByCajaId(Long idCaja){
+        return opRep.findByCajaId(idCaja);
+    }
+
+    public List<Operacion> findAllByCajaIdAndInstrumentoIdAndMonedaId(Long idCaja, Long idInstrumento, Long idMoneda){
+        return opRep.findDistinctByCajaIdAndOperacionItemsInstrumentoIdAndOperacionItemsMonedaId(idCaja, idInstrumento, idMoneda);
+    }
     /**
      * Si recibe un id busca por el id, si no solo busca por el dto usando like
      */

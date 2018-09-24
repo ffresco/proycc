@@ -79,7 +79,7 @@ public class Operacion implements Serializable{
         
     @OneToMany(mappedBy = "operacion",cascade = CascadeType.ALL,orphanRemoval = true)
     private List<OperacionItem> operacionItems;
-    
+
     public Operacion() {
     }
 
@@ -186,13 +186,14 @@ public class Operacion implements Serializable{
     
     public OperacionItem getOpItemO(){
         if (!operacionItems.isEmpty()) {
-            return operacionItems.get(0);
+        	return operacionItems.get(0);
         }
         return null;
     }
+    
     public OperacionItem getOpItemD(){
         if (!operacionItems.isEmpty()) {
-            return operacionItems.get(operacionItems.size()-1);
+        	return operacionItems.get(operacionItems.size()-1);
         }
         return null;
     }

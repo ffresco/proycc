@@ -184,14 +184,15 @@ public class AppDemoData {
         cotS.saveOrUpdate(cot6);
         
         //Algunas operaciones
-        Operacion op = new Operacion(fechaAlta, c1, pCaja,pOpCmpVta , pTcMin, pENuevo, "", null,10f );
+        Operacion op = new Operacion(fechaAlta, c1, pCaja, pOpCmpVta, pTcMin, pENuevo, "", null, 20f );
+        ArrayList<OperacionItem> opItems = new ArrayList();
         OperacionItem opI1 = new OperacionItem(op, pMUsd, pIBillete, 10f, 10f, "INGRESO", pMovIng, 1, cot6, pCaja);
         OperacionItem opI2 = new OperacionItem(op, pMUsd, pIBillete, 10f, 10f, "EGRESO", pMovEg, 2, cot6, pCaja);
-        ArrayList<OperacionItem> opItems = new ArrayList();
         opItems.add(opI2);
         opItems.add(opI1);
         op.setOperacionItems(opItems);
         op.setTipoMov(OpDTOBuilder.OPERACION_COMERCIAL);
+        op.setUser(fer);
         opRepo.save(op);
         
         

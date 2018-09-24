@@ -25,4 +25,7 @@ public interface OperacionRepo extends CrudRepository<Operacion,Long> {
     List<Operacion> findByTipoMovAndClienteDocumentoStartingWithAndClienteNombreStartingWithAndClienteApellidoStartingWith(String tipoMov,
             String documento, String nombre, String apellido);
     
+    List<Operacion> findByCajaId(Long idCaja);
+
+    List<Operacion> findDistinctByCajaIdAndOperacionItemsInstrumentoIdAndOperacionItemsMonedaId(Long idCaja, Long idInstrumento, Long idMoneda);
 }
