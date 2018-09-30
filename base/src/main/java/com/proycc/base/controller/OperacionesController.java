@@ -278,6 +278,11 @@ public class OperacionesController implements CrudControllerInterface<OperacionS
 
     @Override
     public ModelAndView edit(@PathVariable Long id) {
+        return this.edit(id, null);
+    }
+
+    @RequestMapping(value = "/edit/{id}/{caja_id}")
+    public ModelAndView edit(@PathVariable("id") Long id, @PathVariable("caja_id") Long cajaId) {
         LOGGER.debug("-----Entre al edi de operaciones------");
         LOGGER.debug("Id a editar " + id);
         Operacion op = operacionService.findOne(id);
@@ -286,6 +291,7 @@ public class OperacionesController implements CrudControllerInterface<OperacionS
         opDTO.configReadOnlyScreen(opDTO);
         ModelAndView mav = new ModelAndView("operaciones_create");
         mav.addObject("operacionDTO", opDTO);
+       	mav.addObject("cajas_detalle", cajaId);
         return mav;
     }
 

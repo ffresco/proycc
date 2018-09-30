@@ -138,7 +138,10 @@ public class OperacionService {
             //Actualizo los acumulados del cliente
             AcumuladoCliente acum = actualizarAcumuladoCliente(op);
             acRep.save(acum);
-
+            System.out.println(op.getCaja()==null?"Sin tipo Op":"Tipo OpA"+op.getCaja());
+            System.out.println(op.getOpItemO()==null?"Sin tipo Op":"Tipo OpA"+op.getOpItemO().getCaja());
+            System.out.println(op.getOpItemD()==null?"Sin tipo Op":"Tipo OpA"+op.getOpItemD().getCaja());
+            //findDistinctByCajaIdAndOperacionItemsInstrumentoIdAndOperacionItemsMonedaId
             //Actualizo los saldos de caja
             //en la comercial el origin te da el ingreso a tu caja
             OperacionItem opO = op.getOpItemO();
@@ -167,7 +170,9 @@ public class OperacionService {
 
             Operacion op = opDTO.getOperacion();
             Operacion opGravada = opRep.save(op);
-
+            System.out.println(op.getCaja()==null?"Sin tipo Op":"Tipo OpA"+op.getCaja());
+            System.out.println(op.getOpItemO()==null?"Sin tipo Op":"Tipo OpA"+op.getOpItemO().getCaja());
+            System.out.println(op.getOpItemD()==null?"Sin tipo Op":"Tipo OpA"+op.getOpItemD().getCaja());
             //En la contabiliad saco del origen etonces es egreso
             OperacionItem opO = op.getOpItemO();
             AcumuladoCaja acumO = registrarEgresoAcumCaja(opO);
@@ -292,7 +297,7 @@ public class OperacionService {
     }
 
     public List<Operacion> findAllByCajaIdAndInstrumentoIdAndMonedaId(Long idCaja, Long idInstrumento, Long idMoneda){
-        return opRep.findDistinctByCajaIdAndOperacionItemsInstrumentoIdAndOperacionItemsMonedaId(idCaja, idInstrumento, idMoneda);
+        return opRep.findDistinctByOperacionItemsCajaIdAndOperacionItemsInstrumentoIdAndOperacionItemsMonedaId(idCaja, idInstrumento, idMoneda);
     }
     /**
      * Si recibe un id busca por el id, si no solo busca por el dto usando like

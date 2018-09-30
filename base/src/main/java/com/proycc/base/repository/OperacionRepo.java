@@ -27,5 +27,5 @@ public interface OperacionRepo extends CrudRepository<Operacion,Long> {
     
     List<Operacion> findByCajaId(Long idCaja);
 
-    List<Operacion> findDistinctByCajaIdAndOperacionItemsInstrumentoIdAndOperacionItemsMonedaId(Long idCaja, Long idInstrumento, Long idMoneda);
+    List<Operacion> findDistinctByOperacionItemsCajaIdAndOperacionItemsInstrumentoIdAndOperacionItemsMonedaId(Long idCaja, Long idInstrumento, Long idMoneda);
 }

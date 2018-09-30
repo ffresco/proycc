@@ -218,12 +218,13 @@ public class CajasController implements CrudControllerInterface<Object, Operacio
     @RequestMapping(value = "/detalle/{id}")
     public ModelAndView detalle(@PathVariable Long id) {
     	AcumuladoCaja acumCaja = acumuladoCajaRepo.findOne(id);
-        List<Operacion> operaciones = operacionService.findAllByCajaIdAndInstrumentoIdAndMonedaId(
-        													acumCaja.getCaja().getId(),
-        													acumCaja.getInstrumento().getId(),
-        													acumCaja.getMoneda().getId());
+        List<Operacion> operaciones = operacionService.findAllByCajaIdAndInstrumentoIdAndMonedaId(	acumCaja.getCaja().getId(),
+										        													acumCaja.getInstrumento().getId(),
+										        													acumCaja.getMoneda().getId());
     	ModelAndView mav = new ModelAndView("cajas_detalle");
         mav.addObject("operaciones", operaciones);    	
+        mav.addObject("caja", acumCaja.getCaja().getId());    	
+        mav.addObject("acum_caja", id);    	
     	return mav;
     }
 

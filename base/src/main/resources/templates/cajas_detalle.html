@@ -56,17 +56,17 @@ and open the template in the editor.
 												</td>
 										</tr>
 									</tbody>
-  -->
+  -->								<tbody>
 											<tr th:each="operacion : ${operaciones}">
 												<td th:text="${#temporals.format(operacion.fechaHora, 'dd/MMM/yyyy HH:mm:ss')}"></td>
-											 	<td th:text="${operacion.user.email}"></td>
-												<td th:text="${operacion.caja.valor}"></td>
-												<td th:text="${operacion.tipoOp.valor}+' '+${operacion.tipoCambio.valor}+' '+${operacion.tipoMov}"></td>
-												<td th:text="${operacion.opItemD.moneda.valor}+' '+${operacion.opItemD.monto}"></td>
-												<td th:text="${operacion.opItemO.moneda.valor}+' '+${operacion.opItemO.monto}"></td>
+											 	<td th:text="${operacion.user.email}+${operacion.id}"></td>
+												<td th:text="${operacion.opItemO.caja.valor}"></td>
+												<td th:text="${operacion.tipoMov}+' '+${operacion.tipoOp==null?'DE:'+operacion.opItemO.caja.valor:operacion.tipoOp.valor}+' '+${operacion.tipoCambio==null?'A:'+operacion.opItemD.caja.valor:operacion.tipoCambio.valor}"></td>
+												<td th:text="${operacion.opItemO.caja.id==caja?operacion.opItemO.moneda.valor:''}+' '+${operacion.opItemO.caja.id==caja?operacion.opItemO.monto:''}"></td>
+												<td th:text="${operacion.opItemD.caja.id==caja?operacion.opItemD.moneda.valor:''}+' '+${operacion.opItemD.caja.id==caja?operacion.opItemD.monto:''}"></td>
 												<td>	
-													<div class="btn-group pull-right">
-														<a class="btn btn-sm btn-primary" href="#" th:onclick="'cargarContenido(\'/operaciones/edit/'+${operacion.id}+'\'); return false;'" >Ver</a>
+													<div class="btn-group pull-right" th:if="${operacion.tipoMov=='COMERCIAL'}">
+														<a class="btn btn-sm btn-primary" href="#" th:onclick="'cargarContenido(\'/operaciones/edit/'+${operacion.id}+'/'+${acum_caja}+'\'); return false;'" >Ver</a>
 													</div>
 												</td>
 											</tr>

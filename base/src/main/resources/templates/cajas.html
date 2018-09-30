@@ -34,7 +34,8 @@ and open the template in the editor.
 									 </div>
 								</div>
 
-								<div class="col-sm-6"><a class="btn btn-sm btn-success" th:href="@{/cajas/create}" >Nuevo Movimiento</a></div>	
+								<div class="col-sm-6"><!-- <a class="btn btn-sm btn-success" th:href="@{/cajas/create}" >Nuevo Movimiento</a></div>	
+ -->         												<a class="btn btn-sm btn-success" href="#" th:onClick="'cargarContenido(\'/cajas/create/\');return false;'">Nuevo Movimiento</a></div></div>
 							</div>
 							<div class="panel-body">
 									<table class="table table-responsive table-sm table-striped table-hover table-bordered" id="searchTable">

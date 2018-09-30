@@ -336,13 +336,15 @@ and open the template in the editor.
 												<input id="printUrl" type="hidden" th:value="@{/operaciones/pdf/{id}(id=*{operacion.id})}">
 												<button type="button" id="btnprint" onclick="" name="print"  class="btn btn-default" onclick="printPDF('')">Imprimir</button>
 											</span>
-											<a href="#" onClick="cargarContenido('/operaciones/');return false;" class="btn btn-danger">Cancelar</a>
-											
-											
-													
+
+											<span th:if="${cajas_detalle==null}">
+												<a href="#" onClick="cargarContenido('/operaciones/');return false;" class="btn btn-danger">Cancelar</a>
+											</span>
+											<span th:if="${cajas_detalle!=null}">
+												<a href="#" th:onClick="'cargarContenido(\'/cajas/detalle/'+${cajas_detalle}+'\');return false;'" class="btn btn-danger">Cancelar</a>
+											</span>
 										</div>
 									</div>
-
 
 								</fieldset>
 
